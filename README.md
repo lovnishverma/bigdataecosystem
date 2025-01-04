@@ -1,3 +1,5 @@
+![image](https://github.com/user-attachments/assets/343cfd7e-73b7-4eb2-a9a4-76c31f5703c8)
+
 # Docker Multi-Container Environment with Hadoop, Spark, and Hive
 
 This guide helps you set up a multi-container environment using Docker for Hadoop (HDFS), Spark, and Hive. The setup is lightweight, without the large memory requirements of a Cloudera sandbox.
@@ -10,6 +12,9 @@ Before you begin, ensure you have the following installed:
 
 - IMPORTANT:
   ******- Enable the "Expose daemon on tcp://localhost:2375 without TLS" option if you're using Docker Desktop for compatibility.******
+
+ - **Git**: [Download Git](https://git-scm.com/downloads/win)
+   - Git is used to download the required files from a repository.
 
 ## **Step 1: Clone the Repository**
 
