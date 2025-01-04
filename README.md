@@ -50,6 +50,8 @@ Since Docker Desktop turned “Expose daemon on tcp://localhost:2375 without TLS
 Copy police.csv to the namenode.
 ```
   docker cp police.csv namenode:police.csv
+
+  docker cp code namenode:/
 ```
 
 Go to the bash shell on the namenode with that same Container ID of the namenode.
