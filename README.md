@@ -39,9 +39,9 @@ Since Docker Desktop turned “Expose daemon on tcp://localhost:2375 without TLS
 
 ## Quick Start HDFS
 
-Copy breweries.csv to the namenode.
+Copy police.csv to the namenode.
 ```
-  docker cp breweries.csv namenode:police.csv
+  docker cp police.csv namenode:police.csv
 ```
 
 Go to the bash shell on the namenode with that same Container ID of the namenode.
