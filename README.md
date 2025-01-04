@@ -6,12 +6,20 @@ This is it: a Docker multi-container environment with Hadoop (HDFS), Spark and H
 
 The only thing lacking, is that Hive server doesn't start automatically. To be added when I understand how to do that in docker-compose.
 
+## **Prerequisites**
+
+Before starting, ensure the docker desktop is installed on your computer:
+
+
+ **Docker**: [Install Docker](https://docs.docker.com/desktop/setup/install/windows-install/)
+   - Docker is used to create and manage virtualized containers.
+
 
 ## Quick Start
 
 To deploy an the HDFS-Spark-Hive cluster, run:
 ```
-  docker-compose up
+  docker-compose up -d
 ```
 
 `docker-compose` creates a docker network that can be found by running `docker network list`, e.g. `docker-hadoop-spark-hive_default`.
