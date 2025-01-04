@@ -15,6 +15,11 @@ Before you begin, ensure you have the following installed:
 
  - **Git**: [Download Git](https://git-scm.com/downloads/win)
    - Git is used to download the required files from a repository.
+  
+   Create a newfolder and open it in terminal or go inside it using CD Command
+  
+ ![image](https://github.com/user-attachments/assets/28602a4b-52e2-4265-bfb5-a08301fda7b8)
+
 
 ## **Step 1: Clone the Repository**
 
