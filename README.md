@@ -247,14 +247,17 @@ Go to the command line of the Spark master and start PySpark.
 ```
   docker exec -it spark-master bash
 
-  /spark/bin/pyspark --master spark://spark-master:7077
+  spark/bin/pyspark --master spark://spark-master:7077
 ```
 
-Load breweries.csv from HDFS.
+![image](https://github.com/user-attachments/assets/dd796979-0594-4772-9092-bf0106cc9a11)
+
+
+Load police.csv from HDFS.
 ```
-  brewfile = spark.read.csv("hdfs://namenode:9000/data/crimerecord/police/police.csv")
+  policefile = spark.read.csv("hdfs://namenode:9000/data/crimerecord/police/police.csv")
   
-  brewfile.show()
+  policefile.show()
 
 **OUTPUT HERE**
 
@@ -274,9 +277,10 @@ Go to the command line of the Spark master and start spark-shell.
   spark/bin/spark-shell --master spark://spark-master:7077
 ```
 
-Load breweries.csv from HDFS.
+Load police.csv from HDFS.
 ```
   val df = spark.read.csv("hdfs://namenode:9000/data/crimerecord/police/police.csv")
+  val df = spark.read.csv("hdfs://cb1ad86b89c5:8020/data/crimerecord/police/police.csv")
   
   df.show()
 
