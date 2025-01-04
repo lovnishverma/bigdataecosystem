@@ -35,7 +35,7 @@ Since Docker Desktop turned “Expose daemon on tcp://localhost:2375 without TLS
 
 Copy breweries.csv to the namenode.
 ```
-  docker cp breweries.csv namenode:breweries.csv
+  docker cp breweries.csv namenode:police.csv
 ```
 
 Go to the bash shell on the namenode with that same Container ID of the namenode.
@@ -44,113 +44,40 @@ Go to the bash shell on the namenode with that same Container ID of the namenode
 ```
 
 
-Create a HDFS directory /data//openbeer/breweries.
+Create a HDFS directory /data//crimerecord/police.
 
 ```
-  hdfs dfs -mkdir -p /data/openbeer/breweries
+  hdfs dfs -mkdir -p /data/crimerecord/police
 ```
 
-Copy breweries.csv to HDFS:
+Copy police.csv to HDFS:
 ```
-  hdfs dfs -put breweries.csv /data/openbeer/breweries/breweries.csv
-```
-
-
-## Quick Start Spark (PySpark)
-
-Go to http://<dockerhadoop_IP_address>:8080 or http://localhost:8080/ on your Docker host (laptop) to see the status of the Spark master.
-
-Go to the command line of the Spark master and start PySpark.
-```
-  docker exec -it spark-master bash
-
-  /spark/bin/pyspark --master spark://spark-master:7077
+  hdfs dfs -put police.csv /data/crimerecord/police/police.csv
 ```
 
-Load breweries.csv from HDFS.
-```
-  brewfile = spark.read.csv("hdfs://namenode:9000/data/openbeer/breweries/breweries.csv")
-  
-  brewfile.show()
-+----+--------------------+-------------+-----+---+
-| _c0|                 _c1|          _c2|  _c3|_c4|
-+----+--------------------+-------------+-----+---+
-|null|                name|         city|state| id|
-|   0|  NorthGate Brewing |  Minneapolis|   MN|  0|
-|   1|Against the Grain...|   Louisville|   KY|  1|
-|   2|Jack's Abby Craft...|   Framingham|   MA|  2|
-|   3|Mike Hess Brewing...|    San Diego|   CA|  3|
-|   4|Fort Point Beer C...|San Francisco|   CA|  4|
-|   5|COAST Brewing Com...|   Charleston|   SC|  5|
-|   6|Great Divide Brew...|       Denver|   CO|  6|
-|   7|    Tapistry Brewing|     Bridgman|   MI|  7|
-|   8|    Big Lake Brewing|      Holland|   MI|  8|
-|   9|The Mitten Brewin...| Grand Rapids|   MI|  9|
-|  10|      Brewery Vivant| Grand Rapids|   MI| 10|
-|  11|    Petoskey Brewing|     Petoskey|   MI| 11|
-|  12|  Blackrocks Brewery|    Marquette|   MI| 12|
-|  13|Perrin Brewing Co...|Comstock Park|   MI| 13|
-|  14|Witch's Hat Brewi...|   South Lyon|   MI| 14|
-|  15|Founders Brewing ...| Grand Rapids|   MI| 15|
-|  16|   Flat 12 Bierwerks| Indianapolis|   IN| 16|
-|  17|Tin Man Brewing C...|   Evansville|   IN| 17|
-|  18|Black Acre Brewin...| Indianapolis|   IN| 18|
-+----+--------------------+-------------+-----+---+
-only showing top 20 rows
+Now that you’ve successfully uploaded the `police.csv` file into HDFS, the next step is to process and analyze the data. Let’s walk through the steps to perform data analysis using Hadoop and its ecosystem:
 
+---
+
+### **1. Verify the File in HDFS**
+Run the following command to verify that the file has been uploaded successfully:
+```bash
+hdfs dfs -ls /data/crimerecord/police
 ```
 
+You should see the file `police.csv` listed.
 
+---
 
-## Quick Start Spark (Scala)
-
-Go to http://<dockerhadoop_IP_address>:8080 or http://localhost:8080/ on your Docker host (laptop) to see the status of the Spark master.
-
-Go to the command line of the Spark master and start spark-shell.
-```
-  docker exec -it spark-master bash
-  
-  spark/bin/spark-shell --master spark://spark-master:7077
+### **2. Check the File Content**
+Use the following command to confirm the contents of the file:
+```bash
+hdfs dfs -cat /data/crimerecord/police/police.csv
 ```
 
-Load breweries.csv from HDFS.
-```
-  val df = spark.read.csv("hdfs://namenode:9000/data/openbeer/breweries/breweries.csv")
-  
-  df.show()
-+----+--------------------+-------------+-----+---+
-| _c0|                 _c1|          _c2|  _c3|_c4|
-+----+--------------------+-------------+-----+---+
-|null|                name|         city|state| id|
-|   0|  NorthGate Brewing |  Minneapolis|   MN|  0|
-|   1|Against the Grain...|   Louisville|   KY|  1|
-|   2|Jack's Abby Craft...|   Framingham|   MA|  2|
-|   3|Mike Hess Brewing...|    San Diego|   CA|  3|
-|   4|Fort Point Beer C...|San Francisco|   CA|  4|
-|   5|COAST Brewing Com...|   Charleston|   SC|  5|
-|   6|Great Divide Brew...|       Denver|   CO|  6|
-|   7|    Tapistry Brewing|     Bridgman|   MI|  7|
-|   8|    Big Lake Brewing|      Holland|   MI|  8|
-|   9|The Mitten Brewin...| Grand Rapids|   MI|  9|
-|  10|      Brewery Vivant| Grand Rapids|   MI| 10|
-|  11|    Petoskey Brewing|     Petoskey|   MI| 11|
-|  12|  Blackrocks Brewery|    Marquette|   MI| 12|
-|  13|Perrin Brewing Co...|Comstock Park|   MI| 13|
-|  14|Witch's Hat Brewi...|   South Lyon|   MI| 14|
-|  15|Founders Brewing ...| Grand Rapids|   MI| 15|
-|  16|   Flat 12 Bierwerks| Indianapolis|   IN| 16|
-|  17|Tin Man Brewing C...|   Evansville|   IN| 17|
-|  18|Black Acre Brewin...| Indianapolis|   IN| 18|
-+----+--------------------+-------------+-----+---+
-only showing top 20 rows
+![image](https://github.com/user-attachments/assets/ed7ef025-dfd1-4be8-881a-8af0cc941eb8)
 
-```
-
-How cool is that? Your own Spark cluster to play with.
-
-
-## Quick Start Hive
-
+### ** Set Up Hive for Querying the Data**
 Go to the command line of the Hive server and start hiveserver2
 
 ```
@@ -188,50 +115,160 @@ Not a lot of databases here yet.
 1 row selected (0.335 seconds)
 ```
 
-Let's change that.
+Since you have Hive installed, let's create a Hive table and load the data into it for analysis.
 
-```
-  create database openbeer;
-  use openbeer;
+**Step 1**: Access the Hive CLI.
+```bash
+hive
 ```
 
-And let's create a table.
-
+**Step 2**: Create a database for your project.
+```sql
+CREATE DATABASE police_analysis;
+USE police_analysis;
 ```
-CREATE EXTERNAL TABLE IF NOT EXISTS breweries(
-    NUM INT,
-    NAME CHAR(100),
-    CITY CHAR(100),
-    STATE CHAR(100),
-    ID INT )
+
+**Step 3**: Create a table for the data in `police.csv`. Assume the dataset has the following schema:
+- `Crime_ID` (INT)
+- `Crime_Type` (STRING)
+- `Location` (STRING)
+- `Reported_Date` (STRING)
+- `Status` (STRING)
+
+```sql
+CREATE TABLE police_data (
+    Crime_ID INT,
+    Crime_Type STRING,
+    Location STRING,
+    Reported_Date STRING,
+    Status STRING
+)
 ROW FORMAT DELIMITED
 FIELDS TERMINATED BY ','
-STORED AS TEXTFILE
-location '/data/openbeer/breweries';
+STORED AS TEXTFILE;
 ```
 
-And have a little select statement going.
+**Step 4**: Load the data into the Hive table.
+```sql
+LOAD DATA INPATH '/data/crimerecord/police/police.csv' INTO TABLE police_data;
+```
 
+---
+
+### **4. Analyze the Data**
+Now you can use SQL queries in Hive to perform data analysis. Here are some example queries:
+
+```sql
+select * from police_data limit 10;
 ```
-  select name from breweries limit 10;
-+----------------------------------------------------+
-|                        name                        |
-+----------------------------------------------------+
-| name                                                                                                 |
-| NorthGate Brewing                                                                                    |
-| Against the Grain Brewery                                                                            |
-| Jack's Abby Craft Lagers                                                                             |
-| Mike Hess Brewing Company                                                                            |
-| Fort Point Beer Company                                                                              |
-| COAST Brewing Company                                                                                |
-| Great Divide Brewing Company                                                                         |
-| Tapistry Brewing                                                                                     |
-| Big Lake Brewing                                                                                     |
-+----------------------------------------------------+
-10 rows selected (0.113 seconds)
+
+**Query 1: Count total crimes in the dataset.**
+```sql
+SELECT COUNT(*) AS Total_Crimes FROM police_data;
 ```
+
+**Query 2: Find the most common types of crimes.**
+```sql
+SELECT Crime_Type, COUNT(*) AS Occurrences
+FROM police_data
+GROUP BY Crime_Type
+ORDER BY Occurrences DESC;
+```
+
+**Query 3: Identify the top locations with the highest crime rates.**
+```sql
+SELECT Location, COUNT(*) AS Total_Crimes
+FROM police_data
+GROUP BY Location
+ORDER BY Total_Crimes DESC;
+```
+
+**Query 4: Find the number of unresolved cases.**
+```sql
+SELECT Status, COUNT(*) AS Count
+FROM police_data
+WHERE Status != 'Closed'
+GROUP BY Status;
+```
+
+**Query 5: Analyze crimes over time (if dates are formatted properly).**
+```sql
+SELECT SUBSTR(Reported_Date, 1, 10) AS Crime_Date, COUNT(*) AS Crimes_On_That_Day
+FROM police_data
+GROUP BY SUBSTR(Reported_Date, 1, 10)
+ORDER BY Crime_Date;
+```
+
+---
+
 
 There you go: your private Hive server to play with.
+
+### **5. Visualize the Results (Optional)**
+Export the results of the queries for visualization:
+```bash
+hive -e "SELECT * FROM police_data;" > police_analysis_results.csv
+```
+
+You can then use tools like Tableau, Excel, or Python (e.g., Matplotlib, Pandas) to create graphs, charts, or dashboards.
+
+---
+
+
+
+![image](https://github.com/user-attachments/assets/bdf19b8e-2dd9-43ab-a029-d8c546ffe68b)
+
+
+
+
+## Quick Start Spark (PySpark)
+
+Go to http://<dockerhadoop_IP_address>:8080 or http://localhost:8080/ on your Docker host (laptop) to see the status of the Spark master.
+
+Go to the command line of the Spark master and start PySpark.
+```
+  docker exec -it spark-master bash
+
+  /spark/bin/pyspark --master spark://spark-master:7077
+```
+
+Load breweries.csv from HDFS.
+```
+  brewfile = spark.read.csv("hdfs://namenode:9000/data/crimerecord/police/police.csv")
+  
+  brewfile.show()
+
+**OUTPUT HERE**
+
+only showing top 20 rows
+
+```
+
+
+## Quick Start Spark (Scala)
+
+Go to http://<dockerhadoop_IP_address>:8080 or http://localhost:8080/ on your Docker host (laptop) to see the status of the Spark master.
+
+Go to the command line of the Spark master and start spark-shell.
+```
+  docker exec -it spark-master bash
+  
+  spark/bin/spark-shell --master spark://spark-master:7077
+```
+
+Load breweries.csv from HDFS.
+```
+  val df = spark.read.csv("hdfs://namenode:9000/data/crimerecord/police/police.csv")
+  
+  df.show()
+
+**OUTPUT HERE**
+
+only showing top 20 rows
+
+```
+
+How cool is that? Your own Spark cluster to play with.
 
 
 ## Configure Environment Variables
