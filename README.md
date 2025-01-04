@@ -36,6 +36,9 @@ Navigate to the directory:
 ```bash
 cd bigdataecosystem
 ```
+
+![image](https://github.com/user-attachments/assets/e4d6a8ab-3f36-424a-bf13-9402bc1c13a2)
+
 if downloaded zip than cd bigdataecosystem-main
 
 ## **Step 2: Start the Cluster**
