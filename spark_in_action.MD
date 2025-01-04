@@ -10,9 +10,11 @@ I facing you're facing any problem you can see in this (Dutch) video in English 
 ## Start PySpark
 Start the Docker environment according to [the manual](https://github.com/jgperrin/net.jgp.books.spark.ch01/blob/master/README.md). Follow the Quick Start Spark (PySpark) to log in to the Spark master.
 
+
+
 Start PySpark:
 ```
-/spark/bin/pyspark --master spark://69280b13519d:7077
+spark/bin/spark-shell --master spark://spark-master:7077
 ```
 
 ## Prepare files
@@ -36,7 +38,7 @@ hdfs dfs -put sparkinaction/* /data/sparkinaction
 
 ```
 # Creates a session on a local master
-absolute_file_path = "hdfs://namenode:8020/data/sparkinaction/books.csv"
+absolute_file_path = "hdfs://namenode:9000/data/sparkinaction/books.csv"
 
 session = SparkSession.builder.appName("CSV to Dataset").master("spark://69280b13519d:7077").getOrCreate()
 
