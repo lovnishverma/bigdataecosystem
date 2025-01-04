@@ -1,22 +1,21 @@
-# Leer Spark met opgaven uit Spark in Action, 2nd Edition
+# Learn Spark with exercises from Spark in Action, 2nd Edition
 
-Dit zijn praktijkopdrachten uit [Spark in Action, 2nd Edition van Jean-Georges Perrin](https://www.manning.com/books/spark-in-action-second-edition), die je kunt uitvoeren op de CDEP Hadoop-Spark-Hive omgeving.
-De data hoeft niet op HDFS gezet te worden. In deze opdrachten doen we dat wel.
+These are practical assignments from [Spark in Action, 2nd Edition by Jean-Georges Perrin](https://www.manning.com/books/spark-in-action-second-edition), which you can complete on the CDEP Hadoop Spark-Hive environment.
+The data does not need to be put on HDFS. We do that in these assignments.
 
-Als je dat eenmaal gedaan hebt, kun je de Spark commando's zo achter elkaar kopiëren, uitvoeren en kijken hoe het werkt.
+Once you've done that, you can copy the Spark commands one after the other, run them and see how it works.
 
 
-## PySpark starten
-Start de Docker omgeving volgens [de handleiding](https://github.com/DIKW/CDEP-Docker/blob/master/hadoop/docker-hadoop-spark-hive/README.md). Volg de Quick Start Spark (PySpark) om in te loggen op de Spark master.
+## Start PySpark
+Start the Docker environment according to [the manual](https://github.com/DIKW/CDEP-Docker/blob/master/hadoop/docker-hadoop-spark-hive/README.md). Follow the Quick Start Spark (PySpark) to log in to the Spark master.
 
 Start PySpark:
 ```
 /spark/bin/pyspark --master spark://69280b13519d:7077
 ```
 
-## Files klaarzetten
-Kopieer de directory met data op de namenode en kopieer ze vandaar naar HDFS
-
+## Prepare files
+Copy the directory of data on the namode and copy it from there to HDFS
 ```
 docker ps |grep namenode  # achterhaal Container ID van namenode
 
@@ -31,8 +30,8 @@ hdfs dfs -put sparkinaction/* /data/sparkinaction
 ```
 
 
-## Hoofdstuk 1
-[Chapter 1 op Github](https://github.com/jgperrin/net.jgp.books.spark.ch01)
+## Chapter 1
+[Chapter 1 on Github](https://github.com/jgperrin/net.jgp.books.spark.ch01)
 
 ```
 # Creates a session on a local master
@@ -51,10 +50,10 @@ session.stop()
 ```
 
 
-## Hoofdstuk 2
-[Chapter 2 op Github](https://github.com/jgperrin/net.jgp.books.spark.ch02)
-In dit hoofdstuk doen we een kleine transformatie: we concatteneren de lastname en firstname.
-We slaan hier de database stap over. Feel free om zelf een PostgreSQL database toe te voegen aan de hadoop-spark-hive docker-compose.
+## Chapter 2
+[Chapter 2 on Github](https://github.com/jgperrin/net.jgp.books.spark.ch02)
+In this chapter we make a small transformation: we concatenate the lastname and firstname.
+We skip the database step here. Feel free to add a PostgreSQL database to the hadoop-spark-hive docker-compose yourself.
 
 ```
 from pyspark.sql import SparkSession
@@ -81,11 +80,11 @@ spark.stop()
 ```
 
 
-## Hoofdstuk 3
-[Chapter 3 op Github](https://github.com/jgperrin/net.jgp.books.spark.ch03)
-In dit hoofdstuk hernoemen we wat kolommen uit een CSV. We halen we een paar kolommen uit het resultaat en we voegen een id kolom toe, gebaseerd op state, county en datasetId.
+## Chapter 3
+[Chapter 3 on Github](https://github.com/jgperrin/net.jgp.books.spark.ch03)
+In this chapter we rename some columns from a CSV. We remove a few columns from the result and add an id column, based on state, county and datasetId.
 
-### Kolommen hernoemen, verwijderen en toevoegen
+### Rename, delete and add columns
 
 ```
 from pyspark.sql import SparkSession
@@ -106,7 +105,7 @@ print("*** Schema as a tree:")
 df.printSchema()
 ```
 
-Hernoemen van kolommen en verwijderen van de OBJECTID, PERMITID en GEOCODESTATUS kolommen uit ons dataframe.
+Renaming columns and removing the OBJECTID, PERMITID and GEOCODESTATUS columns from our data frame.
 ```
 # Let's transform our dataframe
 df =  df.withColumn("county", lit("Wake")) \
@@ -125,7 +124,7 @@ df =  df.withColumn("county", lit("Wake")) \
         .drop("OBJECTID", "PERMITID", "GEOCODESTATUS")
 ```
 
-Het maken van een nieuwe kolom, geconcatteneerd van state, county en datasetId.
+Creating a new column concatenated from state, county and datasetId.
 ```
 df = df.withColumn("id",
         concat(col("state"), lit("_"), col("county"), lit("_"), col("datasetId")))
@@ -138,7 +137,7 @@ print("*** Schema as a tree:")
 df.printSchema()
 ```
 
-We kunnen het dataframe opslaan als json.
+We can save the data frame as json.
 ```
 print("*** Schema as string: {}".format(df.schema))
 schemaAsJson = df.schema.json()
@@ -150,7 +149,7 @@ print("*** Schema as JSON: {}".format(json.dumps(parsedSchemaAsJson, indent=2)))
 spark.stop()
 ```
 
-### Union van twee dataframes.
+### Union of two data frames.
 
 ```
 from pyspark.sql.functions import (lit,col,concat,split)
@@ -163,8 +162,8 @@ spark = SparkSession.builder.appName("Union of two dataframes") \
     .master("local[*]").getOrCreate()
 ```
 
-Inlezen van data van Wake County (csv formaat).
-De kolommen worden aangepast zodat een union mogelijk is.
+Reading data from Wake County (csv format).
+The columns are adjusted so that a union is possible.
 ```
 df1 = spark.read.csv(path=absolute_file_path1,header=True,inferSchema=True)
 
@@ -189,8 +188,8 @@ df1 = df1.repartition(4);
 ```
 
 
-Inlezen data van Durham County (json formaat)
-Aanpassen kolomnamen en verwijderen kolommen zodat union mogelijk is.
+Reading data from Durham County (json format)
+Adjust column names and delete columns so that union is possible.
 ```
 df2 = spark.read.json(absolute_file_path2)
 
@@ -258,10 +257,10 @@ spark.stop()
 
 
 
-## Hoofdstuk 4
-[Chapter 4 op Github](https://github.com/jgperrin/net.jgp.books.spark.ch04)
+## Chapter 4
+[Chapter 4 on Github](https://github.com/jgperrin/net.jgp.books.spark.ch04)
 
-Deze eerste praktijkoefening gaat erom dat Spark "fundamentally lazy" is. Je kunt transformaties uitvoeren op je data, maar zolang je het resultaat niet opvraagt, gaat Spark nog niet te werk.
+This first practice is about Spark being "fundamentally lazy". You can perform transformations on your data, but as long as you don't query the result, Spark won't work yet.
 
 ```
 import time
@@ -354,7 +353,7 @@ df =  df.withColumn("avg", expr("(lcl+ucl)/2")) \
         .withColumn("lcl2", col("lcl")) \
         .withColumn("ucl2", col("ucl"))
 ```
-Met explain kun je zien hoe Spark te werk is gegaan. Dit kan handig zijn om je Spark code te debuggen.
+With explain you can see how Spark worked. This can be useful for debugging your Spark code.
 ```
 # Step 6 - explain
 df.explain()
