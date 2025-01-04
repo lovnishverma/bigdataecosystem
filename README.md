@@ -51,6 +51,9 @@ docker-compose up -d
 
 This command will launch the Hadoop, Spark, and Hive containers.
 
+![image](https://github.com/user-attachments/assets/8dc3ec44-84af-40f2-8056-92e5f3449919)
+
+
 ## **Step 3: Verify Running Containers**
 
 To check if the containers are running, use the following command:
@@ -58,6 +61,8 @@ To check if the containers are running, use the following command:
 ```bash
 docker ps
 ```
+![image](https://github.com/user-attachments/assets/f6897172-d14f-462a-95dd-ba46401b5dd7)
+
 
 ## **Step 4: Stop and Remove Containers**
 
@@ -66,6 +71,8 @@ When you are done, stop and remove the containers with:
 ```bash
 docker-compose down
 ```
+![image](https://github.com/user-attachments/assets/fd1f2298-7d65-4055-a929-12de4d01c428)
+
 
 ## **Step 5: Set Up HDFS**
 
@@ -77,17 +84,23 @@ To copy a file (e.g., `police.csv`) to the Hadoop cluster:
     ```bash
     docker cp police.csv namenode:/police.csv
     ```
+![image](https://github.com/user-attachments/assets/496c7e6a-41d6-44d2-9557-b6004fe986c4)
+
 
 2. Access the namenode container's bash shell:
     ```bash
     docker exec -it namenode bash
     ```
+![image](https://github.com/user-attachments/assets/d501a9b3-d2d9-4e2d-aecb-8e3eb7ccf678)
+
 
 3. Create a directory in HDFS and upload the file:
     ```bash
     hdfs dfs -mkdir -p /data/crimerecord/police
     hdfs dfs -put /police.csv /data/crimerecord/police/
     ```
+![image](https://github.com/user-attachments/assets/ab68bba9-92f2-4b15-a50e-f3ee1a0f998e)
+
 
 ## **Step 6: Set Up Spark**
 
@@ -101,8 +114,14 @@ To interact with Spark, start the Spark shell in the master container:
 
 ```bash
 docker exec -it spark-master bash
+
 spark/bin/spark-shell --master spark://spark-master:7077
 ```
+
+![image](https://github.com/user-attachments/assets/45765d5e-b1e7-4726-a60c-ddd5dd278c93)
+
+![image](https://github.com/user-attachments/assets/29f99758-b06d-4394-895a-ea7f9924ef0a)
+
 
 ### **Process Data in Spark**
 
