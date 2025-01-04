@@ -266,6 +266,8 @@ Run SQL queries to analyze the data in Hive:
 ![image](https://github.com/user-attachments/assets/9b3b32df-38c9-45bd-85dc-c4ac2b16b246)
 
 
+**********There you go: your private Hive server to play with.**********
+
 ### **Visualize the Data (Optional)**
 
 Export the query results to a CSV file for analysis in visualization tools:
