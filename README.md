@@ -132,9 +132,10 @@ spark/bin/spark-shell --master spark://spark-master:7077
 To load and view data from HDFS using Spark:
 
 ```scala
-val df = spark.read.csv("hdfs://namenode:8020/data/crimerecord/police/police.csv")
+val df = spark.read.csv("hdfs://namenode:9000/data/crimerecord/police/police.csv")
 df.show()
 ```
+![image](https://github.com/user-attachments/assets/4101596d-da55-4cd2-b4de-02a8f7f0299a)
 
 ## **Step 7: Set Up Hive**
 
@@ -144,14 +145,21 @@ Access the Hive container and start the Hive Server:
 
 ```bash
 docker exec -it hive-server bash
-hiveserver2
+```
+
+```bash
+hive
 ```
 
 Check if Hive is listening on port 10000:
+![image](https://github.com/user-attachments/assets/dc1e78d4-d903-4ac5-9eaa-eff0b893d6fb)
+
 
 ```bash
 netstat -anp | grep 10000
 ```
+![image](https://github.com/user-attachments/assets/9ac08fd3-f515-448d-83b3-c620fa3b15c2)
+
 
 ### **Connect to Hive Server**
 
@@ -160,20 +168,31 @@ Use Beeline to connect to the Hive server:
 ```bash
 beeline -u jdbc:hive2://localhost:10000 -n root
 ```
+![image](https://github.com/user-attachments/assets/d2dce309-0334-4a64-b8df-8cb6206b1432)
+
 
 Alternatively, use the following command for direct connection:
+
+```bash
+beeline
+```
 
 ```bash
 !connect jdbc:hive2://127.0.0.1:10000 scott tiger
 ```
 
+![image](https://github.com/user-attachments/assets/77fadb1f-118e-4d15-8a78-e9783baa9690)
+
+
 ### **Create Database and Table in Hive**
 
 1. Create a new Hive database:
     ```sql
-    CREATE DATABASE police_analysis;
-    USE police_analysis;
+    CREATE DATABASE punjab_police;
+    USE punjab_police;
     ```
+![image](https://github.com/user-attachments/assets/73227817-b2d5-4df0-a392-6927750d7220)
+
 
 2. Create a table based on the schema of the `police.csv` dataset:
     ```sql
@@ -188,11 +207,15 @@ Alternatively, use the following command for direct connection:
     FIELDS TERMINATED BY ','
     STORED AS TEXTFILE;
     ```
+    ![image](https://github.com/user-attachments/assets/13faa21a-5242-4f1e-bd69-4d98dc318400)
+
 
 3. Load the data into the Hive table:
     ```sql
     LOAD DATA INPATH '/data/crimerecord/police/police.csv' INTO TABLE police_data;
     ```
+![image](https://github.com/user-attachments/assets/e0fcbe55-d5fd-4a8c-a17b-df888204915f)
+
 
 ### **Query the Data in Hive**
 
@@ -202,11 +225,15 @@ Run SQL queries to analyze the data in Hive:
     ```sql
     SELECT * FROM police_data LIMIT 10;
     ```
+![image](https://github.com/user-attachments/assets/6f189765-24f4-47db-ad70-42fbcfb4068e)
+
 
 2. **Count total crimes:**
     ```sql
     SELECT COUNT(*) AS Total_Crimes FROM police_data;
     ```
+![image](https://github.com/user-attachments/assets/8b56a8b5-6b0b-4306-82da-4cce52b50e95)
+
 
 3. **Find most common crime types:**
     ```sql
@@ -216,6 +243,9 @@ Run SQL queries to analyze the data in Hive:
     ORDER BY Occurrences DESC;
     ```
 
+   ![image](https://github.com/user-attachments/assets/54f000f7-36ec-4672-8bc6-996ac7b4004b)
+
+
 4. **Identify locations with the highest crime rates:**
     ```sql
     SELECT Location, COUNT(*) AS Total_Crimes
@@ -223,6 +253,8 @@ Run SQL queries to analyze the data in Hive:
     GROUP BY Location
     ORDER BY Total_Crimes DESC;
     ```
+![image](https://github.com/user-attachments/assets/fb418097-97ff-46aa-941a-4b72a0702d3d)
+
 
 5. **Find unresolved cases:**
     ```sql
@@ -231,6 +263,8 @@ Run SQL queries to analyze the data in Hive:
     WHERE Status != 'Closed'
     GROUP BY Status;
     ```
+![image](https://github.com/user-attachments/assets/9b3b32df-38c9-45bd-85dc-c4ac2b16b246)
+
 
 ### **Visualize the Data (Optional)**
 
