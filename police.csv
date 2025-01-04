@@ -1,0 +1,1000 @@
+1,Theft,Kharar,1/1/2023 14:30,Closed
+2,Assault,Chandigarh,1/2/2023 18:45,Open
+3,Fraud,Kharar,1/1/2023 09:15,In Progress
+4,Theft,Ropar,1/3/2023 20:10,Closed
+5,Murder,Patiala,1/4/2023 12:00,Open
+6,Burglary,Kharar,1/5/2023 03:20,Closed
+7,Robbery,Mohali,1/5/2023 15:40,In Progress
+8,Arson,Chandigarh,1/6/2023 10:05,Open
+9,Theft,Ropar,1/7/2023 19:25,Closed
+10,Assault,Ludhiana,1/8/2023 14:10,In Progress
+11,Fraud,Chandigarh,1/9/2023 16:45,Open
+12,Burglary,Ropar,1/10/2023 22:30,Closed
+13,Murder,Kharar,1/11/2023 20:15,Open
+14,Arson,Ludhiana,1/12/2023 04:55,In Progress
+15,Robbery,Mohali,1/13/2023 13:35,Closed
+16,Fraud,Patiala,1/14/2023 11:10,Open
+17,Theft,Kharar,1/15/2023 21:20,In Progress
+18,Assault,Chandigarh,1/16/2023 17:50,Closed
+19,Burglary,Ludhiana,1/17/2023 02:40,Open
+20,Murder,Mohali,1/18/2023 18:25,In Progress
+21,Robbery,Patiala,1/19/2023 08:15,Closed
+22,Arson,Kharar,1/20/2023 23:30,Open
+23,Fraud,Ropar,1/21/2023 05:00,In Progress
+24,Theft,Chandigarh,1/22/2023 14:00,Closed
+25,Assault,Mohali,1/23/2023 19:45,Open
+26,Murder,Ropar,1/24/2023 16:30,In Progress
+27,Theft,Ludhiana,1/25/2023 07:15,Closed
+28,Fraud,Patiala,1/26/2023 13:55,Open
+29,Arson,Mohali,1/27/2023 22:50,In Progress
+30,Burglary,Chandigarh,1/28/2023 06:45,Closed
+31,Theft,Kharar,1/1/2023 14:30,Closed
+32,Assault,Chandigarh,1/2/2023 18:45,Open
+33,Fraud,Kharar,1/1/2023 09:15,In Progress
+34,Theft,Ropar,1/3/2023 20:10,Closed
+35,Murder,Patiala,1/4/2023 12:00,Open
+36,Burglary,Kharar,1/5/2023 03:20,Closed
+37,Robbery,Mohali,1/5/2023 15:40,In Progress
+38,Arson,Chandigarh,1/6/2023 10:05,Open
+39,Theft,Ropar,1/7/2023 19:25,Closed
+40,Assault,Ludhiana,1/8/2023 14:10,In Progress
+41,Fraud,Chandigarh,1/9/2023 16:45,Open
+42,Burglary,Ropar,1/10/2023 22:30,Closed
+43,Murder,Kharar,1/11/2023 20:15,Open
+44,Theft,Kharar,1/1/2023 14:30,Closed
+45,Assault,Chandigarh,1/2/2023 18:45,Open
+46,Fraud,Kharar,1/1/2023 09:15,In Progress
+47,Theft,Ropar,1/3/2023 20:10,Closed
+48,Murder,Patiala,1/4/2023 12:00,Open
+49,Burglary,Kharar,1/5/2023 03:20,Closed
+50,Robbery,Mohali,1/5/2023 15:40,In Progress
+51,Arson,Chandigarh,1/6/2023 10:05,Open
+52,Theft,Ropar,1/7/2023 19:25,Closed
+53,Assault,Ludhiana,1/8/2023 14:10,In Progress
+54,Fraud,Chandigarh,1/9/2023 16:45,Open
+55,Burglary,Ropar,1/10/2023 22:30,Closed
+56,Murder,Kharar,1/11/2023 20:15,Open
+57,Arson,Ludhiana,1/12/2023 04:55,In Progress
+58,Robbery,Mohali,1/13/2023 13:35,Closed
+59,Fraud,Patiala,1/14/2023 11:10,Open
+60,Theft,Kharar,1/15/2023 21:20,In Progress
+61,Assault,Chandigarh,1/16/2023 17:50,Closed
+62,Burglary,Ludhiana,1/17/2023 02:40,Open
+63,Murder,Mohali,1/18/2023 18:25,In Progress
+64,Robbery,Patiala,1/19/2023 08:15,Closed
+65,Arson,Kharar,1/20/2023 23:30,Open
+66,Fraud,Ropar,1/21/2023 05:00,In Progress
+67,Theft,Chandigarh,1/22/2023 14:00,Closed
+68,Assault,Mohali,1/23/2023 19:45,Open
+69,Murder,Ropar,1/24/2023 16:30,In Progress
+70,Theft,Ludhiana,1/25/2023 07:15,Closed
+71,Fraud,Patiala,1/26/2023 13:55,Open
+72,Arson,Mohali,1/27/2023 22:50,In Progress
+73,Burglary,Chandigarh,1/28/2023 06:45,Closed
+74,Theft,Kharar,1/1/2023 14:30,Closed
+75,Assault,Chandigarh,1/2/2023 18:45,Open
+76,Fraud,Kharar,1/1/2023 09:15,In Progress
+77,Theft,Ropar,1/3/2023 20:10,Closed
+78,Murder,Patiala,1/4/2023 12:00,Open
+79,Burglary,Kharar,1/5/2023 03:20,Closed
+80,Robbery,Mohali,1/5/2023 15:40,In Progress
+81,Arson,Chandigarh,1/6/2023 10:05,Open
+82,Theft,Ropar,1/7/2023 19:25,Closed
+83,Assault,Ludhiana,1/8/2023 14:10,In Progress
+84,Fraud,Chandigarh,1/9/2023 16:45,Open
+85,Burglary,Ropar,1/10/2023 22:30,Closed
+86,Murder,Kharar,1/11/2023 20:15,Open
+87,Theft,Kharar,1/1/2023 14:30,Closed
+88,Assault,Chandigarh,1/2/2023 18:45,Open
+89,Fraud,Kharar,1/1/2023 09:15,In Progress
+90,Theft,Ropar,1/3/2023 20:10,Closed
+91,Murder,Patiala,1/4/2023 12:00,Open
+92,Burglary,Kharar,1/5/2023 03:20,Closed
+93,Robbery,Mohali,1/5/2023 15:40,In Progress
+94,Arson,Chandigarh,1/6/2023 10:05,Open
+95,Theft,Ropar,1/7/2023 19:25,Closed
+96,Assault,Ludhiana,1/8/2023 14:10,In Progress
+97,Fraud,Chandigarh,1/9/2023 16:45,Open
+98,Burglary,Ropar,1/10/2023 22:30,Closed
+99,Murder,Kharar,1/11/2023 20:15,Open
+100,Arson,Ludhiana,1/12/2023 04:55,In Progress
+101,Robbery,Mohali,1/13/2023 13:35,Closed
+102,Fraud,Patiala,1/14/2023 11:10,Open
+103,Theft,Kharar,1/15/2023 21:20,In Progress
+104,Assault,Chandigarh,1/16/2023 17:50,Closed
+105,Burglary,Ludhiana,1/17/2023 02:40,Open
+106,Murder,Mohali,1/18/2023 18:25,In Progress
+107,Robbery,Patiala,1/19/2023 08:15,Closed
+108,Arson,Kharar,1/20/2023 23:30,Open
+109,Fraud,Ropar,1/21/2023 05:00,In Progress
+110,Theft,Chandigarh,1/22/2023 14:00,Closed
+111,Assault,Mohali,1/23/2023 19:45,Open
+112,Murder,Ropar,1/24/2023 16:30,In Progress
+113,Theft,Ludhiana,1/25/2023 07:15,Closed
+114,Fraud,Patiala,1/26/2023 13:55,Open
+115,Arson,Mohali,1/27/2023 22:50,In Progress
+116,Burglary,Chandigarh,1/28/2023 06:45,Closed
+117,Theft,Kharar,1/1/2023 14:30,Closed
+118,Assault,Chandigarh,1/2/2023 18:45,Open
+119,Fraud,Kharar,1/1/2023 09:15,In Progress
+120,Theft,Ropar,1/3/2023 20:10,Closed
+121,Murder,Patiala,1/4/2023 12:00,Open
+122,Burglary,Kharar,1/5/2023 03:20,Closed
+123,Robbery,Mohali,1/5/2023 15:40,In Progress
+124,Arson,Chandigarh,1/6/2023 10:05,Open
+125,Theft,Ropar,1/7/2023 19:25,Closed
+126,Assault,Ludhiana,1/8/2023 14:10,In Progress
+127,Fraud,Chandigarh,1/9/2023 16:45,Open
+128,Burglary,Ropar,1/10/2023 22:30,Closed
+129,Murder,Kharar,1/11/2023 20:15,Open
+130,Theft,Kharar,1/1/2023 14:30,Closed
+131,Assault,Chandigarh,1/2/2023 18:45,Open
+132,Fraud,Kharar,1/1/2023 09:15,In Progress
+133,Theft,Ropar,1/3/2023 20:10,Closed
+134,Murder,Patiala,1/4/2023 12:00,Open
+135,Burglary,Kharar,1/5/2023 03:20,Closed
+136,Robbery,Mohali,1/5/2023 15:40,In Progress
+137,Arson,Chandigarh,1/6/2023 10:05,Open
+138,Theft,Ropar,1/7/2023 19:25,Closed
+139,Assault,Ludhiana,1/8/2023 14:10,In Progress
+140,Fraud,Chandigarh,1/9/2023 16:45,Open
+141,Burglary,Ropar,1/10/2023 22:30,Closed
+142,Murder,Kharar,1/11/2023 20:15,Open
+143,Arson,Ludhiana,1/12/2023 04:55,In Progress
+144,Robbery,Mohali,1/13/2023 13:35,Closed
+145,Fraud,Patiala,1/14/2023 11:10,Open
+146,Theft,Kharar,1/15/2023 21:20,In Progress
+147,Assault,Chandigarh,1/16/2023 17:50,Closed
+148,Burglary,Ludhiana,1/17/2023 02:40,Open
+149,Murder,Mohali,1/18/2023 18:25,In Progress
+150,Robbery,Patiala,1/19/2023 08:15,Closed
+151,Arson,Kharar,1/20/2023 23:30,Open
+152,Fraud,Ropar,1/21/2023 05:00,In Progress
+153,Theft,Chandigarh,1/22/2023 14:00,Closed
+154,Assault,Mohali,1/23/2023 19:45,Open
+155,Murder,Ropar,1/24/2023 16:30,In Progress
+156,Theft,Ludhiana,1/25/2023 07:15,Closed
+157,Fraud,Patiala,1/26/2023 13:55,Open
+158,Arson,Mohali,1/27/2023 22:50,In Progress
+159,Burglary,Chandigarh,1/28/2023 06:45,Closed
+160,Theft,Kharar,1/1/2023 14:30,Closed
+161,Assault,Chandigarh,1/2/2023 18:45,Open
+162,Fraud,Kharar,1/1/2023 09:15,In Progress
+163,Theft,Ropar,1/3/2023 20:10,Closed
+164,Murder,Patiala,1/4/2023 12:00,Open
+165,Burglary,Kharar,1/5/2023 03:20,Closed
+166,Robbery,Mohali,1/5/2023 15:40,In Progress
+167,Arson,Chandigarh,1/6/2023 10:05,Open
+168,Theft,Ropar,1/7/2023 19:25,Closed
+169,Assault,Ludhiana,1/8/2023 14:10,In Progress
+170,Fraud,Chandigarh,1/9/2023 16:45,Open
+171,Burglary,Ropar,1/10/2023 22:30,Closed
+172,Murder,Kharar,1/11/2023 20:15,Open
+173,Theft,Kharar,1/1/2023 14:30,Closed
+174,Assault,Chandigarh,1/2/2023 18:45,Open
+175,Fraud,Kharar,1/1/2023 09:15,In Progress
+176,Theft,Ropar,1/3/2023 20:10,Closed
+177,Murder,Patiala,1/4/2023 12:00,Open
+178,Burglary,Kharar,1/5/2023 03:20,Closed
+179,Robbery,Mohali,1/5/2023 15:40,In Progress
+180,Arson,Chandigarh,1/6/2023 10:05,Open
+181,Theft,Ropar,1/7/2023 19:25,Closed
+182,Assault,Ludhiana,1/8/2023 14:10,In Progress
+183,Fraud,Chandigarh,1/9/2023 16:45,Open
+184,Burglary,Ropar,1/10/2023 22:30,Closed
+185,Murder,Kharar,1/11/2023 20:15,Open
+186,Arson,Ludhiana,1/12/2023 04:55,In Progress
+187,Robbery,Mohali,1/13/2023 13:35,Closed
+188,Fraud,Patiala,1/14/2023 11:10,Open
+189,Theft,Kharar,1/15/2023 21:20,In Progress
+190,Assault,Chandigarh,1/16/2023 17:50,Closed
+191,Burglary,Ludhiana,1/17/2023 02:40,Open
+192,Murder,Mohali,1/18/2023 18:25,In Progress
+193,Robbery,Patiala,1/19/2023 08:15,Closed
+194,Arson,Kharar,1/20/2023 23:30,Open
+195,Fraud,Ropar,1/21/2023 05:00,In Progress
+196,Theft,Chandigarh,1/22/2023 14:00,Closed
+197,Assault,Mohali,1/23/2023 19:45,Open
+198,Murder,Ropar,1/24/2023 16:30,In Progress
+199,Theft,Ludhiana,1/25/2023 07:15,Closed
+200,Fraud,Patiala,1/26/2023 13:55,Open
+201,Arson,Mohali,1/27/2023 22:50,In Progress
+202,Burglary,Chandigarh,1/28/2023 06:45,Closed
+203,Theft,Kharar,1/1/2023 14:30,Closed
+204,Assault,Chandigarh,1/2/2023 18:45,Open
+205,Fraud,Kharar,1/1/2023 09:15,In Progress
+206,Theft,Ropar,1/3/2023 20:10,Closed
+207,Murder,Patiala,1/4/2023 12:00,Open
+208,Burglary,Kharar,1/5/2023 03:20,Closed
+209,Robbery,Mohali,1/5/2023 15:40,In Progress
+210,Arson,Chandigarh,1/6/2023 10:05,Open
+211,Theft,Ropar,1/7/2023 19:25,Closed
+212,Assault,Ludhiana,1/8/2023 14:10,In Progress
+213,Fraud,Chandigarh,1/9/2023 16:45,Open
+214,Burglary,Ropar,1/10/2023 22:30,Closed
+215,Murder,Kharar,1/11/2023 20:15,Open
+216,Theft,Kharar,1/1/2023 14:30,Closed
+217,Assault,Chandigarh,1/2/2023 18:45,Open
+218,Fraud,Kharar,1/1/2023 09:15,In Progress
+219,Theft,Ropar,1/3/2023 20:10,Closed
+220,Murder,Patiala,1/4/2023 12:00,Open
+221,Burglary,Kharar,1/5/2023 03:20,Closed
+222,Robbery,Mohali,1/5/2023 15:40,In Progress
+223,Arson,Chandigarh,1/6/2023 10:05,Open
+224,Theft,Ropar,1/7/2023 19:25,Closed
+225,Assault,Ludhiana,1/8/2023 14:10,In Progress
+226,Fraud,Chandigarh,1/9/2023 16:45,Open
+227,Burglary,Ropar,1/10/2023 22:30,Closed
+228,Murder,Kharar,1/11/2023 20:15,Open
+229,Arson,Ludhiana,1/12/2023 04:55,In Progress
+230,Robbery,Mohali,1/13/2023 13:35,Closed
+231,Fraud,Patiala,1/14/2023 11:10,Open
+232,Theft,Kharar,1/15/2023 21:20,In Progress
+233,Assault,Chandigarh,1/16/2023 17:50,Closed
+234,Burglary,Ludhiana,1/17/2023 02:40,Open
+235,Murder,Mohali,1/18/2023 18:25,In Progress
+236,Robbery,Patiala,1/19/2023 08:15,Closed
+237,Arson,Kharar,1/20/2023 23:30,Open
+238,Fraud,Ropar,1/21/2023 05:00,In Progress
+239,Theft,Chandigarh,1/22/2023 14:00,Closed
+240,Assault,Mohali,1/23/2023 19:45,Open
+241,Murder,Ropar,1/24/2023 16:30,In Progress
+242,Theft,Ludhiana,1/25/2023 07:15,Closed
+243,Fraud,Patiala,1/26/2023 13:55,Open
+244,Arson,Mohali,1/27/2023 22:50,In Progress
+245,Burglary,Chandigarh,1/28/2023 06:45,Closed
+246,Theft,Kharar,1/1/2023 14:30,Closed
+247,Assault,Chandigarh,1/2/2023 18:45,Open
+248,Fraud,Kharar,1/1/2023 09:15,In Progress
+249,Theft,Ropar,1/3/2023 20:10,Closed
+250,Murder,Patiala,1/4/2023 12:00,Open
+251,Burglary,Kharar,1/5/2023 03:20,Closed
+252,Robbery,Mohali,1/5/2023 15:40,In Progress
+253,Arson,Chandigarh,1/6/2023 10:05,Open
+254,Theft,Ropar,1/7/2023 19:25,Closed
+255,Assault,Ludhiana,1/8/2023 14:10,In Progress
+256,Fraud,Chandigarh,1/9/2023 16:45,Open
+257,Burglary,Ropar,1/10/2023 22:30,Closed
+258,Murder,Kharar,1/11/2023 20:15,Open
+259,Theft,Kharar,1/1/2023 14:30,Closed
+260,Assault,Chandigarh,1/2/2023 18:45,Open
+261,Fraud,Kharar,1/1/2023 09:15,In Progress
+262,Theft,Ropar,1/3/2023 20:10,Closed
+263,Murder,Patiala,1/4/2023 12:00,Open
+264,Burglary,Kharar,1/5/2023 03:20,Closed
+265,Robbery,Mohali,1/5/2023 15:40,In Progress
+266,Arson,Chandigarh,1/6/2023 10:05,Open
+267,Theft,Ropar,1/7/2023 19:25,Closed
+268,Assault,Ludhiana,1/8/2023 14:10,In Progress
+269,Fraud,Chandigarh,1/9/2023 16:45,Open
+270,Burglary,Ropar,1/10/2023 22:30,Closed
+271,Murder,Kharar,1/11/2023 20:15,Open
+272,Arson,Ludhiana,1/12/2023 04:55,In Progress
+273,Robbery,Mohali,1/13/2023 13:35,Closed
+274,Fraud,Patiala,1/14/2023 11:10,Open
+275,Theft,Kharar,1/15/2023 21:20,In Progress
+276,Assault,Chandigarh,1/16/2023 17:50,Closed
+277,Burglary,Ludhiana,1/17/2023 02:40,Open
+278,Murder,Mohali,1/18/2023 18:25,In Progress
+279,Robbery,Patiala,1/19/2023 08:15,Closed
+280,Arson,Kharar,1/20/2023 23:30,Open
+281,Fraud,Ropar,1/21/2023 05:00,In Progress
+282,Theft,Chandigarh,1/22/2023 14:00,Closed
+283,Assault,Mohali,1/23/2023 19:45,Open
+284,Murder,Ropar,1/24/2023 16:30,In Progress
+285,Theft,Ludhiana,1/25/2023 07:15,Closed
+286,Fraud,Patiala,1/26/2023 13:55,Open
+287,Arson,Mohali,1/27/2023 22:50,In Progress
+288,Burglary,Chandigarh,1/28/2023 06:45,Closed
+289,Theft,Kharar,1/1/2023 14:30,Closed
+290,Assault,Chandigarh,1/2/2023 18:45,Open
+291,Fraud,Kharar,1/1/2023 09:15,In Progress
+292,Theft,Ropar,1/3/2023 20:10,Closed
+293,Murder,Patiala,1/4/2023 12:00,Open
+294,Burglary,Kharar,1/5/2023 03:20,Closed
+295,Robbery,Mohali,1/5/2023 15:40,In Progress
+296,Arson,Chandigarh,1/6/2023 10:05,Open
+297,Theft,Ropar,1/7/2023 19:25,Closed
+298,Assault,Ludhiana,1/8/2023 14:10,In Progress
+299,Fraud,Chandigarh,1/9/2023 16:45,Open
+300,Burglary,Ropar,1/10/2023 22:30,Closed
+301,Murder,Kharar,1/11/2023 20:15,Open
+302,Theft,Kharar,1/1/2023 14:30,Closed
+303,Assault,Chandigarh,1/2/2023 18:45,Open
+304,Fraud,Kharar,1/1/2023 09:15,In Progress
+305,Theft,Ropar,1/3/2023 20:10,Closed
+306,Murder,Patiala,1/4/2023 12:00,Open
+307,Burglary,Kharar,1/5/2023 03:20,Closed
+308,Robbery,Mohali,1/5/2023 15:40,In Progress
+309,Arson,Chandigarh,1/6/2023 10:05,Open
+310,Theft,Ropar,1/7/2023 19:25,Closed
+311,Assault,Ludhiana,1/8/2023 14:10,In Progress
+312,Fraud,Chandigarh,1/9/2023 16:45,Open
+313,Burglary,Ropar,1/10/2023 22:30,Closed
+314,Murder,Kharar,1/11/2023 20:15,Open
+315,Arson,Ludhiana,1/12/2023 04:55,In Progress
+316,Robbery,Mohali,1/13/2023 13:35,Closed
+317,Fraud,Patiala,1/14/2023 11:10,Open
+318,Theft,Kharar,1/15/2023 21:20,In Progress
+319,Assault,Chandigarh,1/16/2023 17:50,Closed
+320,Burglary,Ludhiana,1/17/2023 02:40,Open
+321,Murder,Mohali,1/18/2023 18:25,In Progress
+322,Robbery,Patiala,1/19/2023 08:15,Closed
+323,Arson,Kharar,1/20/2023 23:30,Open
+324,Fraud,Ropar,1/21/2023 05:00,In Progress
+325,Theft,Chandigarh,1/22/2023 14:00,Closed
+326,Assault,Mohali,1/23/2023 19:45,Open
+327,Murder,Ropar,1/24/2023 16:30,In Progress
+328,Theft,Ludhiana,1/25/2023 07:15,Closed
+329,Fraud,Patiala,1/26/2023 13:55,Open
+330,Arson,Mohali,1/27/2023 22:50,In Progress
+331,Burglary,Chandigarh,1/28/2023 06:45,Closed
+332,Theft,Kharar,1/1/2023 14:30,Closed
+333,Assault,Chandigarh,1/2/2023 18:45,Open
+334,Fraud,Kharar,1/1/2023 09:15,In Progress
+335,Theft,Ropar,1/3/2023 20:10,Closed
+336,Murder,Patiala,1/4/2023 12:00,Open
+337,Burglary,Kharar,1/5/2023 03:20,Closed
+338,Robbery,Mohali,1/5/2023 15:40,In Progress
+339,Arson,Chandigarh,1/6/2023 10:05,Open
+340,Theft,Ropar,1/7/2023 19:25,Closed
+341,Assault,Ludhiana,1/8/2023 14:10,In Progress
+342,Fraud,Chandigarh,1/9/2023 16:45,Open
+343,Burglary,Ropar,1/10/2023 22:30,Closed
+344,Murder,Kharar,1/11/2023 20:15,Open
+345,Theft,Kharar,1/1/2023 14:30,Closed
+346,Assault,Chandigarh,1/2/2023 18:45,Open
+347,Fraud,Kharar,1/1/2023 09:15,In Progress
+348,Theft,Ropar,1/3/2023 20:10,Closed
+349,Murder,Patiala,1/4/2023 12:00,Open
+350,Burglary,Kharar,1/5/2023 03:20,Closed
+351,Robbery,Mohali,1/5/2023 15:40,In Progress
+352,Arson,Chandigarh,1/6/2023 10:05,Open
+353,Theft,Ropar,1/7/2023 19:25,Closed
+354,Assault,Ludhiana,1/8/2023 14:10,In Progress
+355,Fraud,Chandigarh,1/9/2023 16:45,Open
+356,Burglary,Ropar,1/10/2023 22:30,Closed
+357,Murder,Kharar,1/11/2023 20:15,Open
+358,Arson,Ludhiana,1/12/2023 04:55,In Progress
+359,Robbery,Mohali,1/13/2023 13:35,Closed
+360,Fraud,Patiala,1/14/2023 11:10,Open
+361,Theft,Kharar,1/15/2023 21:20,In Progress
+362,Assault,Chandigarh,1/16/2023 17:50,Closed
+363,Burglary,Ludhiana,1/17/2023 02:40,Open
+364,Murder,Mohali,1/18/2023 18:25,In Progress
+365,Robbery,Patiala,1/19/2023 08:15,Closed
+366,Arson,Kharar,1/20/2023 23:30,Open
+367,Fraud,Ropar,1/21/2023 05:00,In Progress
+368,Theft,Chandigarh,1/22/2023 14:00,Closed
+369,Assault,Mohali,1/23/2023 19:45,Open
+370,Murder,Ropar,1/24/2023 16:30,In Progress
+371,Theft,Ludhiana,1/25/2023 07:15,Closed
+372,Fraud,Patiala,1/26/2023 13:55,Open
+373,Arson,Mohali,1/27/2023 22:50,In Progress
+374,Burglary,Chandigarh,1/28/2023 06:45,Closed
+375,Theft,Kharar,1/1/2023 14:30,Closed
+376,Assault,Chandigarh,1/2/2023 18:45,Open
+377,Fraud,Kharar,1/1/2023 09:15,In Progress
+378,Theft,Ropar,1/3/2023 20:10,Closed
+379,Murder,Patiala,1/4/2023 12:00,Open
+380,Burglary,Kharar,1/5/2023 03:20,Closed
+381,Robbery,Mohali,1/5/2023 15:40,In Progress
+382,Arson,Chandigarh,1/6/2023 10:05,Open
+383,Theft,Ropar,1/7/2023 19:25,Closed
+384,Assault,Ludhiana,1/8/2023 14:10,In Progress
+385,Fraud,Chandigarh,1/9/2023 16:45,Open
+386,Burglary,Ropar,1/10/2023 22:30,Closed
+387,Murder,Kharar,1/11/2023 20:15,Open
+388,Theft,Kharar,1/1/2023 14:30,Closed
+389,Assault,Chandigarh,1/2/2023 18:45,Open
+390,Fraud,Kharar,1/1/2023 09:15,In Progress
+391,Theft,Ropar,1/3/2023 20:10,Closed
+392,Murder,Patiala,1/4/2023 12:00,Open
+393,Burglary,Kharar,1/5/2023 03:20,Closed
+394,Robbery,Mohali,1/5/2023 15:40,In Progress
+395,Arson,Chandigarh,1/6/2023 10:05,Open
+396,Theft,Ropar,1/7/2023 19:25,Closed
+397,Assault,Ludhiana,1/8/2023 14:10,In Progress
+398,Fraud,Chandigarh,1/9/2023 16:45,Open
+399,Burglary,Ropar,1/10/2023 22:30,Closed
+400,Murder,Kharar,1/11/2023 20:15,Open
+401,Arson,Ludhiana,1/12/2023 04:55,In Progress
+402,Robbery,Mohali,1/13/2023 13:35,Closed
+403,Fraud,Patiala,1/14/2023 11:10,Open
+404,Theft,Kharar,1/15/2023 21:20,In Progress
+405,Assault,Chandigarh,1/16/2023 17:50,Closed
+406,Burglary,Ludhiana,1/17/2023 02:40,Open
+407,Murder,Mohali,1/18/2023 18:25,In Progress
+408,Robbery,Patiala,1/19/2023 08:15,Closed
+409,Arson,Kharar,1/20/2023 23:30,Open
+410,Fraud,Ropar,1/21/2023 05:00,In Progress
+411,Theft,Chandigarh,1/22/2023 14:00,Closed
+412,Assault,Mohali,1/23/2023 19:45,Open
+413,Murder,Ropar,1/24/2023 16:30,In Progress
+414,Theft,Ludhiana,1/25/2023 07:15,Closed
+415,Fraud,Patiala,1/26/2023 13:55,Open
+416,Arson,Mohali,1/27/2023 22:50,In Progress
+417,Burglary,Chandigarh,1/28/2023 06:45,Closed
+418,Theft,Kharar,1/1/2023 14:30,Closed
+419,Assault,Chandigarh,1/2/2023 18:45,Open
+420,Fraud,Kharar,1/1/2023 09:15,In Progress
+421,Theft,Ropar,1/3/2023 20:10,Closed
+422,Murder,Patiala,1/4/2023 12:00,Open
+423,Burglary,Kharar,1/5/2023 03:20,Closed
+424,Robbery,Mohali,1/5/2023 15:40,In Progress
+425,Arson,Chandigarh,1/6/2023 10:05,Open
+426,Theft,Ropar,1/7/2023 19:25,Closed
+427,Assault,Ludhiana,1/8/2023 14:10,In Progress
+428,Fraud,Chandigarh,1/9/2023 16:45,Open
+429,Burglary,Ropar,1/10/2023 22:30,Closed
+430,Murder,Kharar,1/11/2023 20:15,Open
+431,Theft,Kharar,1/1/2023 14:30,Closed
+432,Assault,Chandigarh,1/2/2023 18:45,Open
+433,Fraud,Kharar,1/1/2023 09:15,In Progress
+434,Theft,Ropar,1/3/2023 20:10,Closed
+435,Murder,Patiala,1/4/2023 12:00,Open
+436,Burglary,Kharar,1/5/2023 03:20,Closed
+437,Robbery,Mohali,1/5/2023 15:40,In Progress
+438,Arson,Chandigarh,1/6/2023 10:05,Open
+439,Theft,Ropar,1/7/2023 19:25,Closed
+440,Assault,Ludhiana,1/8/2023 14:10,In Progress
+441,Fraud,Chandigarh,1/9/2023 16:45,Open
+442,Burglary,Ropar,1/10/2023 22:30,Closed
+443,Murder,Kharar,1/11/2023 20:15,Open
+444,Arson,Ludhiana,1/12/2023 04:55,In Progress
+445,Robbery,Mohali,1/13/2023 13:35,Closed
+446,Fraud,Patiala,1/14/2023 11:10,Open
+447,Theft,Kharar,1/15/2023 21:20,In Progress
+448,Assault,Chandigarh,1/16/2023 17:50,Closed
+449,Burglary,Ludhiana,1/17/2023 02:40,Open
+450,Murder,Mohali,1/18/2023 18:25,In Progress
+451,Robbery,Patiala,1/19/2023 08:15,Closed
+452,Arson,Kharar,1/20/2023 23:30,Open
+453,Fraud,Ropar,1/21/2023 05:00,In Progress
+454,Theft,Chandigarh,1/22/2023 14:00,Closed
+455,Assault,Mohali,1/23/2023 19:45,Open
+456,Murder,Ropar,1/24/2023 16:30,In Progress
+457,Theft,Ludhiana,1/25/2023 07:15,Closed
+458,Fraud,Patiala,1/26/2023 13:55,Open
+459,Arson,Mohali,1/27/2023 22:50,In Progress
+460,Burglary,Chandigarh,1/28/2023 06:45,Closed
+461,Theft,Kharar,1/1/2023 14:30,Closed
+462,Assault,Chandigarh,1/2/2023 18:45,Open
+463,Fraud,Kharar,1/1/2023 09:15,In Progress
+464,Theft,Ropar,1/3/2023 20:10,Closed
+465,Murder,Patiala,1/4/2023 12:00,Open
+466,Burglary,Kharar,1/5/2023 03:20,Closed
+467,Robbery,Mohali,1/5/2023 15:40,In Progress
+468,Arson,Chandigarh,1/6/2023 10:05,Open
+469,Theft,Ropar,1/7/2023 19:25,Closed
+470,Assault,Ludhiana,1/8/2023 14:10,In Progress
+471,Fraud,Chandigarh,1/9/2023 16:45,Open
+472,Burglary,Ropar,1/10/2023 22:30,Closed
+473,Murder,Kharar,1/11/2023 20:15,Open
+474,Theft,Kharar,1/1/2023 14:30,Closed
+475,Assault,Chandigarh,1/2/2023 18:45,Open
+476,Fraud,Kharar,1/1/2023 09:15,In Progress
+477,Theft,Ropar,1/3/2023 20:10,Closed
+478,Murder,Patiala,1/4/2023 12:00,Open
+479,Burglary,Kharar,1/5/2023 03:20,Closed
+480,Robbery,Mohali,1/5/2023 15:40,In Progress
+481,Arson,Chandigarh,1/6/2023 10:05,Open
+482,Theft,Ropar,1/7/2023 19:25,Closed
+483,Assault,Ludhiana,1/8/2023 14:10,In Progress
+484,Fraud,Chandigarh,1/9/2023 16:45,Open
+485,Burglary,Ropar,1/10/2023 22:30,Closed
+486,Murder,Kharar,1/11/2023 20:15,Open
+487,Arson,Ludhiana,1/12/2023 04:55,In Progress
+488,Robbery,Mohali,1/13/2023 13:35,Closed
+489,Fraud,Patiala,1/14/2023 11:10,Open
+490,Theft,Kharar,1/15/2023 21:20,In Progress
+491,Assault,Chandigarh,1/16/2023 17:50,Closed
+492,Burglary,Ludhiana,1/17/2023 02:40,Open
+493,Murder,Mohali,1/18/2023 18:25,In Progress
+494,Robbery,Patiala,1/19/2023 08:15,Closed
+495,Arson,Kharar,1/20/2023 23:30,Open
+496,Fraud,Ropar,1/21/2023 05:00,In Progress
+497,Theft,Chandigarh,1/22/2023 14:00,Closed
+498,Assault,Mohali,1/23/2023 19:45,Open
+499,Murder,Ropar,1/24/2023 16:30,In Progress
+500,Theft,Ludhiana,1/25/2023 07:15,Closed
+501,Fraud,Patiala,1/26/2023 13:55,Open
+502,Arson,Mohali,1/27/2023 22:50,In Progress
+503,Burglary,Chandigarh,1/28/2023 06:45,Closed
+504,Theft,Kharar,1/1/2023 14:30,Closed
+505,Assault,Chandigarh,1/2/2023 18:45,Open
+506,Fraud,Kharar,1/1/2023 09:15,In Progress
+507,Theft,Ropar,1/3/2023 20:10,Closed
+508,Murder,Patiala,1/4/2023 12:00,Open
+509,Burglary,Kharar,1/5/2023 03:20,Closed
+510,Robbery,Mohali,1/5/2023 15:40,In Progress
+511,Arson,Chandigarh,1/6/2023 10:05,Open
+512,Theft,Ropar,1/7/2023 19:25,Closed
+513,Assault,Ludhiana,1/8/2023 14:10,In Progress
+514,Fraud,Chandigarh,1/9/2023 16:45,Open
+515,Burglary,Ropar,1/10/2023 22:30,Closed
+516,Murder,Kharar,1/11/2023 20:15,Open
+517,Theft,Kharar,1/1/2023 14:30,Closed
+518,Assault,Chandigarh,1/2/2023 18:45,Open
+519,Fraud,Kharar,1/1/2023 09:15,In Progress
+520,Theft,Ropar,1/3/2023 20:10,Closed
+521,Murder,Patiala,1/4/2023 12:00,Open
+522,Burglary,Kharar,1/5/2023 03:20,Closed
+523,Robbery,Mohali,1/5/2023 15:40,In Progress
+524,Arson,Chandigarh,1/6/2023 10:05,Open
+525,Theft,Ropar,1/7/2023 19:25,Closed
+526,Assault,Ludhiana,1/8/2023 14:10,In Progress
+527,Fraud,Chandigarh,1/9/2023 16:45,Open
+528,Burglary,Ropar,1/10/2023 22:30,Closed
+529,Murder,Kharar,1/11/2023 20:15,Open
+530,Arson,Ludhiana,1/12/2023 04:55,In Progress
+531,Robbery,Mohali,1/13/2023 13:35,Closed
+532,Fraud,Patiala,1/14/2023 11:10,Open
+533,Theft,Kharar,1/15/2023 21:20,In Progress
+534,Assault,Chandigarh,1/16/2023 17:50,Closed
+535,Burglary,Ludhiana,1/17/2023 02:40,Open
+536,Murder,Mohali,1/18/2023 18:25,In Progress
+537,Robbery,Patiala,1/19/2023 08:15,Closed
+538,Arson,Kharar,1/20/2023 23:30,Open
+539,Fraud,Ropar,1/21/2023 05:00,In Progress
+540,Theft,Chandigarh,1/22/2023 14:00,Closed
+541,Assault,Mohali,1/23/2023 19:45,Open
+542,Murder,Ropar,1/24/2023 16:30,In Progress
+543,Theft,Ludhiana,1/25/2023 07:15,Closed
+544,Fraud,Patiala,1/26/2023 13:55,Open
+545,Arson,Mohali,1/27/2023 22:50,In Progress
+546,Burglary,Chandigarh,1/28/2023 06:45,Closed
+547,Theft,Kharar,1/1/2023 14:30,Closed
+548,Assault,Chandigarh,1/2/2023 18:45,Open
+549,Fraud,Kharar,1/1/2023 09:15,In Progress
+550,Theft,Ropar,1/3/2023 20:10,Closed
+551,Murder,Patiala,1/4/2023 12:00,Open
+552,Burglary,Kharar,1/5/2023 03:20,Closed
+553,Robbery,Mohali,1/5/2023 15:40,In Progress
+554,Arson,Chandigarh,1/6/2023 10:05,Open
+555,Theft,Ropar,1/7/2023 19:25,Closed
+556,Assault,Ludhiana,1/8/2023 14:10,In Progress
+557,Fraud,Chandigarh,1/9/2023 16:45,Open
+558,Burglary,Ropar,1/10/2023 22:30,Closed
+559,Murder,Kharar,1/11/2023 20:15,Open
+560,Theft,Kharar,1/1/2023 14:30,Closed
+561,Assault,Chandigarh,1/2/2023 18:45,Open
+562,Fraud,Kharar,1/1/2023 09:15,In Progress
+563,Theft,Ropar,1/3/2023 20:10,Closed
+564,Murder,Patiala,1/4/2023 12:00,Open
+565,Burglary,Kharar,1/5/2023 03:20,Closed
+566,Robbery,Mohali,1/5/2023 15:40,In Progress
+567,Arson,Chandigarh,1/6/2023 10:05,Open
+568,Theft,Ropar,1/7/2023 19:25,Closed
+569,Assault,Ludhiana,1/8/2023 14:10,In Progress
+570,Fraud,Chandigarh,1/9/2023 16:45,Open
+571,Burglary,Ropar,1/10/2023 22:30,Closed
+572,Murder,Kharar,1/11/2023 20:15,Open
+573,Arson,Ludhiana,1/12/2023 04:55,In Progress
+574,Robbery,Mohali,1/13/2023 13:35,Closed
+575,Fraud,Patiala,1/14/2023 11:10,Open
+576,Theft,Kharar,1/15/2023 21:20,In Progress
+577,Assault,Chandigarh,1/16/2023 17:50,Closed
+578,Burglary,Ludhiana,1/17/2023 02:40,Open
+579,Murder,Mohali,1/18/2023 18:25,In Progress
+580,Robbery,Patiala,1/19/2023 08:15,Closed
+581,Arson,Kharar,1/20/2023 23:30,Open
+582,Fraud,Ropar,1/21/2023 05:00,In Progress
+583,Theft,Chandigarh,1/22/2023 14:00,Closed
+584,Assault,Mohali,1/23/2023 19:45,Open
+585,Murder,Ropar,1/24/2023 16:30,In Progress
+586,Theft,Ludhiana,1/25/2023 07:15,Closed
+587,Fraud,Patiala,1/26/2023 13:55,Open
+588,Arson,Mohali,1/27/2023 22:50,In Progress
+589,Burglary,Chandigarh,1/28/2023 06:45,Closed
+590,Theft,Kharar,1/1/2023 14:30,Closed
+591,Assault,Chandigarh,1/2/2023 18:45,Open
+592,Fraud,Kharar,1/1/2023 09:15,In Progress
+593,Theft,Ropar,1/3/2023 20:10,Closed
+594,Murder,Patiala,1/4/2023 12:00,Open
+595,Burglary,Kharar,1/5/2023 03:20,Closed
+596,Robbery,Mohali,1/5/2023 15:40,In Progress
+597,Arson,Chandigarh,1/6/2023 10:05,Open
+598,Theft,Ropar,1/7/2023 19:25,Closed
+599,Assault,Ludhiana,1/8/2023 14:10,In Progress
+600,Fraud,Chandigarh,1/9/2023 16:45,Open
+601,Burglary,Ropar,1/10/2023 22:30,Closed
+602,Murder,Kharar,1/11/2023 20:15,Open
+603,Theft,Kharar,1/1/2023 14:30,Closed
+604,Assault,Chandigarh,1/2/2023 18:45,Open
+605,Fraud,Kharar,1/1/2023 09:15,In Progress
+606,Theft,Ropar,1/3/2023 20:10,Closed
+607,Murder,Patiala,1/4/2023 12:00,Open
+608,Burglary,Kharar,1/5/2023 03:20,Closed
+609,Robbery,Mohali,1/5/2023 15:40,In Progress
+610,Arson,Chandigarh,1/6/2023 10:05,Open
+611,Theft,Ropar,1/7/2023 19:25,Closed
+612,Assault,Ludhiana,1/8/2023 14:10,In Progress
+613,Fraud,Chandigarh,1/9/2023 16:45,Open
+614,Burglary,Ropar,1/10/2023 22:30,Closed
+615,Murder,Kharar,1/11/2023 20:15,Open
+616,Arson,Ludhiana,1/12/2023 04:55,In Progress
+617,Robbery,Mohali,1/13/2023 13:35,Closed
+618,Fraud,Patiala,1/14/2023 11:10,Open
+619,Theft,Kharar,1/15/2023 21:20,In Progress
+620,Assault,Chandigarh,1/16/2023 17:50,Closed
+621,Burglary,Ludhiana,1/17/2023 02:40,Open
+622,Murder,Mohali,1/18/2023 18:25,In Progress
+623,Robbery,Patiala,1/19/2023 08:15,Closed
+624,Arson,Kharar,1/20/2023 23:30,Open
+625,Fraud,Ropar,1/21/2023 05:00,In Progress
+626,Theft,Chandigarh,1/22/2023 14:00,Closed
+627,Assault,Mohali,1/23/2023 19:45,Open
+628,Murder,Ropar,1/24/2023 16:30,In Progress
+629,Theft,Ludhiana,1/25/2023 07:15,Closed
+630,Fraud,Patiala,1/26/2023 13:55,Open
+631,Arson,Mohali,1/27/2023 22:50,In Progress
+632,Burglary,Chandigarh,1/28/2023 06:45,Closed
+633,Theft,Kharar,1/1/2023 14:30,Closed
+634,Assault,Chandigarh,1/2/2023 18:45,Open
+635,Fraud,Kharar,1/1/2023 09:15,In Progress
+636,Theft,Ropar,1/3/2023 20:10,Closed
+637,Murder,Patiala,1/4/2023 12:00,Open
+638,Burglary,Kharar,1/5/2023 03:20,Closed
+639,Robbery,Mohali,1/5/2023 15:40,In Progress
+640,Arson,Chandigarh,1/6/2023 10:05,Open
+641,Theft,Ropar,1/7/2023 19:25,Closed
+642,Assault,Ludhiana,1/8/2023 14:10,In Progress
+643,Fraud,Chandigarh,1/9/2023 16:45,Open
+644,Burglary,Ropar,1/10/2023 22:30,Closed
+645,Murder,Kharar,1/11/2023 20:15,Open
+646,Theft,Kharar,1/1/2023 14:30,Closed
+647,Assault,Chandigarh,1/2/2023 18:45,Open
+648,Fraud,Kharar,1/1/2023 09:15,In Progress
+649,Theft,Ropar,1/3/2023 20:10,Closed
+650,Murder,Patiala,1/4/2023 12:00,Open
+651,Burglary,Kharar,1/5/2023 03:20,Closed
+652,Robbery,Mohali,1/5/2023 15:40,In Progress
+653,Arson,Chandigarh,1/6/2023 10:05,Open
+654,Theft,Ropar,1/7/2023 19:25,Closed
+655,Assault,Ludhiana,1/8/2023 14:10,In Progress
+656,Fraud,Chandigarh,1/9/2023 16:45,Open
+657,Burglary,Ropar,1/10/2023 22:30,Closed
+658,Murder,Kharar,1/11/2023 20:15,Open
+659,Arson,Ludhiana,1/12/2023 04:55,In Progress
+660,Robbery,Mohali,1/13/2023 13:35,Closed
+661,Fraud,Patiala,1/14/2023 11:10,Open
+662,Theft,Kharar,1/15/2023 21:20,In Progress
+663,Assault,Chandigarh,1/16/2023 17:50,Closed
+664,Burglary,Ludhiana,1/17/2023 02:40,Open
+665,Murder,Mohali,1/18/2023 18:25,In Progress
+666,Robbery,Patiala,1/19/2023 08:15,Closed
+667,Arson,Kharar,1/20/2023 23:30,Open
+668,Fraud,Ropar,1/21/2023 05:00,In Progress
+669,Theft,Chandigarh,1/22/2023 14:00,Closed
+670,Assault,Mohali,1/23/2023 19:45,Open
+671,Murder,Ropar,1/24/2023 16:30,In Progress
+672,Theft,Ludhiana,1/25/2023 07:15,Closed
+673,Fraud,Patiala,1/26/2023 13:55,Open
+674,Arson,Mohali,1/27/2023 22:50,In Progress
+675,Burglary,Chandigarh,1/28/2023 06:45,Closed
+676,Theft,Kharar,1/1/2023 14:30,Closed
+677,Assault,Chandigarh,1/2/2023 18:45,Open
+678,Fraud,Kharar,1/1/2023 09:15,In Progress
+679,Theft,Ropar,1/3/2023 20:10,Closed
+680,Murder,Patiala,1/4/2023 12:00,Open
+681,Burglary,Kharar,1/5/2023 03:20,Closed
+682,Robbery,Mohali,1/5/2023 15:40,In Progress
+683,Arson,Chandigarh,1/6/2023 10:05,Open
+684,Theft,Ropar,1/7/2023 19:25,Closed
+685,Assault,Ludhiana,1/8/2023 14:10,In Progress
+686,Fraud,Chandigarh,1/9/2023 16:45,Open
+687,Burglary,Ropar,1/10/2023 22:30,Closed
+688,Murder,Kharar,1/11/2023 20:15,Open
+689,Theft,Kharar,1/1/2023 14:30,Closed
+690,Assault,Chandigarh,1/2/2023 18:45,Open
+691,Fraud,Kharar,1/1/2023 09:15,In Progress
+692,Theft,Ropar,1/3/2023 20:10,Closed
+693,Murder,Patiala,1/4/2023 12:00,Open
+694,Burglary,Kharar,1/5/2023 03:20,Closed
+695,Robbery,Mohali,1/5/2023 15:40,In Progress
+696,Arson,Chandigarh,1/6/2023 10:05,Open
+697,Theft,Ropar,1/7/2023 19:25,Closed
+698,Assault,Ludhiana,1/8/2023 14:10,In Progress
+699,Fraud,Chandigarh,1/9/2023 16:45,Open
+700,Burglary,Ropar,1/10/2023 22:30,Closed
+701,Murder,Kharar,1/11/2023 20:15,Open
+702,Arson,Ludhiana,1/12/2023 04:55,In Progress
+703,Robbery,Mohali,1/13/2023 13:35,Closed
+704,Fraud,Patiala,1/14/2023 11:10,Open
+705,Theft,Kharar,1/15/2023 21:20,In Progress
+706,Assault,Chandigarh,1/16/2023 17:50,Closed
+707,Burglary,Ludhiana,1/17/2023 02:40,Open
+708,Murder,Mohali,1/18/2023 18:25,In Progress
+709,Robbery,Patiala,1/19/2023 08:15,Closed
+710,Arson,Kharar,1/20/2023 23:30,Open
+711,Fraud,Ropar,1/21/2023 05:00,In Progress
+712,Theft,Chandigarh,1/22/2023 14:00,Closed
+713,Assault,Mohali,1/23/2023 19:45,Open
+714,Murder,Ropar,1/24/2023 16:30,In Progress
+715,Theft,Ludhiana,1/25/2023 07:15,Closed
+716,Fraud,Patiala,1/26/2023 13:55,Open
+717,Arson,Mohali,1/27/2023 22:50,In Progress
+718,Burglary,Chandigarh,1/28/2023 06:45,Closed
+719,Theft,Kharar,1/1/2023 14:30,Closed
+720,Assault,Chandigarh,1/2/2023 18:45,Open
+721,Fraud,Kharar,1/1/2023 09:15,In Progress
+722,Theft,Ropar,1/3/2023 20:10,Closed
+723,Murder,Patiala,1/4/2023 12:00,Open
+724,Burglary,Kharar,1/5/2023 03:20,Closed
+725,Robbery,Mohali,1/5/2023 15:40,In Progress
+726,Arson,Chandigarh,1/6/2023 10:05,Open
+727,Theft,Ropar,1/7/2023 19:25,Closed
+728,Assault,Ludhiana,1/8/2023 14:10,In Progress
+729,Fraud,Chandigarh,1/9/2023 16:45,Open
+730,Burglary,Ropar,1/10/2023 22:30,Closed
+731,Murder,Kharar,1/11/2023 20:15,Open
+732,Theft,Kharar,1/1/2023 14:30,Closed
+733,Assault,Chandigarh,1/2/2023 18:45,Open
+734,Fraud,Kharar,1/1/2023 09:15,In Progress
+735,Theft,Ropar,1/3/2023 20:10,Closed
+736,Murder,Patiala,1/4/2023 12:00,Open
+737,Burglary,Kharar,1/5/2023 03:20,Closed
+738,Robbery,Mohali,1/5/2023 15:40,In Progress
+739,Arson,Chandigarh,1/6/2023 10:05,Open
+740,Theft,Ropar,1/7/2023 19:25,Closed
+741,Assault,Ludhiana,1/8/2023 14:10,In Progress
+742,Fraud,Chandigarh,1/9/2023 16:45,Open
+743,Burglary,Ropar,1/10/2023 22:30,Closed
+744,Murder,Kharar,1/11/2023 20:15,Open
+745,Arson,Ludhiana,1/12/2023 04:55,In Progress
+746,Robbery,Mohali,1/13/2023 13:35,Closed
+747,Fraud,Patiala,1/14/2023 11:10,Open
+748,Theft,Kharar,1/15/2023 21:20,In Progress
+749,Assault,Chandigarh,1/16/2023 17:50,Closed
+750,Burglary,Ludhiana,1/17/2023 02:40,Open
+751,Murder,Mohali,1/18/2023 18:25,In Progress
+752,Robbery,Patiala,1/19/2023 08:15,Closed
+753,Arson,Kharar,1/20/2023 23:30,Open
+754,Fraud,Ropar,1/21/2023 05:00,In Progress
+755,Theft,Chandigarh,1/22/2023 14:00,Closed
+756,Assault,Mohali,1/23/2023 19:45,Open
+757,Murder,Ropar,1/24/2023 16:30,In Progress
+758,Theft,Ludhiana,1/25/2023 07:15,Closed
+759,Fraud,Patiala,1/26/2023 13:55,Open
+760,Arson,Mohali,1/27/2023 22:50,In Progress
+761,Burglary,Chandigarh,1/28/2023 06:45,Closed
+762,Theft,Kharar,1/1/2023 14:30,Closed
+763,Assault,Chandigarh,1/2/2023 18:45,Open
+764,Fraud,Kharar,1/1/2023 09:15,In Progress
+765,Theft,Ropar,1/3/2023 20:10,Closed
+766,Murder,Patiala,1/4/2023 12:00,Open
+767,Burglary,Kharar,1/5/2023 03:20,Closed
+768,Robbery,Mohali,1/5/2023 15:40,In Progress
+769,Arson,Chandigarh,1/6/2023 10:05,Open
+770,Theft,Ropar,1/7/2023 19:25,Closed
+771,Assault,Ludhiana,1/8/2023 14:10,In Progress
+772,Fraud,Chandigarh,1/9/2023 16:45,Open
+773,Burglary,Ropar,1/10/2023 22:30,Closed
+774,Murder,Kharar,1/11/2023 20:15,Open
+775,Theft,Kharar,1/1/2023 14:30,Closed
+776,Assault,Chandigarh,1/2/2023 18:45,Open
+777,Fraud,Kharar,1/1/2023 09:15,In Progress
+778,Theft,Ropar,1/3/2023 20:10,Closed
+779,Murder,Patiala,1/4/2023 12:00,Open
+780,Burglary,Kharar,1/5/2023 03:20,Closed
+781,Robbery,Mohali,1/5/2023 15:40,In Progress
+782,Arson,Chandigarh,1/6/2023 10:05,Open
+783,Theft,Ropar,1/7/2023 19:25,Closed
+784,Assault,Ludhiana,1/8/2023 14:10,In Progress
+785,Fraud,Chandigarh,1/9/2023 16:45,Open
+786,Burglary,Ropar,1/10/2023 22:30,Closed
+787,Murder,Kharar,1/11/2023 20:15,Open
+788,Arson,Ludhiana,1/12/2023 04:55,In Progress
+789,Robbery,Mohali,1/13/2023 13:35,Closed
+790,Fraud,Patiala,1/14/2023 11:10,Open
+791,Theft,Kharar,1/15/2023 21:20,In Progress
+792,Assault,Chandigarh,1/16/2023 17:50,Closed
+793,Burglary,Ludhiana,1/17/2023 02:40,Open
+794,Murder,Mohali,1/18/2023 18:25,In Progress
+795,Robbery,Patiala,1/19/2023 08:15,Closed
+796,Arson,Kharar,1/20/2023 23:30,Open
+797,Fraud,Ropar,1/21/2023 05:00,In Progress
+798,Theft,Chandigarh,1/22/2023 14:00,Closed
+799,Assault,Mohali,1/23/2023 19:45,Open
+800,Murder,Ropar,1/24/2023 16:30,In Progress
+801,Theft,Ludhiana,1/25/2023 07:15,Closed
+802,Fraud,Patiala,1/26/2023 13:55,Open
+803,Arson,Mohali,1/27/2023 22:50,In Progress
+804,Burglary,Chandigarh,1/28/2023 06:45,Closed
+805,Theft,Kharar,1/1/2023 14:30,Closed
+806,Assault,Chandigarh,1/2/2023 18:45,Open
+807,Fraud,Kharar,1/1/2023 09:15,In Progress
+808,Theft,Ropar,1/3/2023 20:10,Closed
+809,Murder,Patiala,1/4/2023 12:00,Open
+810,Burglary,Kharar,1/5/2023 03:20,Closed
+811,Robbery,Mohali,1/5/2023 15:40,In Progress
+812,Arson,Chandigarh,1/6/2023 10:05,Open
+813,Theft,Ropar,1/7/2023 19:25,Closed
+814,Assault,Ludhiana,1/8/2023 14:10,In Progress
+815,Fraud,Chandigarh,1/9/2023 16:45,Open
+816,Burglary,Ropar,1/10/2023 22:30,Closed
+817,Murder,Kharar,1/11/2023 20:15,Open
+818,Theft,Kharar,1/1/2023 14:30,Closed
+819,Assault,Chandigarh,1/2/2023 18:45,Open
+820,Fraud,Kharar,1/1/2023 09:15,In Progress
+821,Theft,Ropar,1/3/2023 20:10,Closed
+822,Murder,Patiala,1/4/2023 12:00,Open
+823,Burglary,Kharar,1/5/2023 03:20,Closed
+824,Robbery,Mohali,1/5/2023 15:40,In Progress
+825,Arson,Chandigarh,1/6/2023 10:05,Open
+826,Theft,Ropar,1/7/2023 19:25,Closed
+827,Assault,Ludhiana,1/8/2023 14:10,In Progress
+828,Fraud,Chandigarh,1/9/2023 16:45,Open
+829,Burglary,Ropar,1/10/2023 22:30,Closed
+830,Murder,Kharar,1/11/2023 20:15,Open
+831,Arson,Ludhiana,1/12/2023 04:55,In Progress
+832,Robbery,Mohali,1/13/2023 13:35,Closed
+833,Fraud,Patiala,1/14/2023 11:10,Open
+834,Theft,Kharar,1/15/2023 21:20,In Progress
+835,Assault,Chandigarh,1/16/2023 17:50,Closed
+836,Burglary,Ludhiana,1/17/2023 02:40,Open
+837,Murder,Mohali,1/18/2023 18:25,In Progress
+838,Robbery,Patiala,1/19/2023 08:15,Closed
+839,Arson,Kharar,1/20/2023 23:30,Open
+840,Fraud,Ropar,1/21/2023 05:00,In Progress
+841,Theft,Chandigarh,1/22/2023 14:00,Closed
+842,Assault,Mohali,1/23/2023 19:45,Open
+843,Murder,Ropar,1/24/2023 16:30,In Progress
+844,Theft,Ludhiana,1/25/2023 07:15,Closed
+845,Fraud,Patiala,1/26/2023 13:55,Open
+846,Arson,Mohali,1/27/2023 22:50,In Progress
+847,Burglary,Chandigarh,1/28/2023 06:45,Closed
+848,Theft,Kharar,1/1/2023 14:30,Closed
+849,Assault,Chandigarh,1/2/2023 18:45,Open
+850,Fraud,Kharar,1/1/2023 09:15,In Progress
+851,Theft,Ropar,1/3/2023 20:10,Closed
+852,Murder,Patiala,1/4/2023 12:00,Open
+853,Burglary,Kharar,1/5/2023 03:20,Closed
+854,Robbery,Mohali,1/5/2023 15:40,In Progress
+855,Arson,Chandigarh,1/6/2023 10:05,Open
+856,Theft,Ropar,1/7/2023 19:25,Closed
+857,Assault,Ludhiana,1/8/2023 14:10,In Progress
+858,Fraud,Chandigarh,1/9/2023 16:45,Open
+859,Burglary,Ropar,1/10/2023 22:30,Closed
+860,Murder,Kharar,1/11/2023 20:15,Open
+861,Theft,Kharar,1/1/2023 14:30,Closed
+862,Assault,Chandigarh,1/2/2023 18:45,Open
+863,Fraud,Kharar,1/1/2023 09:15,In Progress
+864,Theft,Ropar,1/3/2023 20:10,Closed
+865,Murder,Patiala,1/4/2023 12:00,Open
+866,Burglary,Kharar,1/5/2023 03:20,Closed
+867,Robbery,Mohali,1/5/2023 15:40,In Progress
+868,Arson,Chandigarh,1/6/2023 10:05,Open
+869,Theft,Ropar,1/7/2023 19:25,Closed
+870,Assault,Ludhiana,1/8/2023 14:10,In Progress
+871,Fraud,Chandigarh,1/9/2023 16:45,Open
+872,Burglary,Ropar,1/10/2023 22:30,Closed
+873,Murder,Kharar,1/11/2023 20:15,Open
+874,Arson,Ludhiana,1/12/2023 04:55,In Progress
+875,Robbery,Mohali,1/13/2023 13:35,Closed
+876,Fraud,Patiala,1/14/2023 11:10,Open
+877,Theft,Kharar,1/15/2023 21:20,In Progress
+878,Assault,Chandigarh,1/16/2023 17:50,Closed
+879,Burglary,Ludhiana,1/17/2023 02:40,Open
+880,Murder,Mohali,1/18/2023 18:25,In Progress
+881,Robbery,Patiala,1/19/2023 08:15,Closed
+882,Arson,Kharar,1/20/2023 23:30,Open
+883,Fraud,Ropar,1/21/2023 05:00,In Progress
+884,Theft,Chandigarh,1/22/2023 14:00,Closed
+885,Assault,Mohali,1/23/2023 19:45,Open
+886,Murder,Ropar,1/24/2023 16:30,In Progress
+887,Theft,Ludhiana,1/25/2023 07:15,Closed
+888,Fraud,Patiala,1/26/2023 13:55,Open
+889,Arson,Mohali,1/27/2023 22:50,In Progress
+890,Burglary,Chandigarh,1/28/2023 06:45,Closed
+891,Theft,Kharar,1/1/2023 14:30,Closed
+892,Assault,Chandigarh,1/2/2023 18:45,Open
+893,Fraud,Kharar,1/1/2023 09:15,In Progress
+894,Theft,Ropar,1/3/2023 20:10,Closed
+895,Murder,Patiala,1/4/2023 12:00,Open
+896,Burglary,Kharar,1/5/2023 03:20,Closed
+897,Robbery,Mohali,1/5/2023 15:40,In Progress
+898,Arson,Chandigarh,1/6/2023 10:05,Open
+899,Theft,Ropar,1/7/2023 19:25,Closed
+900,Assault,Ludhiana,1/8/2023 14:10,In Progress
+901,Fraud,Chandigarh,1/9/2023 16:45,Open
+902,Burglary,Ropar,1/10/2023 22:30,Closed
+903,Murder,Kharar,1/11/2023 20:15,Open
+904,Theft,Kharar,1/1/2023 14:30,Closed
+905,Assault,Chandigarh,1/2/2023 18:45,Open
+906,Fraud,Kharar,1/1/2023 09:15,In Progress
+907,Theft,Ropar,1/3/2023 20:10,Closed
+908,Murder,Patiala,1/4/2023 12:00,Open
+909,Burglary,Kharar,1/5/2023 03:20,Closed
+910,Robbery,Mohali,1/5/2023 15:40,In Progress
+911,Arson,Chandigarh,1/6/2023 10:05,Open
+912,Theft,Ropar,1/7/2023 19:25,Closed
+913,Assault,Ludhiana,1/8/2023 14:10,In Progress
+914,Fraud,Chandigarh,1/9/2023 16:45,Open
+915,Burglary,Ropar,1/10/2023 22:30,Closed
+916,Murder,Kharar,1/11/2023 20:15,Open
+917,Arson,Ludhiana,1/12/2023 04:55,In Progress
+918,Robbery,Mohali,1/13/2023 13:35,Closed
+919,Fraud,Patiala,1/14/2023 11:10,Open
+920,Theft,Kharar,1/15/2023 21:20,In Progress
+921,Assault,Chandigarh,1/16/2023 17:50,Closed
+922,Burglary,Ludhiana,1/17/2023 02:40,Open
+923,Murder,Mohali,1/18/2023 18:25,In Progress
+924,Robbery,Patiala,1/19/2023 08:15,Closed
+925,Arson,Kharar,1/20/2023 23:30,Open
+926,Fraud,Ropar,1/21/2023 05:00,In Progress
+927,Theft,Chandigarh,1/22/2023 14:00,Closed
+928,Assault,Mohali,1/23/2023 19:45,Open
+929,Murder,Ropar,1/24/2023 16:30,In Progress
+930,Theft,Ludhiana,1/25/2023 07:15,Closed
+931,Fraud,Patiala,1/26/2023 13:55,Open
+932,Arson,Mohali,1/27/2023 22:50,In Progress
+933,Burglary,Chandigarh,1/28/2023 06:45,Closed
+934,Theft,Kharar,1/1/2023 14:30,Closed
+935,Assault,Chandigarh,1/2/2023 18:45,Open
+936,Fraud,Kharar,1/1/2023 09:15,In Progress
+937,Theft,Ropar,1/3/2023 20:10,Closed
+938,Murder,Patiala,1/4/2023 12:00,Open
+939,Burglary,Kharar,1/5/2023 03:20,Closed
+940,Robbery,Mohali,1/5/2023 15:40,In Progress
+941,Arson,Chandigarh,1/6/2023 10:05,Open
+942,Theft,Ropar,1/7/2023 19:25,Closed
+943,Assault,Ludhiana,1/8/2023 14:10,In Progress
+944,Fraud,Chandigarh,1/9/2023 16:45,Open
+945,Burglary,Ropar,1/10/2023 22:30,Closed
+946,Murder,Kharar,1/11/2023 20:15,Open
+947,Theft,Kharar,1/1/2023 14:30,Closed
+948,Assault,Chandigarh,1/2/2023 18:45,Open
+949,Fraud,Kharar,1/1/2023 09:15,In Progress
+950,Theft,Ropar,1/3/2023 20:10,Closed
+951,Murder,Patiala,1/4/2023 12:00,Open
+952,Burglary,Kharar,1/5/2023 03:20,Closed
+953,Robbery,Mohali,1/5/2023 15:40,In Progress
+954,Arson,Chandigarh,1/6/2023 10:05,Open
+955,Theft,Ropar,1/7/2023 19:25,Closed
+956,Assault,Ludhiana,1/8/2023 14:10,In Progress
+957,Fraud,Chandigarh,1/9/2023 16:45,Open
+958,Burglary,Ropar,1/10/2023 22:30,Closed
+959,Murder,Kharar,1/11/2023 20:15,Open
+960,Arson,Ludhiana,1/12/2023 04:55,In Progress
+961,Robbery,Mohali,1/13/2023 13:35,Closed
+962,Fraud,Patiala,1/14/2023 11:10,Open
+963,Theft,Kharar,1/15/2023 21:20,In Progress
+964,Assault,Chandigarh,1/16/2023 17:50,Closed
+965,Burglary,Ludhiana,1/17/2023 02:40,Open
+966,Murder,Mohali,1/18/2023 18:25,In Progress
+967,Robbery,Patiala,1/19/2023 08:15,Closed
+968,Arson,Kharar,1/20/2023 23:30,Open
+969,Fraud,Ropar,1/21/2023 05:00,In Progress
+970,Theft,Chandigarh,1/22/2023 14:00,Closed
+971,Assault,Mohali,1/23/2023 19:45,Open
+972,Murder,Ropar,1/24/2023 16:30,In Progress
+973,Theft,Ludhiana,1/25/2023 07:15,Closed
+974,Fraud,Patiala,1/26/2023 13:55,Open
+975,Arson,Mohali,1/27/2023 22:50,In Progress
+976,Burglary,Chandigarh,1/28/2023 06:45,Closed
+977,Theft,Kharar,1/1/2023 14:30,Closed
+978,Assault,Chandigarh,1/2/2023 18:45,Open
+979,Fraud,Kharar,1/1/2023 09:15,In Progress
+980,Theft,Ropar,1/3/2023 20:10,Closed
+981,Murder,Patiala,1/4/2023 12:00,Open
+982,Burglary,Kharar,1/5/2023 03:20,Closed
+983,Robbery,Mohali,1/5/2023 15:40,In Progress
+984,Arson,Chandigarh,1/6/2023 10:05,Open
+985,Theft,Ropar,1/7/2023 19:25,Closed
+986,Assault,Ludhiana,1/8/2023 14:10,In Progress
+987,Fraud,Chandigarh,1/9/2023 16:45,Open
+988,Burglary,Ropar,1/10/2023 22:30,Closed
+989,Murder,Kharar,1/11/2023 20:15,Open
+990,Theft,Kharar,1/1/2023 14:30,Closed
+991,Assault,Chandigarh,1/2/2023 18:45,Open
+992,Fraud,Kharar,1/1/2023 09:15,In Progress
+993,Theft,Ropar,1/3/2023 20:10,Closed
+994,Murder,Patiala,1/4/2023 12:00,Open
+995,Burglary,Kharar,1/5/2023 03:20,Closed
+996,Robbery,Mohali,1/5/2023 15:40,In Progress
+997,Arson,Chandigarh,1/6/2023 10:05,Open
+998,Theft,Ropar,1/7/2023 19:25,Closed
+999,Assault,Ludhiana,1/8/2023 14:10,In Progress
+1000,Fraud,Chandigarh,1/9/2023 16:45,Open
