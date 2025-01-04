@@ -112,6 +112,9 @@ To copy a file (e.g., `police.csv`) to the Hadoop cluster:
 
 - ![image](https://github.com/user-attachments/assets/a824047c-f50c-494c-8429-d2bebd58870b)
 
+**You can monitor processes here**
+
+- ![image](https://github.com/user-attachments/assets/8fa7e525-d601-4dad-b5b4-0477d47ec4dd)
 
 ### **Start Spark Shell**
 
@@ -128,7 +131,6 @@ spark/bin/spark-shell --master spark://spark-master:7077
 ![image](https://github.com/user-attachments/assets/b071335b-4928-491a-8bed-321995881d83)
 
 
-
 ### **Process Data in Spark**
 
 To load and view data from HDFS using Spark:
@@ -139,7 +141,14 @@ df.show()
 ```
 ![image](https://github.com/user-attachments/assets/4101596d-da55-4cd2-b4de-02a8f7f0299a)
 
-## **Step 7: Set Up Hive**
+
+
+
+
+
+![image](https://github.com/user-attachments/assets/fada1eec-5349-4382-8d1a-96940c124064)
+
+## **Step 7: Set Up Hive** 
 
 ### **Start Hive Server**
 
