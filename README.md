@@ -108,6 +108,9 @@ To copy a file (e.g., `police.csv`) to the Hadoop cluster:
 
 - Open `http://localhost:8080` in your web browser to view the Spark Master UI.
 
+- ![image](https://github.com/user-attachments/assets/a824047c-f50c-494c-8429-d2bebd58870b)
+
+
 ### **Start Spark Shell**
 
 To interact with Spark, start the Spark shell in the master container:
@@ -120,7 +123,8 @@ spark/bin/spark-shell --master spark://spark-master:7077
 
 ![image](https://github.com/user-attachments/assets/45765d5e-b1e7-4726-a60c-ddd5dd278c93)
 
-![image](https://github.com/user-attachments/assets/29f99758-b06d-4394-895a-ea7f9924ef0a)
+![image](https://github.com/user-attachments/assets/b071335b-4928-491a-8bed-321995881d83)
+
 
 
 ### **Process Data in Spark**
