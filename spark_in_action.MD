@@ -22,7 +22,7 @@ spark/bin/spark-shell --master spark://spark-master:7077
 ## Prepare files
 Copy the directory of data on the namode and copy it from there to HDFS
 ```
-docker ps |grep namenode  # achterhaal Container ID van namenode
+docker ps |grep namenode  # find out Container ID of namode
 
 docker cp Spark_in_Action 2ffec0140800:sparkinaction
 
