@@ -177,6 +177,8 @@ Now you can use SQL queries in Hive to perform data analysis. Here are some exam
 ```sql
 select * from police_data limit 10;
 ```
+![image](https://github.com/user-attachments/assets/05339e17-4a96-42f2-bd47-a0df7f5aed3c)
+
 
 **Query 1: Count total crimes in the dataset.**
 ```sql
