@@ -27,6 +27,12 @@ Run `docker network inspect` on the network (e.g. `docker-hadoop-spark-hive_defa
 * Spark worker: http://<dockerhadoop_IP_address>:8081/
 * Hive: http://<dockerhadoop_IP_address>:10000
 
+And you can break it all down again by going to that same directory and running this:
+
+**docker-compose down**
+
+All the containers will then be stopped and removed. But: the images and volumes stay! So don’t be surprised that the csv file you uploaded to HDFS will still be there.
+
 ## Important note regarding Docker Desktop
 Since Docker Desktop turned “Expose daemon on tcp://localhost:2375 without TLS” off by default there have been all kinds of connection problems running the complete docker-compose. Turning this option on again (Settings > General > Expose daemon on tcp://localhost:2375 without TLS) makes it all work. I’m still looking for a more secure solution to this.
 
