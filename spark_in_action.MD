@@ -8,7 +8,7 @@ Once you've done that, you can copy the Spark commands one after the other, run 
 I facing you're facing any problem you can see in this (Dutch) video in English Subtitles: [WATCH VIDEO](https://youtu.be/ajo2CYz_GSg).
 
 ## Start PySpark
-Start the Docker environment according to [the manual](https://github.com/DIKW/CDEP-Docker/blob/master/hadoop/docker-hadoop-spark-hive/README.md). Follow the Quick Start Spark (PySpark) to log in to the Spark master.
+Start the Docker environment according to [the manual](https://github.com/jgperrin/net.jgp.books.spark.ch01/blob/master/README.md). Follow the Quick Start Spark (PySpark) to log in to the Spark master.
 
 Start PySpark:
 ```
