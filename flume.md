@@ -42,6 +42,7 @@ Here is a complete step-by-step guide to install Apache Flume on top of your Had
    ```bash
    flume-ng version
    ```
+![image](https://github.com/user-attachments/assets/14fd9825-4efe-4c17-9167-3feab67710ac)
 
 ---
 
