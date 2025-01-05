@@ -142,7 +142,152 @@ df.show()
 ![image](https://github.com/user-attachments/assets/4101596d-da55-4cd2-b4de-02a8f7f0299a)
 
 
+docker exec -it namenode bash
 
+echo -e "id,name,age,department,salary\n1,John,30,HR,3000\n2,Jane,35,Finance,4000\n3,Sam,28,Engineering,5000\n4,Lisa,40,Marketing,6000" > employees.csv
+
+ls
+
+hdfs dfs -put employees.csv /data
+
+hdfs dfs -ls /data
+
+exit
+
+docker exec -it spark-master bash
+
+spark/bin/spark-shell --master spark://spark-master:7077
+
+```scala
+val df = spark.read.csv("hdfs://namenode:9000/data/employees.csv")
+
+df.show()
+```
+![image](https://github.com/user-attachments/assets/21f3febf-07bd-493f-9101-247e03091f9b)
+
+   This will display the contents of the CSV file as a DataFrame:
+
+   ```
+   +---+----+---+-----------+------+
+   | id|name|age| department|salary|
+   +---+----+---+-----------+------+
+   |  1|John| 30|         HR|  3000|
+   |  2|Jane| 35|    Finance|  4000|
+   |  3| Sam| 28|Engineering|  5000|
+   |  4|Lisa| 40|  Marketing|  6000|
+   +---+----+---+-----------+------+
+   ```
+
+3. **Performing SQL Operations**:
+
+   Once the data is loaded into a DataFrame, you can run SQL queries. First, register the DataFrame as a temporary SQL table.
+
+   ```scala
+   // Register the DataFrame as a temporary table
+   df.createOrReplaceTempView("employees")
+
+   // Run an SQL query to select employees with a salary greater than 4000
+   val sqlData = spark.sql("SELECT * FROM employees WHERE salary > 4000")
+   
+   // Show the results
+   sqlData.show()
+   ```
+
+   The output will look like this:
+
+   ```
+   +---+----+---+-----------+------+
+   | id|name|age| department|salary|
+   +---+----+---+-----------+------+
+   |  3| Sam| 28|Engineering|  5000|
+   |  4|Lisa| 40|  Marketing|  6000|
+   +---+----+---+-----------+------+
+   ```
+
+4. **Saving the Data**:
+
+   After transforming or processing the data, you can save the results in different formats such as CSV, Parquet, or JSON.
+
+   To save the transformed DataFrame as a new CSV file:
+
+   ```scala
+   sqlData.write.option("header", "true").csv("output_employees.csv")
+   ```
+
+   This will save the result into a file called `output_employees.csv` in the current directory.
+
+
+
+### You can use this same process to load and analyze data from different file formats (CSV, JSON, Parquet) in Spark, and perform various transformations and SQL operations.
+
+![image](https://github.com/user-attachments/assets/21f50d78-31bd-4db9-8ea4-6ce762bde45a)
+
+
+**Scala WordCount program.**
+
+```markdown
+### Docker Command to Copy File
+
+Use the following command to copy the `data.txt` file from your local system to the Docker container:
+
+```bash
+docker cp data.txt spark-container:/opt/bitnami/spark/spark-practicals/data.txt
+```
+
+### WordCount Program in Scala
+
+The following Scala code performs a WordCount operation using Apache Spark:
+
+```scala
+import org.apache.spark.{SparkConf, SparkContext}
+
+val conf = new SparkConf().setAppName("WordCountExample").setMaster("local")
+val sc = new SparkContext(conf)
+
+val input = sc.textFile("/opt/bitnami/spark/spark-practicals/data.txt")
+
+val wordPairs = input.flatMap(line => line.split(" ")).map(word => (word, 1))
+
+val wordCounts = wordPairs.reduceByKey((a, b) => a + b)
+
+wordCounts.collect().foreach { case (word, count) =>
+  println(s"$word: $count")
+}
+
+sc.stop()
+```
+
+
+![image](https://github.com/user-attachments/assets/2ced2923-4192-4359-aa47-81c7e7608d32)
+
+
+### Steps:
+
+1. **Copy File**: Use `docker cp` to move or create the file inside the Docker container.
+2. **WordCount Program**: The program reads the file, splits it into words, and counts the occurrences of each word.
+3. **Output**: The word counts will be printed to the console when the program is executed.
+```
+
+
+
+![image](https://github.com/user-attachments/assets/e1787f84-a89d-4a14-a71f-3fe5ccaa9323)
+
+
+
+**##Closing the Spark Session**
+
+Once you are done with your operations, don’t forget to stop the Spark session.
+
+```scala
+spark.stop()
+```
+
+Running **Apache Spark with Hadoop** involves configuring Spark to run on your local machine while still leveraging Hadoop's components, like HDFS (Hadoop Distributed File System) for storage and possibly YARN (Yet Another Resource Negotiator) for managing resources, although the overall execution will be single-node (locally). In this configuration, Spark runs on your local machine, but you can still access and utilize Hadoop's storage and resource management features.
+
+### Key Points about Spark with Hadoop:
+- **Single Node Setup**: While Spark runs locally on a single machine (like in "local mode"), you can still utilize Hadoop's HDFS for data storage, and optionally YARN for resource management.
+- **HDFS for Storage**: You can use HDFS for distributed storage, but Spark still operates in a non-distributed manner (using only local resources).
+- **Hadoop Integration**: Hadoop components (like HDFS and YARN) are available for managing files and resources, though Spark itself won’t be running on a distributed cluster.
 
 
 
