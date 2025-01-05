@@ -279,31 +279,30 @@ The following Scala code performs a WordCount operation using Apache Spark:
 
 ```scala
 import org.apache.spark.{SparkConf, SparkContext}
-
 val conf = new SparkConf().setAppName("WordCountExample").setMaster("local")
-val sc = new SparkContext(conf)
-
 val input = sc.textFile("hdfs://namenode:9000/data/data.txt")
-
 val wordPairs = input.flatMap(line => line.split(" ")).map(word => (word, 1))
-
 val wordCounts = wordPairs.reduceByKey((a, b) => a + b)
-
 wordCounts.collect().foreach { case (word, count) =>
   println(s"$word: $count")
 }
+```
 
+To Stop Session
+```scala
 sc.stop()
 ```
 
-![image](https://github.com/user-attachments/assets/2ced2923-4192-4359-aa47-81c7e7608d32)
+![image](https://github.com/user-attachments/assets/bd16713b-7e01-4c83-88d2-f12afc8a4806)
+
 
 
 ### Steps:
 
-1. **Copy File**: Use `docker cp` to move or create the file inside the Docker container.
-2. **WordCount Program**: The program reads the file, splits it into words, and counts the occurrences of each word.
-3. **Output**: The word counts will be printed to the console when the program is executed.
+1. **Copy File**: Use `docker cp` to move or create the file inside the namenode Docker container.
+2. **Copy File to HDFS**: Use `hdfs dfs -put` to move the file inside the HDFS filesystem.
+3. **WordCount Program**: The program reads the file, splits it into words, and counts the occurrences of each word.
+4. **Output**: The word counts will be printed to the console when the program is executed.
 ```
 
 
