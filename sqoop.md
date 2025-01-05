@@ -200,7 +200,7 @@ This guide outlines the steps to install and configure **Sqoop**, **Hadoop**, **
    <configuration>
      <property>
        <name>yarn.nodemanager.webapp.address</name>
-       <value>0.0.0.0:8042</value>
+       <value>0.0.0.0:9870</value>
      </property>
    </configuration>
    ```
