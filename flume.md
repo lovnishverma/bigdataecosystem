@@ -77,7 +77,7 @@ Here is a complete step-by-step guide to install Apache Flume on top of your Had
 
    # Configure the sink
    demo.sinks.sink1.type = hdfs
-   demo.sinks.sink1.hdfs.path = hdfs://namenode_host:8020/user/flume/demo
+   demo.sinks.sink1.hdfs.path = hdfs://namenode:8020/user/flume/demo
    demo.sinks.sink1.hdfs.fileType = DataStream
    demo.sinks.sink1.hdfs.writeFormat = Text
    demo.sinks.sink1.hdfs.rollSize = 0
@@ -88,7 +88,7 @@ Here is a complete step-by-step guide to install Apache Flume on top of your Had
    demo.sinks.sink1.channel = channel1
    ```
 
-   Replace `namenode_host` with your Hadoop Namenode hostname or IP address.
+   Replace `namenode` with your Hadoop Namenode hostname or IP address.
 
 ---
 
@@ -105,7 +105,35 @@ flume-ng agent \
 
 This starts the Flume agent with the name `demo` and logs activities to the console.
 
+![image](https://github.com/user-attachments/assets/8dcae12e-2b1f-490b-ae07-f052040b3c7d)
+
 ---
+If you're facing error `bash: nc: command not found` indicates that the `netcat` (`nc`) utility is not installed in your container. Netcat is required to send data to the Flume source.
+
+### **Steps to Resolve**
+
+1. **Install Netcat in the Container**
+   - Install `netcat` using the package manager inside the container:
+     ```bash
+     apt-get update
+     apt-get install netcat -y
+     ```
+   - Verify the installation:
+     ```bash
+     nc -h
+     ```
+
+2. **Test the Netcat Command Again**
+   After installing `netcat`, retry the command to send data to Flume:
+   ```bash
+   echo "Hello Flume Demo" | nc localhost 44444
+   ```
+
+3. **Verify Data in Flume Sink**
+   - Check the configured HDFS path or the file sink location to verify that the message has been captured by the Flume agent.
+
+---
+
 
 ### **Step 4: Test Flume Data Flow**
 
