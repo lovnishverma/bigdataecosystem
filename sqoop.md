@@ -557,7 +557,78 @@ You can now perform practical operations like exporting data, running queries, e
 
 ---
 
-If you want to install Apache Spark in the same Docker container where Hadoop is already installed, you can follow these steps:
+To stop all Hadoop nodes and the Docker container, follow these steps:
+
+---
+
+### **1. Stop Hadoop Nodes**
+
+Run the following commands to stop the Hadoop services gracefully:
+
+```bash
+stop-yarn.sh
+stop-dfs.sh
+```
+
+This will stop the YARN ResourceManager, NodeManager, NameNode, and DataNode.
+
+---
+
+### **2. Stop the Docker Container**
+
+To stop the running Docker container, first, list all running containers:
+
+```bash
+docker ps
+```
+
+This will display a list of running containers with their **CONTAINER ID**.
+
+Stop the container using the following command:
+
+```bash
+docker stop <CONTAINER_ID_OR_NAME>
+```
+
+For example, if your container is named `nielit-container2`, use:
+
+```bash
+docker stop nielit-container2
+```
+
+---
+
+### **3. Optionally, Remove the Container**
+
+If you want to remove the container completely (if it’s no longer needed), use:
+
+```bash
+docker rm <CONTAINER_ID_OR_NAME>
+```
+
+---
+
+### **4. Stop All Running Docker Containers (Optional)**
+
+If you want to stop all running Docker containers at once, use:
+
+```bash
+docker stop $(docker ps -q)
+```
+
+To remove all stopped containers:
+
+```bash
+docker rm $(docker ps -aq)
+```
+
+---
+
+These commands will stop all Hadoop nodes and the associated Docker container.
+
+
+
+******If you want to install Apache Spark in the same Docker container where Hadoop is already installed, you can follow these steps:******
 
 ### Step 1: Access Your Existing Hadoop Container
 First, access the running Hadoop container using the `docker exec` command:
