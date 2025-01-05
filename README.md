@@ -272,11 +272,16 @@ docker cp data.txt nodemanager:/data.txt
 ```
 ![image](https://github.com/user-attachments/assets/73a84d9a-af1c-45f0-9504-a24b192e598d)
 
+Use the following command to put the `data.txt` file from your Docker container to HDFS:
+
+```bash
+hdfs dfs -put data.txt /data
+```
+![image](https://github.com/user-attachments/assets/b4d93f36-f1b1-4056-a4af-d4dbb418634e)
 
 
 
-
-### WordCount Program in Scala
+******### WordCount Program in Scala******
 
 The following Scala code performs a WordCount operation using Apache Spark:
 
