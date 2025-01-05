@@ -225,13 +225,21 @@ df.show()
 
    After transforming or processing the data, you can save the results in different formats such as CSV, Parquet, or JSON.
 
-   To save the transformed DataFrame as a new CSV file:
+   To save the transformed DataFrame as a new CSV file in HDFS:
 
    ```scala
-   sqlData.write.option("header", "true").csv("output_employees.csv")
+   sqlData.write.option("header", "true").csv("hdfs://namenode:9000/output_employees.csv")
    ```
 
    This will save the result into a file called `output_employees.csv` in the current directory.
+
+Reading from HDFS:
+Once the data is written to HDFS, you can read it back into Spark using:
+
+```scala
+val outputDF = spark.read.option("header", "true").csv("hdfs://namenode:9000/output_employees.csv")
+ ```
+
 
 ![image](https://github.com/user-attachments/assets/e36d0cdb-bf42-4d11-b703-c045f4037d8a)
 
