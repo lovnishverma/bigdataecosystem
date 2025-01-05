@@ -50,6 +50,14 @@ Before running a YARN job, we need some input data in HDFS. We will create a sim
    hadoop fs -mkdir -p /user  # Create the input directory in HDFS
    hadoop fs -mkdir -p /user/root  # Create the input directory in HDFS
    hadoop fs -mkdir -p /user/root/input  # Create the input directory in HDFS
+
+   or
+   The -p option stands for "parent", meaning it creates all the necessary parent directories in the specified path if they do not already exist.
+   If any of the parent directories (/user, /user/root) do not exist, this command will create them.
+   Key Feature: It does not throw an error if the directory already exists.
+   
+   hadoop fs -mkdir -p /user/root/input
+
    
    hadoop fs -put sample.txt /user/root/input/  # put sample.txt into HDFS
    ```
