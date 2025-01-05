@@ -281,12 +281,12 @@ hdfs dfs -put data.txt /data
 
 
 
-******### WordCount Program in Scala******
+##******### WordCount Program in Scala******
 
 The following Scala code performs a WordCount operation using Apache Spark:
 
 ```scala
-import org.apache.spark.{SparkConf, SparkContext}
+import org.apache.spark.{SparkConf}
 val conf = new SparkConf().setAppName("WordCountExample").setMaster("local")
 val input = sc.textFile("hdfs://namenode:9000/data/data.txt")
 val wordPairs = input.flatMap(line => line.split(" ")).map(word => (word, 1))
