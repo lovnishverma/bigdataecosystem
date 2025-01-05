@@ -218,6 +218,8 @@ df.show()
    |  4|Lisa| 40|  Marketing|  6000|
    +---+----+---+-----------+------+
    ```
+![image](https://github.com/user-attachments/assets/4d06c91b-5187-48a2-9c31-fdd59ec521a5)
+
 
 4. **Saving the Data**:
 
@@ -231,6 +233,7 @@ df.show()
 
    This will save the result into a file called `output_employees.csv` in the current directory.
 
+![image](https://github.com/user-attachments/assets/e36d0cdb-bf42-4d11-b703-c045f4037d8a)
 
 
 ### You can use this same process to load and analyze data from different file formats (CSV, JSON, Parquet) in Spark, and perform various transformations and SQL operations.
