@@ -65,31 +65,28 @@ Here is a complete step-by-step guide to install Apache Flume on top of your Had
    demo.sinks = sink1
    demo.channels = channel1
 
-   # Configure the source
+   # Define the source
    demo.sources.source1.type = netcat
-   demo.sources.source1.bind = 0.0.0.0
+   demo.sources.source1.bind = localhost
    demo.sources.source1.port = 44444
 
-   # Configure the channel
+   # Define the sink (HDFS)
+   demo.sinks.sink1.type = hdfs
+   demo.sinks.sink1.hdfs.path = hdfs://localhost:9000/user/flume/demo
+   demo.sinks.sink1.hdfs.fileType = DataStream
+
+   # Define the channel
    demo.channels.channel1.type = memory
    demo.channels.channel1.capacity = 1000
    demo.channels.channel1.transactionCapacity = 100
-
-   # Configure the sink
-   demo.sinks.sink1.type = hdfs
-   demo.sinks.sink1.hdfs.path = hdfs://namenode:8020/user/flume/demo
-   demo.sinks.sink1.hdfs.fileType = DataStream
-   demo.sinks.sink1.hdfs.writeFormat = Text
-   demo.sinks.sink1.hdfs.rollSize = 0
-   demo.sinks.sink1.hdfs.rollCount = 10
 
    # Bind the source and sink to the channel
    demo.sources.source1.channels = channel1
    demo.sinks.sink1.channel = channel1
    ```
 
-   Replace `namenode` with your Hadoop Namenode hostname or IP address.
-
+   Replace `localhost` with your Hadoop Namenode hostname or IP address.
+you can find it using cat $HADOOP_HOME/etc/hadoop/core-site.xml
 ---
 
 ### **Step 3: Start Flume Agent**
