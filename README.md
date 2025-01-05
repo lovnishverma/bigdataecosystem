@@ -91,13 +91,15 @@ docker exec -it namenode bash
 
 To View NameNode UI Visit:   [http://localhost:9870/](http://localhost:9870/)
 
+![image](https://github.com/user-attachments/assets/c4f708cb-7976-49f8-ba79-8b985bcd6a10)
+
+
 To View Resource Manager UI Visit [http://localhost:8088/](http://localhost:8088/)
 
-![image](https://github.com/user-attachments/assets/024af74a-424d-4529-aca2-90e9b079a6f8)
+![image](https://github.com/user-attachments/assets/a65f2495-293e-440c-8366-9e1bed605b29)
 
 
-
-###  MAPREDUCE WordCount program
+### ** MAPREDUCE WordCount program**
 ### Step 1: Copy the `code` folder into the container
 Use the following command in your windows cmd to copy the `code` folder to the container:
 ```bash
