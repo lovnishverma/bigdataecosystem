@@ -172,7 +172,7 @@ docker exec -it spark-master bash
 ```scala
 spark/bin/spark-shell --master spark://spark-master:7077
 ```
-
+```scala
 val df = spark.read.option("header", "true").csv("hdfs://namenode:9000/data/employees.csv")
 
 df.show()
