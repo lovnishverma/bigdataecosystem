@@ -267,6 +267,11 @@ Use the following command to copy the `data.txt` file from your local system to 
 ```bash
 docker cp data.txt nodemanager:/data.txt
 ```
+![image](https://github.com/user-attachments/assets/73a84d9a-af1c-45f0-9504-a24b192e598d)
+
+
+
+
 
 ### WordCount Program in Scala
 
@@ -278,7 +283,7 @@ import org.apache.spark.{SparkConf, SparkContext}
 val conf = new SparkConf().setAppName("WordCountExample").setMaster("local")
 val sc = new SparkContext(conf)
 
-val input = sc.textFile("hdfs://namenode:9000/data.txt")
+val input = sc.textFile("hdfs://namenode:9000/data/data.txt")
 
 val wordPairs = input.flatMap(line => line.split(" ")).map(word => (word, 1))
 
