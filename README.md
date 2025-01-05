@@ -15,6 +15,9 @@ Before you begin, ensure you have the following installed:
 - IMPORTANT:
   ******- Enable the "Expose daemon on tcp://localhost:2375 without TLS" option if you're using Docker Desktop for compatibility.******
 
+![image](https://github.com/user-attachments/assets/398451cd-46bb-4ba8-876f-9e85f8c0d632)
+
+
  - **Git**: [Download Git](https://git-scm.com/downloads/win)
    - Git is used to download the required files from a repository.
   
