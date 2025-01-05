@@ -553,6 +553,13 @@ hadoop fs -ls /user/hdfs/employees_data
 This will show the files created in HDFS with the data from the `employees` table.
 
 
+```bash
+hadoop fs -cat /user/hdfs/employees_data/*
+```
+
+![image](https://github.com/user-attachments/assets/8806e578-b177-418c-847b-92e415e7a73b)
+
+
 You can now perform practical operations like exporting data, running queries, etc., with this setup.
 
 ---
