@@ -11,7 +11,20 @@ In this practical, you will run a simple WordCount job using Hadoop YARN. This e
 ---
 
 ### Step-by-Step Guide
-docker exec -it namenode bash
+Compose container if not already running
+
+**docker-compose up -d**
+
+Copy code folder that has wordcount program to your container root directory
+
+**docker cp code namenode:/code**
+
+![image](https://github.com/user-attachments/assets/72fa5e86-02cb-4a09-864a-dae1256bf8cd)
+
+
+Then execute bash shell of namenode in intractive mode
+
+**docker exec -it namenode bash**
 ---
 
 ### Step-by-Step Guide
@@ -29,15 +42,16 @@ Before running a YARN job, we need some input data in HDFS. We will create a sim
    echo "Kharar" >> sample.txt
    ```
 
-   ![image](https://github.com/user-attachments/assets/92edc8cc-86de-40b7-9bba-d298a6579cf4)
-
 
 2. **Upload the text file to HDFS**:
    Use the `hadoop fs -put` command to upload the file to HDFS.
 
    ```bash
+   hadoop fs -mkdir -p /user  # Create the input directory in HDFS
+   hadoop fs -mkdir -p /user/root  # Create the input directory in HDFS
    hadoop fs -mkdir -p /user/root/input  # Create the input directory in HDFS
-   hadoop fs -put sample.txt /user/root/input/
+   
+   hadoop fs -put sample.txt /user/root/input/  # put sample.txt into HDFS
    ```
 
    You can confirm the file is uploaded by running:
@@ -45,6 +59,9 @@ Before running a YARN job, we need some input data in HDFS. We will create a sim
    ```bash
    hadoop fs -ls /user/root/input/
    ```
+   ![image](https://github.com/user-attachments/assets/a0e18957-a2a5-40f8-a5bf-b443da47eb67)
+
+![image](https://github.com/user-attachments/assets/b622d0d9-ef28-4eaa-ac7b-db7758dd390d)
 
 ---
 
@@ -57,6 +74,7 @@ Now, we can run the WordCount job using YARN. This job will count the occurrence
    ```bash
    cd /code  # Change to the directory where wordCount.jar is stored
    ```
+![image](https://github.com/user-attachments/assets/84b0288f-4cca-4bc8-9d62-eeb5b393ef6d)
 
 2. **Submit the WordCount job to YARN**:
    Run the following command to submit the job:
@@ -68,6 +86,9 @@ Now, we can run the WordCount job using YARN. This job will count the occurrence
    - `wordCount.jar`: The MapReduce program (JAR file).
    - `/user/root/input`: The input directory in HDFS containing the `sample.txt` file.
    - `/user/root/outputfolder`: The output directory in HDFS where the result will be stored.
+  
+     ![image](https://github.com/user-attachments/assets/f0aa28ae-c7c8-4e38-999c-a2197497c5cb)
+
 
 3. **Check the YARN UI**:
    After submitting the job, you can monitor the job through the YARN ResourceManager UI.
@@ -75,11 +96,13 @@ Now, we can run the WordCount job using YARN. This job will count the occurrence
    - Visit the YARN ResourceManager UI at `http://localhost:8088`.
    - Look for your job under the "Applications" section. You should see your job with its status (e.g., Running, Completed, etc.).
 
-   ![YARN UI](https://github.com/user-attachments/assets/5d771515-9f49-4fcf-85d4-1d726c4c3e4b)
+  ![image](https://github.com/user-attachments/assets/f68bcf5f-e56a-420e-8f05-9ed2dcf68837)
+
 
    - Click on your job to see more details, such as job progress, logs, and running containers.
 
-   ![YARN UI Logs](https://github.com/user-attachments/assets/f674fb08-1b1a-44b5-942c-43af7701a3ca)
+  ![image](https://github.com/user-attachments/assets/5656eb67-8c49-46c0-a9ac-0af201231972)
+
 
 ---
 
@@ -93,6 +116,8 @@ Once the job finishes, you can view the results in HDFS.
    ```bash
    hadoop fs -ls /user/root/outputfolder
    ```
+![image](https://github.com/user-attachments/assets/508f4359-1b5c-462c-93a8-c1dc7048283d)
+
 
    You should see output files like `part-r-00000`.
 
@@ -106,19 +131,13 @@ Once the job finishes, you can view the results in HDFS.
    The output will show the words and their respective counts, like this:
 
    ```
-   Hadoop 1
-   YARN 2
-   Resource 1
-   Manager 1
-   is 1
-   responsible 1
-   for 1
-   managing 1
-   resources 1
-   and 1
-   job 1
-   scheduler 1
+   Chandigarh      2
+   Kharar  1
+   Mohali  1
+   Punjab  1
+   Ropar   2
    ```
+![image](https://github.com/user-attachments/assets/7b0ab366-71ed-49e7-b7fa-749f573f633a)
 
 ---
 
