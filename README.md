@@ -240,8 +240,14 @@ Once the data is written to HDFS, you can read it back into Spark using:
 val outputDF = spark.read.option("header", "true").csv("hdfs://namenode:9000/output_employees.csv")
  ```
 
+View output_employees.csv from HDFS
 
-![image](https://github.com/user-attachments/assets/e36d0cdb-bf42-4d11-b703-c045f4037d8a)
+```scala
+outputDF.show()
+ ```
+
+![image](https://github.com/user-attachments/assets/ea73d8a8-8f1c-4eef-9301-0117771e149f)
+
 
 
 ### You can use this same process to load and analyze data from different file formats (CSV, JSON, Parquet) in Spark, and perform various transformations and SQL operations.
@@ -259,7 +265,7 @@ val outputDF = spark.read.option("header", "true").csv("hdfs://namenode:9000/out
 Use the following command to copy the `data.txt` file from your local system to the Docker container:
 
 ```bash
-docker cp data.txt spark-container:/opt/bitnami/spark/spark-practicals/data.txt
+docker cp data.txt nodemanager:/data.txt
 ```
 
 ### WordCount Program in Scala
@@ -272,7 +278,7 @@ import org.apache.spark.{SparkConf, SparkContext}
 val conf = new SparkConf().setAppName("WordCountExample").setMaster("local")
 val sc = new SparkContext(conf)
 
-val input = sc.textFile("/opt/bitnami/spark/spark-practicals/data.txt")
+val input = sc.textFile("hdfs://namenode:9000/data.txt")
 
 val wordPairs = input.flatMap(line => line.split(" ")).map(word => (word, 1))
 
