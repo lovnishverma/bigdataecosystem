@@ -22,16 +22,16 @@ spark/bin/spark-shell --master spark://spark-master:7077
 ## Prepare files
 Copy the directory of data on the namode and copy it from there to HDFS
 ```
-docker ps |grep namenode  # find out Container ID of namode
+Inside data folder is books.csv e.g: C:\Users\princ\Desktop\bigdata\bigdataecosystem\data>docker cp books.csv namenode:/books.csv
 
-docker cp Spark_in_Action 2ffec0140800:sparkinaction
+docker cp books.csv namenode:/books.csv
 
-docker exec -it 2ffec0140800 bash
+docker exec -it namenode bash
 
 hdfs dfs -mkdir /data
 hdfs dfs -mkdir /data/sparkinaction
 
-hdfs dfs -put sparkinaction/* /data/sparkinaction
+hdfs dfs -put books.csv /data/sparkinaction
 ```
 
 
@@ -39,13 +39,8 @@ hdfs dfs -put sparkinaction/* /data/sparkinaction
 [Chapter 1 on Github](https://github.com/jgperrin/net.jgp.books.spark.ch01)
 
 ```
-# Creates a session on a local master
-absolute_file_path = "hdfs://namenode:9000/data/sparkinaction/books.csv"
+val df = spark.read.csv("hdfs://namenode:9000/data/sparkinaction/books.csv")
 
-session = SparkSession.builder.appName("CSV to Dataset").master("spark://69280b13519d:7077").getOrCreate()
-
-# Reads a CSV file with header, called books.csv, stores it in a dataframe
-df = session.read.csv(header=True, inferSchema=True, path=absolute_file_path)
 
 # Shows at most 5 rows from the dataframe
 df.show(5)
@@ -60,25 +55,37 @@ session.stop()
 In this chapter we make a small transformation: we concatenate the lastname and firstname.
 We skip the database step here. Feel free to add a PostgreSQL database to the hadoop-spark-hive docker-compose yourself.
 
+COPY authors.csv to namenode container using this command:
+docker cp authors.csv namenode:/authors.csv
+
+execute bash terminal of namenode container using this command:
+docker exec -it namenode bash
+
+put authors.csv to hdfs inside /data/sparkinaction directory using this command:
+hdfs dfs -put authors.csv /data/sparkinaction
+
+execute spark-master container in interactive bash terminal using this command:
+docker exec -it spark-master bash
+
+Run Scala Shell  using this command:
+spark/bin/spark-shell --master spark://spark-master:7077
+ 
+
+Now Inside Scala Terminal 
 ```
-from pyspark.sql import SparkSession
-from pyspark.sql import functions as F
 
-absolute_file_path = "hdfs://namenode:8020/data/sparkinaction/authors.csv"
+import org.apache.spark.sql.functions._
 
-#  Step 1: Ingestion
-#  ---------
-#
-#  Reads a CSV file with header, called authors.csv, stores it in a dataframe
-df = spark.read.csv(header=True, inferSchema=True, path=absolute_file_path)
+val df = spark.read.csv("hdfs://namenode:9000/data/sparkinaction/authors.csv")
 
 # Step 2: Transform
 # ---------
-# Creates a new column called "name" as the concatenation of lname, a
-# virtual column containing ", " and the fname column
-df = df.withColumn("name", F.concat(F.col("lname"), F.lit(", "), F.col("fname")))
+// Assuming _c0 is lname and _c1 is fname
 
-df.printSchema()
+var dfUpdated = df.withColumn("name", concat(col("_c0"), lit(", "), col("_c1")))
+
+dfUpdated.show()
+
 
 # Good to stop SparkSession at the end of the application
 spark.stop()
