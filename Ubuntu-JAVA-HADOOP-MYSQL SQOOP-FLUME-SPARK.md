@@ -1,7 +1,7 @@
 Steps for setting up **Sqoop**, **FLUME,** **Hadoop**, **MySQL**, **SPARK**, and **Java** on Docker:  
 
 
-# **Complete Guide to Install and Configure Sqoop, Hadoop, MySQL, and Java on Docker**
+# **Complete Guide to Install and Configure Hadoop, Java, MySQL, and Sqoop, Flume, Spark on Docker**
 
 This guide outlines the steps to install and configure **Sqoop**, **Hadoop**, **MySQL**, and **Java** in a Docker container for big data operations.
 
