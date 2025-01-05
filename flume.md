@@ -139,12 +139,15 @@ If you're facing error `bash: nc: command not found` indicates that the `netcat`
    ```bash
    echo "Hello Flume Demo" | nc localhost 44444
    ```
+![image](https://github.com/user-attachments/assets/1290fb3e-cdac-4265-8c3a-067265783963)
+
    Send multiple lines of data:
    ```bash
    for i in {1..5}; do echo "This is message $i" | nc localhost 44444; done
    ```
+![image](https://github.com/user-attachments/assets/e2cc2a42-7f26-4b6b-81cc-5102a1f39a7f)
 
-2. **Verify Data in HDFS**  
+1. **Verify Data in HDFS**  
    Check the HDFS directory where Flume is writing data:
    ```bash
    hadoop fs -ls /user/flume/demo
@@ -155,6 +158,7 @@ If you're facing error `bash: nc: command not found` indicates that the `netcat`
    ```
 
    You should see the messages sent via `Netcat`.
+![image](https://github.com/user-attachments/assets/9460b9d8-8ba4-4788-a318-a55bac5a27d3)
 
 ---
 
