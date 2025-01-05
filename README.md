@@ -104,6 +104,9 @@ To copy a file (e.g., `police.csv`) to the Hadoop cluster:
 ![image](https://github.com/user-attachments/assets/ab68bba9-92f2-4b15-a50e-f3ee1a0f998e)
 
 
+
+![image](https://github.com/user-attachments/assets/6b27db66-a111-4c2f-a701-2cef8aaa3344)
+
 ## **Step 6: Set Up Spark**
 
 ### **Access the Spark Master UI**
