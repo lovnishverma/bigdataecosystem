@@ -145,65 +145,83 @@ This guide outlines the steps to install and configure **Sqoop**, **Hadoop**, **
 
 ---
 
-## **Step 4: Configure Hadoop**
+To ensure proper configuration of Hadoop, I'll provide the correct indentation for each file you need to edit. Here are the corrected configurations for `core-site.xml`, `hdfs-site.xml`, and `yarn-site.xml`.
 
-1. **Edit `core-site.xml`:**
-   ```bash
-   nano /opt/hadoop/etc/hadoop/core-site.xml
-   ```
-   Add the following configuration:
-   ```xml
-   <configuration>
-       <property>
-           <name>fs.defaultFS</name>
-           <value>hdfs://localhost:9000</value>
-       </property>
-   </configuration>
-   ```
- Save and exit the editor by pressing `CTRL + O`, `Enter`, and then `CTRL + X`.
----
-2. **Edit `hdfs-site.xml`:**
-   ```bash
-   nano /opt/hadoop/etc/hadoop/hdfs-site.xml
-   ```
-   Add the following:
-   ```xml
-   <configuration>
-       <property>
-        <name>dfs.namenode.http-address</name>
-        <value>localhost:50070</value>
+### **1. Edit `core-site.xml`**
+
+Run the following command to open the `core-site.xml` file:
+
+```bash
+nano /opt/hadoop/etc/hadoop/core-site.xml
+```
+
+Add the following configuration with proper indentation:
+
+```xml
+<configuration>
+    <property>
+        <name>fs.defaultFS</name>
+        <value>hdfs://localhost:9000</value>
     </property>
-       <property>
-           <name>dfs.replication</name>
-           <value>1</value>
-       </property>
-       <property>
-           <name>dfs.namenode.name.dir</name>
-           <value>file:///opt/hadoop/hdfs/namenode</value>
-       </property>
-       <property>
-           <name>dfs.datanode.data.dir</name>
-           <value>file:///opt/hadoop/hdfs/datanode</value>
-       </property>
-   </configuration>
-   ```
+</configuration>
+```
 
-   
-3. Edit `yarn-site.xml`
- Open the `yarn-site.xml` file for editing:
-   ```bash
-   nano /opt/hadoop/etc/hadoop/yarn-site.xml
-   ```
+### **2. Edit `hdfs-site.xml`**
 
- Add the following configuration to expose the NodeManager web UI:
-   ```xml
-   <configuration>
-     <property>
-       <name>yarn.nodemanager.webapp.address</name>
-       <value>0.0.0.0:9870</value>
-     </property>
-   </configuration>
-   ```
+Run the following command to open the `hdfs-site.xml` file:
+
+```bash
+nano /opt/hadoop/etc/hadoop/hdfs-site.xml
+```
+
+Add the following configuration with proper indentation:
+
+```xml
+<configuration>
+    <property>
+        <name>dfs.replication</name>
+        <value>1</value>
+    </property>
+
+    <property>
+        <name>dfs.datanode.data.dir</name>
+        <value>file:///tmp/hadoop-${user.name}/dfs/data</value>
+    </property>
+</configuration>
+```
+
+### **3. Edit `yarn-site.xml`**
+
+Run the following command to open the `yarn-site.xml` file:
+
+```bash
+nano /opt/hadoop/etc/hadoop/yarn-site.xml
+```
+
+Add the following configuration with proper indentation:
+
+```xml
+<configuration>
+    <property>
+        <name>yarn.resourcemanager.address</name>
+        <value>localhost:8032</value>
+    </property>
+
+    <property>
+        <name>yarn.resourcemanager.webapp.address</name>
+        <value>localhost:8088</value>
+    </property>
+</configuration>
+```
+
+### **Save and Exit:**
+
+After adding the configurations:
+1. Press `CTRL + O` to save the file.
+2. Press `Enter` to confirm.
+3. Press `CTRL + X` to exit the editor.
+
+This should properly configure your Hadoop system. Let me know if you need any further help!
 
 
 --- 
@@ -521,6 +539,7 @@ Now that you have a table with data, you can proceed with the Sqoop import:
 ```bash
 sqoop import --connect jdbc:mysql://localhost:3306/testdb --username sqoop_user --password password123 --table employees --target-dir /user/hdfs/employees_data
 ```
+![image](https://github.com/user-attachments/assets/9f530c7f-fba9-4c74-909c-d3def191920d)
 
 ### 5. **Check HDFS for Data**
 After the Sqoop import completes successfully, you can check the HDFS directory to verify the imported data.
@@ -528,6 +547,8 @@ After the Sqoop import completes successfully, you can check the HDFS directory 
 ```bash
 hadoop fs -ls /user/hdfs/employees_data
 ```
+![image](https://github.com/user-attachments/assets/a7b28752-337a-4e75-820e-f6a02f9a2fdf)
+
 
 This will show the files created in HDFS with the data from the `employees` table.
 
