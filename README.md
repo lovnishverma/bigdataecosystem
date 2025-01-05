@@ -313,12 +313,6 @@ sc.stop()
 4. **Output**: The word counts will be printed to the console when the program is executed.
 ```
 
-
-
-![image](https://github.com/user-attachments/assets/e1787f84-a89d-4a14-a71f-3fe5ccaa9323)
-
-
-
 **##Closing the Spark Session**
 
 Once you are done with your operations, don’t forget to stop the Spark session.
