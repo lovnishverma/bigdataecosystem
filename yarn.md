@@ -15,7 +15,7 @@ Compose container if not already running
 
 **docker-compose up -d**
 
-Copy code folder that has wordcount program to your container root directory
+Copy code folder that has wordcount program to your container
 
 **docker cp code namenode:/code**
 
