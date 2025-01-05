@@ -177,7 +177,8 @@ val df = spark.read.option("header", "true").csv("hdfs://namenode:9000/data/empl
 
 df.show()
 ```
-![image](https://github.com/user-attachments/assets/21f3febf-07bd-493f-9101-247e03091f9b)
+![image](https://github.com/user-attachments/assets/189d57b2-c869-4856-9013-ae59933e235e)
+
 
    This will display the contents of the CSV file as a DataFrame:
 
