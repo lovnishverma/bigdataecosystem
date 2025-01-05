@@ -141,25 +141,39 @@ df.show()
 ```
 ![image](https://github.com/user-attachments/assets/4101596d-da55-4cd2-b4de-02a8f7f0299a)
 
-
+```scala
 docker exec -it namenode bash
-
-echo -e "id,name,age,department,salary\n1,John,30,HR,3000\n2,Jane,35,Finance,4000\n3,Sam,28,Engineering,5000\n4,Lisa,40,Marketing,6000" > employees.csv
-
-ls
-
-hdfs dfs -put employees.csv /data
-
-hdfs dfs -ls /data
-
-exit
-
-docker exec -it spark-master bash
-
-spark/bin/spark-shell --master spark://spark-master:7077
+```
 
 ```scala
-val df = spark.read.csv("hdfs://namenode:9000/data/employees.csv")
+echo -e "id,name,age,department,salary\n1,John,30,HR,3000\n2,Jane,35,Finance,4000\n3,Sam,28,Engineering,5000\n4,Lisa,40,Marketing,6000" > employees.csv
+```
+
+```scala
+ls
+```
+
+```scala
+hdfs dfs -put employees.csv /data
+```
+
+```scala
+hdfs dfs -ls /data
+```
+
+```scala
+exit
+```
+
+```scala
+docker exec -it spark-master bash
+```
+
+```scala
+spark/bin/spark-shell --master spark://spark-master:7077
+```
+
+val df = spark.read.option("header", "true").csv("hdfs://namenode:9000/data/employees.csv")
 
 df.show()
 ```
@@ -220,6 +234,8 @@ df.show()
 
 ### You can use this same process to load and analyze data from different file formats (CSV, JSON, Parquet) in Spark, and perform various transformations and SQL operations.
 
+
+
 ![image](https://github.com/user-attachments/assets/21f50d78-31bd-4db9-8ea4-6ce762bde45a)
 
 
@@ -256,7 +272,6 @@ wordCounts.collect().foreach { case (word, count) =>
 
 sc.stop()
 ```
-
 
 ![image](https://github.com/user-attachments/assets/2ced2923-4192-4359-aa47-81c7e7608d32)
 
