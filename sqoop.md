@@ -23,6 +23,9 @@ Here is a basic **Sqoop tutorial** to help you understand how to use it for impo
 
       ```sql
       CREATE DATABASE test;
+      CREATE USER 'sqoop_user'@'%' IDENTIFIED BY 'password123';
+      GRANT ALL PRIVILEGES ON testdb.* TO 'sqoop_user'@'%';
+      FLUSH PRIVILEGES;
       ```
       ```sql
       SHOW DATABASES;
@@ -40,6 +43,14 @@ Here is a basic **Sqoop tutorial** to help you understand how to use it for impo
       INSERT INTO employees VALUES (1, 'Love', 25);
       INSERT INTO employees VALUES (2, 'Ravi', 21);
       INSERT INTO employees VALUES (3, 'Nikshep', 22);
+      ```
+
+      
+**Now get out of MYSQL Shell and then Let's get started with Apache Sqoop**
+      
+**List Databases Using Sqoop**:
+      ```bash
+      sqoop list-databases --connect jdbc:mysql://localhost:3306 --username sqoop_user --password password123
       ```
 
    3. **Import Data Using Sqoop**:
