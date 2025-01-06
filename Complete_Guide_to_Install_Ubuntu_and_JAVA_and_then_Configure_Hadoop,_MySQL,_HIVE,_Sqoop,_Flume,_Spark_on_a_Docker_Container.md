@@ -795,19 +795,24 @@ sqoop import --connect jdbc:mysql://localhost:3306/testdb --username sqoop_user 
 ```
 ![image](https://github.com/user-attachments/assets/9f530c7f-fba9-4c74-909c-d3def191920d)
 
-### 4. **Incremental Imports (Importing Data Increments)**
-   Sqoop can import only the new or updated data from a table by using **incremental imports**.
+### 3. **Append Incremental Import**
+In **append** mode, Sqoop imports only new rows that have been added to the table since the last import.
 
-   #### Example of incremental import:
-   
-   ```bash
-    sqoop import --connect jdbc:mysql://localhost:3306/testdb \ --username sqoop_user --password password123 \
-   --table employees --target-dir /user/hdfs/employees_data \ --incremental append --check-column id --last-value 100
-   ```
+#### Example Command for Append Incremental Import:
+```bash
+sqoop import --connect jdbc:mysql://localhost:3306/testdb \
+             --username sqoop_user --password password123 \
+             --table employees --target-dir /user/hdfs/employees_data \
+             --incremental append --check-column id --last-value 100
+```
+
+### Explanation:
+- **`--incremental append`**: Specifies that only new rows (added after the `--last-value`) should be imported.
+- **`--check-column id`**: The column (`id`) used to track new rows. This should be a numeric column (e.g., auto-incrementing primary key) or any other column that can help identify new rows.
+- **`--last-value 100`**: The last value of the `id` column that was imported in the previous run. This ensures that only rows with an `id > 100` will be imported.
 
 
-
-### 5. **Check HDFS for Data**
+### 4. **Check HDFS for Data**
 After the Sqoop import completes successfully, you can check the HDFS directory to verify the imported data.
 
 ```bash
@@ -834,7 +839,9 @@ To stop all Hadoop nodes and the Docker container, follow these steps:
 
 ---
 
-### **1. Stop Hadoop Nodes**
+
+
+### **. Stop Hadoop Nodes**
 
 Run the following commands to stop the Hadoop services gracefully:
 
