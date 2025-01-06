@@ -614,7 +614,30 @@ val dfLocal = spark.read.option("header", "false").csv("file:///police.csv")
 dfLocal.show()
 ```
 
-#### **Step 6: Scala WordCount Program**
+
+#### **Step 6: Scala WordCount using Apache Spark**
+
+```markdown
+### Docker Command to Copy File
+*Copy File**: Use `docker cp` to move or create the file inside the namenode Docker container.
+Use the following command to copy the `data.txt` file from your local system to the Docker container:
+
+```bash
+docker cp data.txt nodemanager:/data.txt
+```
+![image](https://github.com/user-attachments/assets/73a84d9a-af1c-45f0-9504-a24b192e598d)
+
+*Copy File to HDFS**: Use `hdfs dfs -put` to move the file inside the HDFS filesystem.
+Use the following command to put the `data.txt` file from your Docker container to HDFS:
+
+```bash
+hdfs dfs -put data.txt /data
+```
+![image](https://github.com/user-attachments/assets/b4d93f36-f1b1-4056-a4af-d4dbb418634e)
+
+**Scala WordCount program.**
+
+**WordCount Program**: The program reads the file, splits it into words, and counts the occurrences of each word.
 
 ```scala
 import org.apache.spark.{SparkConf}
@@ -626,6 +649,9 @@ wordCounts.collect().foreach { case (word, count) =>
   println(s"$word: $count")
 }
 ```
+
+**Output**: The word counts will be printed to the console when the program is executed.
+
 ![image](https://github.com/user-attachments/assets/428e0d99-f0e0-4edd-8f3c-4543130c8a47)
 
 
@@ -644,76 +670,6 @@ sc.stop()
 - Apache Spark is a versatile tool for distributed data processing, offering scalability and performance.
 
 ---
-
-
-**Scala WordCount program.**
-
-```markdown
-### Docker Command to Copy File
-
-Use the following command to copy the `data.txt` file from your local system to the Docker container:
-
-```bash
-docker cp data.txt nodemanager:/data.txt
-```
-![image](https://github.com/user-attachments/assets/73a84d9a-af1c-45f0-9504-a24b192e598d)
-
-Use the following command to put the `data.txt` file from your Docker container to HDFS:
-
-```bash
-hdfs dfs -put data.txt /data
-```
-![image](https://github.com/user-attachments/assets/b4d93f36-f1b1-4056-a4af-d4dbb418634e)
-
-
-
-##******### WordCount Program in Scala******
-
-The following Scala code performs a WordCount operation using Apache Spark:
-
-```scala
-import org.apache.spark.{SparkConf}
-val conf = new SparkConf().setAppName("WordCountExample").setMaster("local")
-val input = sc.textFile("hdfs://namenode:9000/data/data.txt")
-val wordPairs = input.flatMap(line => line.split(" ")).map(word => (word, 1))
-val wordCounts = wordPairs.reduceByKey((a, b) => a + b)
-wordCounts.collect().foreach { case (word, count) =>
-  println(s"$word: $count")
-}
-```
-
-To Stop Session
-```scala
-sc.stop()
-```
-
-![image](https://github.com/user-attachments/assets/bd16713b-7e01-4c83-88d2-f12afc8a4806)
-
-
-
-### Steps:
-
-1. **Copy File**: Use `docker cp` to move or create the file inside the namenode Docker container.
-2. **Copy File to HDFS**: Use `hdfs dfs -put` to move the file inside the HDFS filesystem.
-3. **WordCount Program**: The program reads the file, splits it into words, and counts the occurrences of each word.
-4. **Output**: The word counts will be printed to the console when the program is executed.
-```
-
-**##Closing the Spark Session**
-
-Once you are done with your operations, don’t forget to stop the Spark session.
-
-```scala
-spark.stop()
-```
-
-Running **Apache Spark with Hadoop** involves configuring Spark to run on your local machine while still leveraging Hadoop's components, like HDFS (Hadoop Distributed File System) for storage and possibly YARN (Yet Another Resource Negotiator) for managing resources, although the overall execution will be single-node (locally). In this configuration, Spark runs on your local machine, but you can still access and utilize Hadoop's storage and resource management features.
-
-### Key Points about Spark with Hadoop:
-- **Single Node Setup**: While Spark runs locally on a single machine (like in "local mode"), you can still utilize Hadoop's HDFS for data storage, and optionally YARN for resource management.
-- **HDFS for Storage**: You can use HDFS for distributed storage, but Spark still operates in a non-distributed manner (using only local resources).
-- **Hadoop Integration**: Hadoop components (like HDFS and YARN) are available for managing files and resources, though Spark itself won’t be running on a distributed cluster.
-
 
 
 ![image](https://github.com/user-attachments/assets/fada1eec-5349-4382-8d1a-96940c124064)
