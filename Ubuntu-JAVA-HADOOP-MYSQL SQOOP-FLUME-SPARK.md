@@ -1,6 +1,6 @@
 Steps for setting up **Sqoop**, **FLUME,** **Hadoop**, **MySQL**, **SPARK**, and **Java** on Docker:  
 
- **If you've already done all the steps and want to start existing container and hdfs and yar use following commands**  
+ **If you've already done all the steps and want to start existing container and HDFS and YARN use the following commands**  
    If the container `nielit-container` is stopped and you want to use it, restart it:
    ```bash
    docker start nielit-container
