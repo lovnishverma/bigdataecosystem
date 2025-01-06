@@ -233,7 +233,7 @@ Run the following command to open the `core-site.xml` file:
 nano /opt/hadoop/etc/hadoop/core-site.xml
 ```
 
-Add the following configuration with proper indentation:
+Add the following configuration:
 
 ```xml
 <configuration>
@@ -252,7 +252,7 @@ Run the following command to open the `hdfs-site.xml` file:
 nano /opt/hadoop/etc/hadoop/hdfs-site.xml
 ```
 
-Add the following configuration with proper indentation:
+Add the following configuration:
 
 ```xml
 <configuration>
@@ -276,7 +276,7 @@ Run the following command to open the `yarn-site.xml` file:
 nano /opt/hadoop/etc/hadoop/yarn-site.xml
 ```
 
-Add the following configuration with proper indentation:
+Add the following configuration:
 
 ```xml
 <configuration>
@@ -299,7 +299,7 @@ After adding the configurations:
 2. Press `Enter` to confirm.
 3. Press `CTRL + X` to exit the editor.
 
-This should properly configure your Hadoop system. Let me know if you need any further help!
+This should properly configure your Hadoop system.
 
 
 --- 
