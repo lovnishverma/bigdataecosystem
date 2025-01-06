@@ -106,14 +106,11 @@ val spark = SparkSession.builder
   .master("local[*]")  // Run locally
   .getOrCreate()
 
-// Import implicits for DataFrame creation
-import spark.implicits._
-
 // Sample Data
 val data = Seq(
-  ("Alice", 30, "HR"),
-  ("Bob", 25, "Engineering"),
-  ("Charlie", 35, "Finance")
+  ("Chandan", 30, "HR"),
+  ("Rahul", 25, "Engineering"),
+  ("Pranav", 35, "Finance")
 )
 
 // Create DataFrame
