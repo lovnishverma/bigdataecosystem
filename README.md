@@ -556,128 +556,8 @@ println(doubled)
 ### **Objective**:
 To create DataFrames, load data from different sources, and perform transformations and SQL queries.
 
-### **Steps**:
 
-### **Process Data in Spark**
-
-To load and view data from HDFS using Spark:
-
-```scala
-val df = spark.read.csv("hdfs://namenode:9000/data/crimerecord/police/police.csv")
-df.show()
-```
-![image](https://github.com/user-attachments/assets/4101596d-da55-4cd2-b4de-02a8f7f0299a)
-
-```scala
-docker exec -it namenode bash
-```
-
-```scala
-echo -e "id,name,age,department,salary\n1,John,30,HR,3000\n2,Jane,35,Finance,4000\n3,Sam,28,Engineering,5000\n4,Lisa,40,Marketing,6000" > employees.csv
-```
-
-```scala
-ls
-```
-
-```scala
-hdfs dfs -put employees.csv /data
-```
-
-```scala
-hdfs dfs -ls /data
-```
-
-```scala
-exit
-```
-
-```scala
-docker exec -it spark-master bash
-```
-
-```scala
-spark/bin/spark-shell --master spark://spark-master:7077
-```
-```scala
-val df = spark.read.option("header", "true").csv("hdfs://namenode:9000/data/employees.csv")
-
-df.show()
-```
-![image](https://github.com/user-attachments/assets/189d57b2-c869-4856-9013-ae59933e235e)
-
-
-   This will display the contents of the CSV file as a DataFrame:
-
-   ```
-   +---+----+---+-----------+------+
-   | id|name|age| department|salary|
-   +---+----+---+-----------+------+
-   |  1|John| 30|         HR|  3000|
-   |  2|Jane| 35|    Finance|  4000|
-   |  3| Sam| 28|Engineering|  5000|
-   |  4|Lisa| 40|  Marketing|  6000|
-   +---+----+---+-----------+------+
-   ```
-
-3. **Performing SQL Operations**:
-
-   Once the data is loaded into a DataFrame, you can run SQL queries. First, register the DataFrame as a temporary SQL table.
-
-   ```scala
-   // Register the DataFrame as a temporary table
-   df.createOrReplaceTempView("employees")
-
-   // Run an SQL query to select employees with a salary greater than 4000
-   val sqlData = spark.sql("SELECT * FROM employees WHERE salary > 4000")
-   
-   // Show the results
-   sqlData.show()
-   ```
-
-   The output will look like this:
-
-   ```
-   +---+----+---+-----------+------+
-   | id|name|age| department|salary|
-   +---+----+---+-----------+------+
-   |  3| Sam| 28|Engineering|  5000|
-   |  4|Lisa| 40|  Marketing|  6000|
-   +---+----+---+-----------+------+
-   ```
-![image](https://github.com/user-attachments/assets/4d06c91b-5187-48a2-9c31-fdd59ec521a5)
-
-
-4. **Saving the Data**:
-
-   After transforming or processing the data, you can save the results in different formats such as CSV, Parquet, or JSON.
-
-   To save the transformed DataFrame as a new CSV file in HDFS:
-
-   ```scala
-   sqlData.write.option("header", "true").csv("hdfs://namenode:9000/output_employees.csv")
-   ```
-
-   This will save the result into a file called `output_employees.csv` in the current directory.
-
-Reading from HDFS:
-Once the data is written to HDFS, you can read it back into Spark using:
-
-```scala
-val outputDF = spark.read.option("header", "true").csv("hdfs://namenode:9000/output_employees.csv")
- ```
-
-View output_employees.csv from HDFS
-
-```scala
-outputDF.show()
- ```
-
-![image](https://github.com/user-attachments/assets/ea73d8a8-8f1c-4eef-9301-0117771e149f)
-
-
-
-#### **Step 2: Create DataFrames**
+#### **Step 1: Create DataFrames**
 
 ```scala
 val data = Seq(
@@ -706,8 +586,21 @@ result.show()
 #### **Step 4: Save Transformed Data**
 
 ```scala
-result.write.option("header", "true").csv("hdfs://namenode:9000/data/output/employees")
+result.write.option("header", "true").csv("hdfs://namenode:9000/output_employees")
 ```
+
+Reading from HDFS:
+Once the data is written to HDFS, you can read it back into Spark using:
+
+```scala
+val outputDF = spark.read.option("header", "true").csv("hdfs://namenode:9000/output_employees.csv")
+ ```
+
+View output_employees.csv from HDFS
+
+```scala
+outputDF.show()
+ ```
 
 #### **Step 5: Load Data from Different Sources**
 
