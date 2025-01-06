@@ -1,6 +1,4 @@
-Steps for setting up **Sqoop**, **FLUME,** **Hadoop**, **MySQL**, **SPARK**, and **Java** on Docker:  
-
- **If you've already done all the steps and want to start existing container and HDFS and YARN use the following commands**  
+**If you've already done all the steps and want to start existing container and HDFS and YARN use the following commands**  
    If the container `nielit-container` is stopped and you want to use it, restart it:
    ```bash
    docker start nielit-container
@@ -71,9 +69,9 @@ docker stop nielit-container
    service mysql start
    ```
 
-# **Complete Guide to Install and Configure Hadoop, Java, MySQL, and Sqoop, Flume, Spark on Docker**
+# **Complete Guide to Install Ubuntu and JAVA and then Configure Hadoop, MySQL, HIVE, Sqoop, Flume, Spark on a Docker Container**
 
-This guide outlines the steps to install and configure **Sqoop**, **Hadoop**, **MySQL**, and **Java** in a Docker container for big data operations.
+This guide outlines the steps to install Ubuntu and JAVA and configure **Hadoop**,**MySQL**, **HIVE**, **Sqoop**, **Flume**, **Spark** in a Docker container for big data operations.
 
 1. **Check Existing Containers**  
    List all containers (including stopped ones) to confirm the presence of `nielit-container`:
