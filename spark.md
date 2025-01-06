@@ -1,3 +1,7 @@
+Here is a corrected and comprehensive document with proper code examples for your **Apache Spark session**:
+
+---
+
 # **Working with Apache Spark (7 hrs)**
 
 ## **1. Introduction to Apache Spark**
@@ -48,7 +52,7 @@ To create DataFrames, load data from different sources, and perform transformati
 1. Install Apache Spark and configure the environment.
 2. Start the Spark shell or a Scala-based notebook (such as Zeppelin or Jupyter with Spark integration).
 
-**To Start Spark shell folllow these instructions**
+**To Start Spark shell:**
 
 1. **Start Spark in Master Mode**:  
    You can start Spark in master mode from the command line:
@@ -70,12 +74,9 @@ To create DataFrames, load data from different sources, and perform transformati
    $SPARK_HOME/sbin/start-worker.sh spark://localhost:7077
    ```
 
-
    This starts the worker node and connects it to the master node.
-![image](https://github.com/user-attachments/assets/855bf183-bf5f-4bca-a6b4-b381928a25e9)
-
-
-### To Stop Spark Services
+   
+**To Stop Spark Services:**
 
 When you're done, you can stop Spark services.
 
@@ -89,9 +90,10 @@ When you're done, you can stop Spark services.
 
    ```bash
    $SPARK_HOME/sbin/stop-master.sh
-   
+   ```
+
 **Monitor the job**:  
-   You can monitor the job's progress through the Spark Web UI at `http://localhost:8080`.
+You can monitor the job's progress through the Spark Web UI at `http://localhost:8080`.
 
 #### **Step 2: Create DataFrames**
 
@@ -121,17 +123,19 @@ df.show()
 
 ### Output:
 
-![image](https://github.com/user-attachments/assets/1709a652-be21-4b15-95e5-c79c4e1af03a)
-
-
-
-### Explanation:
-1. **Data**: Created as a simple `Seq` (list of tuples).
-2. **toDF**: Converts the data into a DataFrame and specifies column names.
-3. **df.show()**: Displays the contents of the DataFrame.
-
+```
++-------+---+------------+
+|   Name|Age|Department |
++-------+---+------------+
+| Chandan| 30|         HR |
+|  Rahul| 25| Engineering|
+| Pranav| 35|     Finance|
++-------+---+------------+
+```
 
 #### **Step 3: Load Data from Different Sources**
+
+To load data from different file formats (CSV, JSON, Parquet), you can use the following methods:
 
 ```scala
 import org.apache.spark.sql.SparkSession
@@ -145,44 +149,30 @@ val spark = SparkSession.builder
 val dfCsv = spark.read
   .option("header", "true")
   .option("inferSchema", "true")
-  .csv("file:///police.csv")
+  .csv("file:///path/to/police.csv")  // Change path to your actual file location
 
 // Load JSON
-import org.apache.spark.sql.SparkSession
-
-// Initialize SparkSession
-val spark = SparkSession.builder
-  .appName("SimpleDataFrameExample")
-  .getOrCreate()
-val dfJson = spark.read.json("file:///path/to/data.json")
+val dfJson = spark.read
+  .json("file:///path/to/data.json")  // Replace with actual path
 
 // Load Parquet
-import org.apache.spark.sql.SparkSession
-
-// Initialize SparkSession
-val spark = SparkSession.builder
-  .appName("SimpleDataFrameExample")
-  .getOrCreate()
-val dfParquet = spark.read.parquet("file:///path/to/data.parquet")
+val dfParquet = spark.read
+  .parquet("file:///path/to/data.parquet")  // Replace with actual path
 ```
 
-For **HDFS** example:
-```scala
-import org.apache.spark.sql.SparkSession
+For **HDFS**:
 
-// Initialize SparkSession
-val spark = SparkSession.builder
-  .appName("SimpleDataFrameExample")
-  .getOrCreate()
+```scala
 // Read data from HDFS
-val df = spark.read
+val dfHDFS = spark.read
   .option("header", "true")
   .csv("hdfs://localhost:9000/data/crimerecord/police/police.csv")
 
-df.show() // Display the loaded data
+dfHDFS.show() // Display the loaded data
 ```
 
 For **local file system** example:
+
 ```scala
 // Read data from local file system
 val dfCsv = spark.read
@@ -199,7 +189,7 @@ dfCsv.show() // Display the loaded data
 val filteredDf = df.filter($"Age" > 30)
 filteredDf.show()
 
-// Add a Column
+// Add a new column (Experience)
 val transformedDf = df.withColumn("Experience", $"Age" - 20)
 transformedDf.show()
 ```
@@ -217,75 +207,55 @@ result.show()
 #### **Step 6: Save Transformed Data**
 ```scala
 // Save as CSV
-filteredDf.write
+transformedDf.write
   .option("header", "true")
   .csv("file:///path/to/output.csv")
 
 // Save as Parquet
-filteredDf.write.parquet("file:///path/to/output.parquet")
+transformedDf.write
+  .parquet("file:///path/to/output.parquet")
 ```
 
-#### **Step 7: Scala WordCount program.**
+#### **Step 7: Scala WordCount Program**
 
-```markdown
+Here is a simple **WordCount** program in Scala:
+
+```scala
+import org.apache.spark.{SparkConf, SparkContext}
+
+// Set up SparkConf and SparkContext
+val conf = new SparkConf().setAppName("WordCountExample").setMaster("local")
+val sc = new SparkContext(conf)
+
+// Load input data
+val input = sc.textFile("hdfs://localhost:9000/data/data.txt")
+
+// Word Count operation
+val wordPairs = input.flatMap(line => line.split(" ")).map(word => (word, 1))
+val wordCounts = wordPairs.reduceByKey((a, b) => a + b)
+
+// Output the result
+wordCounts.collect().foreach { case (word, count) =>
+  println(s"$word: $count")
+}
+
+// Stop SparkContext
+sc.stop()
+```
+
 ### Docker Command to Copy File
 
-Use the following command to copy the `data.txt` file from your local system to the Docker container:
+To copy the `data.txt` file from your local system to the Docker container, use the following command:
 
 ```bash
 docker cp data.txt nodemanager:/data.txt
 ```
-![image](https://github.com/user-attachments/assets/73a84d9a-af1c-45f0-9504-a24b192e598d)
 
-Use the following command to put the `data.txt` file from your Docker container to HDFS:
+To put the `data.txt` file from your Docker container to HDFS:
 
 ```bash
 hdfs dfs -put data.txt /data
 ```
-![image](https://github.com/user-attachments/assets/b4d93f36-f1b1-4056-a4af-d4dbb418634e)
-
-
-
-##******### WordCount Program in Scala******
-
-The following Scala code performs a WordCount operation using Apache Spark:
-
-```scala
-import org.apache.spark.{SparkConf}
-val conf = new SparkConf().setAppName("WordCountExample").setMaster("local")
-val input = sc.textFile("hdfs://namenode:9000/data/data.txt")
-val wordPairs = input.flatMap(line => line.split(" ")).map(word => (word, 1))
-val wordCounts = wordPairs.reduceByKey((a, b) => a + b)
-wordCounts.collect().foreach { case (word, count) =>
-  println(s"$word: $count")
-}
-```
-
-To Stop Session
-```scala
-sc.stop()
-```
-
-![image](https://github.com/user-attachments/assets/bd16713b-7e01-4c83-88d2-f12afc8a4806)
-
-
-
-### Steps:
-
-1. **Copy File**: Use `docker cp` to move or create the file inside the namenode Docker container.
-2. **Copy File to HDFS**: Use `hdfs dfs -put` to move the file inside the HDFS filesystem.
-3. **WordCount Program**: The program reads the file, splits it into words, and counts the occurrences of each word.
-4. **Output**: The word counts will be printed to the console when the program is executed.
-```
-
-**##Closing the Spark Session**
-
-Once you are done with your operations, don’t forget to stop the Spark session.
-
-```scala
-sc.stop()
-```
-
 
 ---
 
@@ -306,4 +276,4 @@ sc.stop()
 
 ---
 
-This complete document now provides both the theoretical explanations and the Scala-based examples for your hands-on Apache Spark session. It ensures a seamless learning experience and covers loading data from various sources, transforming data, and querying it using Spark SQL.
+This document provides both theoretical explanations and Scala-based examples for your hands-on Apache Spark session. It covers loading data from various sources, transforming data, and querying it using Spark SQL.
