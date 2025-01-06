@@ -31,11 +31,15 @@
 
 - **Basic Syntax**:
 
+
 ```scala
-val numbers = List(1, 2, 3, 4, 5)
-val doubled = numbers.map(_ * 2)
-println(doubled)
+val numbers = List(1, 2, 3, 4, 5)      // Creates a list of numbers.
+val doubled = numbers.map(_ * 2)       // Doubles each element in the list using map.
+println(doubled)                        // Prints the doubled list.
 ```
+The output will be:
+List(2, 4, 6, 8, 10)
+
 
 ---
 
@@ -118,8 +122,20 @@ result.show()
 #### **Step 4: Save Transformed Data**
 
 ```scala
-result.write.option("header", "true").csv("hdfs://localhost:9000/data/output/employees")
+result.write.option("header", "true").csv("hdfs://localhost:9000/data/output/output_employees")
 ```
+Reading from HDFS:
+Once the data is written to HDFS, you can read it back into Spark using:
+
+```scala
+val outputDF = spark.read.option("header", "true").csv("hdfs://localhost:9000/output_employees.csv")
+ ```
+
+View output_employees.csv from HDFS
+
+```scala
+outputDF.show()
+ ```
 
 #### **Step 5: Load Data from Different Sources**
 
