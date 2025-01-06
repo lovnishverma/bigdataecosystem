@@ -24,7 +24,7 @@
 
    ---
 
-To stop all Hadoop nodes and the Docker container, follow these steps:
+And if you're done working **always stop all Hadoop nodes and the Docker container**, to do so follow these steps:
 
 ---
 
