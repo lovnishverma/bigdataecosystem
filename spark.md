@@ -126,10 +126,9 @@ df.show()
 
 
 ### Explanation:
-1. **SparkSession**: Initialized with `.master("local[*]")` to run on your local machine.
-2. **Data**: Created as a simple `Seq` (list of tuples).
-3. **toDF**: Converts the data into a DataFrame and specifies column names.
-4. **df.show()**: Displays the contents of the DataFrame.
+1. **Data**: Created as a simple `Seq` (list of tuples).
+2. **toDF**: Converts the data into a DataFrame and specifies column names.
+3. **df.show()**: Displays the contents of the DataFrame.
 
 
 #### **Step 3: Load Data from Different Sources**
