@@ -795,6 +795,18 @@ sqoop import --connect jdbc:mysql://localhost:3306/testdb --username sqoop_user 
 ```
 ![image](https://github.com/user-attachments/assets/9f530c7f-fba9-4c74-909c-d3def191920d)
 
+### 4. **Incremental Imports (Importing Data Increments)**
+   Sqoop can import only the new or updated data from a table by using **incremental imports**.
+
+   #### Example of incremental import:
+   
+   ```bash
+    sqoop import --connect jdbc:mysql://localhost:3306/testdb \ --username sqoop_user --password password123 \
+   --table employees --target-dir /user/hdfs/employees_data \ --incremental append --check-column id --last-value 100
+   ```
+
+
+
 ### 5. **Check HDFS for Data**
 After the Sqoop import completes successfully, you can check the HDFS directory to verify the imported data.
 
