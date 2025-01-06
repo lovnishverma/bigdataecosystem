@@ -184,6 +184,68 @@ filteredDf.write
 filteredDf.write.parquet("file:///path/to/output.parquet")
 ```
 
+#### **Step 7: Scala WordCount program.**
+
+```markdown
+### Docker Command to Copy File
+
+Use the following command to copy the `data.txt` file from your local system to the Docker container:
+
+```bash
+docker cp data.txt nodemanager:/data.txt
+```
+![image](https://github.com/user-attachments/assets/73a84d9a-af1c-45f0-9504-a24b192e598d)
+
+Use the following command to put the `data.txt` file from your Docker container to HDFS:
+
+```bash
+hdfs dfs -put data.txt /data
+```
+![image](https://github.com/user-attachments/assets/b4d93f36-f1b1-4056-a4af-d4dbb418634e)
+
+
+
+##******### WordCount Program in Scala******
+
+The following Scala code performs a WordCount operation using Apache Spark:
+
+```scala
+import org.apache.spark.{SparkConf}
+val conf = new SparkConf().setAppName("WordCountExample").setMaster("local")
+val input = sc.textFile("hdfs://namenode:9000/data/data.txt")
+val wordPairs = input.flatMap(line => line.split(" ")).map(word => (word, 1))
+val wordCounts = wordPairs.reduceByKey((a, b) => a + b)
+wordCounts.collect().foreach { case (word, count) =>
+  println(s"$word: $count")
+}
+```
+
+To Stop Session
+```scala
+sc.stop()
+```
+
+![image](https://github.com/user-attachments/assets/bd16713b-7e01-4c83-88d2-f12afc8a4806)
+
+
+
+### Steps:
+
+1. **Copy File**: Use `docker cp` to move or create the file inside the namenode Docker container.
+2. **Copy File to HDFS**: Use `hdfs dfs -put` to move the file inside the HDFS filesystem.
+3. **WordCount Program**: The program reads the file, splits it into words, and counts the occurrences of each word.
+4. **Output**: The word counts will be printed to the console when the program is executed.
+```
+
+**##Closing the Spark Session**
+
+Once you are done with your operations, don’t forget to stop the Spark session.
+
+```scala
+spark.stop()
+```
+
+
 ---
 
 ## **6. Key Takeaways**
