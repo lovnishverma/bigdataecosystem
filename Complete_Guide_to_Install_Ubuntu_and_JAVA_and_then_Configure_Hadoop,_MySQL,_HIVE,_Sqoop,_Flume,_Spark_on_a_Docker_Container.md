@@ -37,6 +37,13 @@ Run the following commands to stop the Hadoop services gracefully:
 stop-yarn.sh
 stop-dfs.sh
 ```
+Or
+
+```bash
+stop-all.sh
+```
+then run jps command ensure only jps is listed and all the nodes are stoped properlly....
+![image](https://github.com/user-attachments/assets/18cdfcfb-692e-47c5-b9b9-a4cb971b3668)
 
 This will stop the YARN ResourceManager, NodeManager, NameNode, and DataNode.
 
