@@ -527,6 +527,8 @@ To install Hive and perform practical operations using Hive and HDFS, follow the
    ```bash
    hive
    ```
+![image](https://github.com/user-attachments/assets/ce6eed93-0349-467d-b2ae-0d10196f54b0)
+
 
 2. **Create a Database:**
    ```sql
