@@ -156,18 +156,17 @@ filteredDf.write.parquet("file:///path/to/output.parquet")
 #### **Step 6: Load Data from Different Sources**
 
 ```scala
-# Load CSV
-df_csv = spark.read.csv("file:///police.csv", header=False, inferSchema=True)
+# Load CSV for HDFS or Local file system
 
-#**example from HDFS:**
-val df = spark.read.csv("hdfs://namenode:9000/data/crimerecord/police/police.csv")
-df.show()
+#**Example to load csv file from HDFS:**
+val df = spark.read.option("header", "true").csv("hdfs://localhost:9000/data/crimerecord/police/police.csv")
+hdf.show()
 
 #**or from local file system**
 
-val dfCsv = spark.read .option("header", "flase") .option("inferSchema", "true") .csv("file:///police.csv")
+val ldf = spark.read.option("header", "true").csv"file:///police.csv", header=False, inferSchema=True)
 
-df.show() #TO SHOW DATA
+ldf.show()
 ```
 
 #### **Step 7: Scala WordCount program.**
