@@ -531,10 +531,12 @@ spark/bin/spark-shell --master spark://spark-master:7077
 - **Basic Syntax**:
 
 ```scala
-val numbers = List(1, 2, 3, 4, 5)
-val doubled = numbers.map(_ * 2)
-println(doubled)
+val numbers = List(1, 2, 3, 4, 5)      // Creates a list of numbers.
+val doubled = numbers.map(_ * 2)       // Doubles each element in the list using map.
+println(doubled)                        // Prints the doubled list.
 ```
+The output will be:
+List(2, 4, 6, 8, 10)
 
 ---
 
