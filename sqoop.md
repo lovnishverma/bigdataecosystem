@@ -22,17 +22,27 @@ Here is a basic **Sqoop tutorial** to help you understand how to use it for impo
    1. **Create a table in the database (e.g., MySQL):**
 
       ```sql
+      CREATE DATABASE test;
+      ```
+      ```sql
+      SHOW DATABASES;
+      ```
+      ```sql
+      USE test;
+      ```
+     
+      ```sql
       CREATE TABLE employees (
           id INT,
           name VARCHAR(100),
           age INT
       );
-      INSERT INTO employees VALUES (1, 'Alice', 30);
-      INSERT INTO employees VALUES (2, 'Bob', 25);
-      INSERT INTO employees VALUES (3, 'Charlie', 28);
+      INSERT INTO employees VALUES (1, 'Love', 25);
+      INSERT INTO employees VALUES (2, 'Ravi', 21);
+      INSERT INTO employees VALUES (3, 'Nikshep', 22);
       ```
 
-   2. **Import Data Using Sqoop**:
+   3. **Import Data Using Sqoop**:
       Use the following command to import data from a MySQL database to HDFS:
       ```bash
       sqoop import --connect jdbc:mysql://localhost/employeesdb \
@@ -47,7 +57,7 @@ Here is a basic **Sqoop tutorial** to help you understand how to use it for impo
       - `--table`: The table to import.
       - `--target-dir`: The directory in HDFS where the data will be stored.
 
-   3. **Verify Data in HDFS**:
+   4. **Verify Data in HDFS**:
       After the import, check if the data is available in HDFS:
       ```bash
       hadoop fs -ls /user/hadoop/employees
