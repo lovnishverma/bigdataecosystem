@@ -48,7 +48,7 @@ To create DataFrames, load data from different sources, and perform transformati
 
 #### **Step 2: Create DataFrames**
 ```python
-from pyspark.sql import SparkSession
+import org.apache.spark.sql.SparkSession
 
 # Initialize SparkSession
 spark = SparkSession.builder \
@@ -56,9 +56,9 @@ spark = SparkSession.builder \
     .getOrCreate()
 
 # Sample DataFrame
-data = [("Alice", 30, "HR"), ("Bob", 25, "Engineering"), ("Charlie", 35, "Finance")]
-columns = ["Name", "Age", "Department"]
-df = spark.createDataFrame(data, columns)
+val data = Seq(("Alice", 30, "HR"), ("Bob", 25, "Engineering"), ("Charlie", 35, "Finance"))
+val columns = Seq("Name", "Age", "Department")
+val df = spark.createDataFrame(data).toDF(columns: _*)
 df.show()
 ```
 
@@ -66,6 +66,17 @@ df.show()
 ```python
 # Load CSV
 df_csv = spark.read.csv("file:///path/to/data.csv", header=True, inferSchema=True)
+
+#**example from HDFS:**
+
+val df = spark.read.csv("hdfs://localhost:9000/data/crimerecord/police/police.csv")
+
+#**or from local file system**
+
+val dfCsv = spark.read .option("header", "true") .option("inferSchema", "true") .csv("file:///police.csv")
+
+df.show() #TO SHOW DATA
+
 
 # Load JSON
 df_json = spark.read.json("file:///path/to/data.json")
