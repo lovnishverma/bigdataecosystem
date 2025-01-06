@@ -23,6 +23,11 @@
    You should see processes like `NameNode`, `ResourceManager`, `DataNode`, and `SecondaryNameNode` if everything is working correctly.
 ![image](https://github.com/user-attachments/assets/9390861d-5ae3-4b40-9519-894196d5a4ee)
 
+**To Start MySQL Service:**
+
+   ```bash
+   service mysql start
+   ```
    ---
 
 And if you're done working **always stop all Hadoop nodes and the Docker container**, to do so follow these steps:
@@ -70,12 +75,7 @@ For example, if your container is named `nielit-container`, use:
 ```bash
 docker stop nielit-container
 ```
-
-**To Start MySQL Service:**
-
-   ```bash
-   service mysql start
-   ```
+![image](https://github.com/user-attachments/assets/06fb48ab-b8aa-4c41-8926-a867f03490a4)
 
 # **Complete Guide to Install Ubuntu and JAVA and then Configure Hadoop, MySQL, HIVE, Sqoop, Flume, Spark on a Docker Container**
 
