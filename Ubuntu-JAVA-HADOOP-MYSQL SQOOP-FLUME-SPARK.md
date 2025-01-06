@@ -24,6 +24,47 @@ Steps for setting up **Sqoop**, **FLUME,** **Hadoop**, **MySQL**, **SPARK**, and
    ```
    You should see processes like `NameNode`, `ResourceManager`, `DataNode`, and `SecondaryNameNode` if everything is working correctly.
 
+   ---
+
+To stop all Hadoop nodes and the Docker container, follow these steps:
+
+---
+
+### **1. Stop Hadoop Nodes**
+
+Run the following commands to stop the Hadoop services gracefully:
+
+```bash
+stop-yarn.sh
+stop-dfs.sh
+```
+
+This will stop the YARN ResourceManager, NodeManager, NameNode, and DataNode.
+
+---
+
+### **2. Stop the Docker Container**
+
+To stop the running Docker container, first, list all running containers:
+
+```bash
+docker ps
+```
+
+This will display a list of running containers with their **CONTAINER ID**.
+
+Stop the container using the following command:
+
+```bash
+docker stop <CONTAINER_ID_OR_NAME>
+```
+
+For example, if your container is named `nielit-container`, use:
+
+```bash
+docker stop nielit-container
+```
+
 **To Start MySQL Service:**
 
    ```bash
