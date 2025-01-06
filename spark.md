@@ -120,10 +120,10 @@ df.show()
 ```
 
 ### Output:
-```
+
 ![image](https://github.com/user-attachments/assets/1709a652-be21-4b15-95e5-c79c4e1af03a)
 
-```
+
 
 ### Explanation:
 1. **SparkSession**: Initialized with `.master("local[*]")` to run on your local machine.
