@@ -428,7 +428,172 @@ It should now list the directories in the root of HDFS (e.g., `/user`, `/tmp`).
 - Verify HDFS status with `jps` and `hdfs dfs -ls /`.
 
 
-## **Step 4: Install MySQL**
+
+To install Hive and perform practical operations using Hive and HDFS, follow these steps. This guide assumes your Hadoop environment is already configured and running.
+
+---
+
+### **Step 1: Install Hive**
+
+1. **Install Prerequisites:**
+   Ensure `wget` is installed for downloading Hive:
+   ```bash
+   apt-get install wget -y
+   ```
+
+2. **Download Hive:**
+   ```bash
+   wget https://apache.root.lu/hive/hive-2.3.9/apache-hive-2.3.9-bin.tar.gz
+   ```
+
+3. **Extract Hive:**
+   ```bash
+   tar -xzf apache-hive-2.3.9-bin.tar.gz -C /opt
+   mv /opt/apache-hive-2.3.9-bin /opt/hive
+   ```
+
+4. **Set Hive Environment Variables:**
+   Open the `.bashrc` file:
+   ```bash
+   nano ~/.bashrc
+   ```
+
+   Add these lines:
+   ```bash
+   export HIVE_HOME=/opt/hive
+   export PATH=$HIVE_HOME/bin:$PATH
+   ```
+
+   Apply the changes:
+   ```bash
+   source ~/.bashrc
+   ```
+
+5. **Verify Hive Installation:**
+   ```bash
+   hive --version
+   ```
+
+---
+
+### **Step 2: Configure Hive**
+
+1. **Create Hive Directories in HDFS:**
+   ```bash
+   hdfs dfs -mkdir -p /user/hive/warehouse
+   hdfs dfs -chmod g+w /user/hive/warehouse
+   ```
+
+2. **Configure Hive `hive-site.xml`:**
+   Open the Hive configuration file:
+   ```bash
+   nano /opt/hive/conf/hive-site.xml
+   ```
+
+   Add the following configuration:
+   ```xml
+   <configuration>
+       <property>
+           <name>javax.jdo.option.ConnectionURL</name>
+           <value>jdbc:derby:;databaseName=/opt/hive/metastore_db;create=true</value>
+           <description>JDBC connection URL for the metastore database</description>
+       </property>
+       <property>
+           <name>hive.metastore.warehouse.dir</name>
+           <value>/user/hive/warehouse</value>
+           <description>Location of default database for the warehouse</description>
+       </property>
+       <property>
+           <name>hive.exec.scratchdir</name>
+           <value>/tmp/hive</value>
+           <description>Scratch directory for Hive jobs</description>
+       </property>
+   </configuration>
+   ```
+
+3. **Initialize Hive Metastore:**
+   Run the following command to initialize Hive:
+   ```bash
+   schematool -initSchema -dbType derby
+   ```
+
+---
+
+### **Step 3: Perform Practical Operations Using Hive and HDFS**
+
+1. **Start Hive CLI:**
+   ```bash
+   hive
+   ```
+
+2. **Create a Database:**
+   ```sql
+   CREATE DATABASE mydatabase;
+   ```
+
+3. **Create a Table:**
+   Example of creating an external table using HDFS:
+   ```sql
+   USE mydatabase;
+   CREATE EXTERNAL TABLE students (
+       id INT,
+       name STRING,
+       age INT
+   )
+   ROW FORMAT DELIMITED
+   FIELDS TERMINATED BY ','
+   STORED AS TEXTFILE
+   LOCATION '/user/hive/warehouse/students';
+   ```
+
+4. **Upload Data to HDFS:**
+   Prepare a CSV file `students.csv` with the following content:
+   ```
+   1,John,22
+   2,Jane,21
+   3,Mark,23
+   ```
+
+   Upload the file to the HDFS location:
+   ```bash
+   hdfs dfs -put students.csv /user/hive/warehouse/students/
+   ```
+
+5. **Query Data Using Hive:**
+   ```sql
+   SELECT * FROM students;
+   ```
+
+6. **Perform Aggregations:**
+   ```sql
+   SELECT age, COUNT(*) FROM students GROUP BY age;
+   ```
+
+7. **Load Data into Hive Table:**
+   Create a managed table and load data into it:
+   ```sql
+   CREATE TABLE managed_students (
+       id INT,
+       name STRING,
+       age INT
+   )
+   ROW FORMAT DELIMITED
+   FIELDS TERMINATED BY ',';
+
+   LOAD DATA INPATH '/user/hive/warehouse/students.csv' INTO TABLE managed_students;
+   ```
+
+8. **Perform Advanced Queries:**
+   Run queries like joins, filtering, and sorting:
+   ```sql
+   SELECT * FROM managed_students WHERE age > 21;
+   ```
+
+---
+
+This setup and basic practical steps should get you started with Hive and HDFS. 
+
+## ** Install MySQL**
 
 1. **Install MySQL Server:**
    ```bash
