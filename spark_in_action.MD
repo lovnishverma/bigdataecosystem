@@ -90,3 +90,124 @@ dfUpdated.show()
 # Good to stop SparkSession at the end of the application
 spark.stop()
 ```
+
+## **5. Hands-On: Spark SQL**
+
+### **Objective**:
+To create DataFrames, load data from different sources, and perform transformations and SQL queries.
+
+### **Steps**:
+
+#### **Step 1: Setup Environment**
+
+1. **Install Apache Spark and configure the environment.**
+2. **Start the Spark shell or a Scala-based notebook (such as Zeppelin or Jupyter with Spark integration).**
+
+**Start Spark in Master Mode**:
+
+```bash
+$SPARK_HOME/sbin/start-master.sh
+```
+**Start Spark in Worker Mode**:
+
+```bash
+$SPARK_HOME/sbin/start-worker.sh spark://localhost:7077
+```
+
+**Open Spark shell**:
+
+```bash
+spark-shell
+```
+
+**Stop Spark Services**:
+
+```bash
+$SPARK_HOME/sbin/stop-worker.sh
+$SPARK_HOME/sbin/stop-master.sh
+```
+
+#### **Step 2: Create DataFrames**
+
+```scala
+val data = Seq(
+  ("Alice", 30, "HR"),
+  ("Bob", 25, "Engineering"),
+  ("Charlie", 35, "Finance")
+)
+
+val df = data.toDF("Name", "Age", "Department")
+
+df.show()
+```
+![image](https://github.com/user-attachments/assets/06c2c14f-cf8e-4b38-8944-7844e75ee5d6)
+
+
+#### **Step 3: Perform Transformations Using Spark SQL**
+
+```scala
+df.createOrReplaceTempView("employees")
+val result = spark.sql("SELECT Department, COUNT(*) as count FROM employees GROUP BY Department")
+result.show()
+```
+![image](https://github.com/user-attachments/assets/c9125138-63dd-4c29-82c4-6d04bc531508)
+
+
+#### **Step 4: Save Transformed Data**
+
+```scala
+result.write.option("header", "true").csv("hdfs://localhost:9000/data/output/output_employees")
+```
+Reading from HDFS:
+Once the data is written to HDFS, you can read it back into Spark using:
+
+```scala
+val outputDF = spark.read.option("header", "true").csv("hdfs://localhost:9000/output_employees.csv")
+ ```
+
+View output_employees.csv from HDFS
+
+```scala
+outputDF.show()
+ ```
+
+#### **Step 5: Load Data from Different Sources**
+
+```scala
+// Load CSV from HDFS
+val df = spark.read.option("header", "false").csv("hdfs://localhost:9000/data/crimerecord/police/police.csv")
+df.show()
+
+// Load CSV from local filesystem
+val dfLocal = spark.read.option("header", "false").csv("file:///police.csv")
+dfLocal.show()
+```
+
+#### **Step 6: Scala WordCount Program**
+
+```scala
+import org.apache.spark.{SparkConf}
+val conf = new SparkConf().setAppName("WordCountExample").setMaster("local")
+val input = sc.textFile("hdfs://localhost:9000/data.txt")
+val wordPairs = input.flatMap(line => line.split(" ")).map(word => (word, 1))
+val wordCounts = wordPairs.reduceByKey((a, b) => a + b)
+wordCounts.collect().foreach { case (word, count) =>
+  println(s"$word: $count")
+}
+```
+![image](https://github.com/user-attachments/assets/428e0d99-f0e0-4edd-8f3c-4543130c8a47)
+
+
+**Stop Session**:
+
+```scala
+sc.stop()
+```
+
+---
+
+## **6. Key Takeaways**
+
+- Spark SQL simplifies working with structured data.
+- DataFrames provide a flexible and powerful API for handling large datasets.
+- Apache Spark is a versatile tool for distributed data processing, offering scalability and performance.
