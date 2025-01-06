@@ -103,7 +103,6 @@ import org.apache.spark.sql.SparkSession
 // Initialize SparkSession
 val spark = SparkSession.builder
   .appName("SimpleDataFrameExample")
-  .master("local[*]")  // Run locally
   .getOrCreate()
 
 // Sample Data
@@ -122,13 +121,8 @@ df.show()
 
 ### Output:
 ```
-+-------+---+------------+
-|   Name|Age|  Department|
-+-------+---+------------+
-|  Alice| 30|          HR|
-|    Bob| 25| Engineering|
-|Charlie| 35|     Finance|
-+-------+---+------------+
+![image](https://github.com/user-attachments/assets/1709a652-be21-4b15-95e5-c79c4e1af03a)
+
 ```
 
 ### Explanation:
