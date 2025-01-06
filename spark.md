@@ -259,7 +259,7 @@ sc.stop()
 Once you are done with your operations, don’t forget to stop the Spark session.
 
 ```scala
-spark.stop()
+sc.stop()
 ```
 
 
