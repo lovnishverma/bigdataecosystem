@@ -562,16 +562,21 @@ To install Hive and perform practical operations using Hive and HDFS, follow the
    ```bash
    hdfs dfs -put students.csv /user/hive/warehouse/students/
    ```
+![image](https://github.com/user-attachments/assets/08f9251a-2163-44c1-aa80-5580023ffb93)
+
 
 5. **Query Data Using Hive:**
    ```sql
+   USE mydatabase;
    SELECT * FROM students;
    ```
+![image](https://github.com/user-attachments/assets/fd5830ca-5b1c-460b-8446-d5bce78cd52f)
 
 6. **Perform Aggregations:**
    ```sql
    SELECT age, COUNT(*) FROM students GROUP BY age;
    ```
+![image](https://github.com/user-attachments/assets/4d121fc1-2e7d-4a11-bcd9-8bd803837d47)
 
 7. **Load Data into Hive Table:**
    Create a managed table and load data into it:
@@ -584,7 +589,7 @@ To install Hive and perform practical operations using Hive and HDFS, follow the
    ROW FORMAT DELIMITED
    FIELDS TERMINATED BY ',';
 
-   LOAD DATA INPATH '/user/hive/warehouse/students.csv' INTO TABLE managed_students;
+   LOAD DATA INPATH '/user/hive/warehouse/students/students.csv' INTO TABLE managed_students;
    ```
 
 8. **Perform Advanced Queries:**
@@ -592,6 +597,7 @@ To install Hive and perform practical operations using Hive and HDFS, follow the
    ```sql
    SELECT * FROM managed_students WHERE age > 21;
    ```
+![image](https://github.com/user-attachments/assets/b1e75205-fa38-4534-8302-ab528cfe6fc5)
 
 ---
 
