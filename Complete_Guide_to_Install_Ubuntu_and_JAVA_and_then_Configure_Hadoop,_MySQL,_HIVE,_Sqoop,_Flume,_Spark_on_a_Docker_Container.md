@@ -1154,7 +1154,7 @@ Spark needs to be configured to communicate with Hadoop HDFS. You need to point 
 1. **Set the Hadoop configuration directory for Spark**:
 
    ```bash
-   echo 'export HADOOP_CONF_DIR=/etc/hadoop/conf' >> ~/.bashrc
+   echo 'export HADOOP_CONF_DIR=/opt/hadoop/etc/hadoop' >> ~/.bashrc
    source ~/.bashrc
    ```
 
