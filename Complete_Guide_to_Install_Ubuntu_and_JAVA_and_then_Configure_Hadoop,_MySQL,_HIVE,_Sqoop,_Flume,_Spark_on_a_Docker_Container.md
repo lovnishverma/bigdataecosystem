@@ -1159,7 +1159,7 @@ Spark needs to be configured to communicate with Hadoop HDFS. You need to point 
    ```
 
 2. **Check if Hadoop configuration files are available**:  
-   Ensure that the Hadoop configuration files such as `core-site.xml`, `hdfs-site.xml`, and others are present in `/etc/hadoop/conf`.
+   Ensure that the Hadoop configuration files such as `core-site.xml`, `hdfs-site.xml`, and others are present in `/opt/hadoop/etc/hadoop`.
 
 ### Step 4: Verify the Installation
 
