@@ -48,7 +48,53 @@ To create DataFrames, load data from different sources, and perform transformati
 1. Install Apache Spark and configure the environment.
 2. Start the Spark shell or a Scala-based notebook (such as Zeppelin or Jupyter with Spark integration).
 
+**To Start Spark shell folllow these instructions**
+
+1. **Start Spark in Master Mode**:  
+   You can start Spark in master mode from the command line:
+
+   ```bash
+   $SPARK_HOME/sbin/start-master.sh
+   ```
+2. **Open Spark shell** (Optional, if you want to run Spark workers as well):
+
+   ```bash
+   spark-shell
+   ```
+
+   This will start Spark in master mode and expose the Spark Web UI at `http://localhost:8080`.
+
+3. **Start Spark in Worker Mode** (Optional, if you want to run Spark workers as well):
+
+   ```bash
+   $SPARK_HOME/sbin/start-worker.sh spark://localhost:7077
+   ```
+
+
+   This starts the worker node and connects it to the master node.
+![image](https://github.com/user-attachments/assets/855bf183-bf5f-4bca-a6b4-b381928a25e9)
+
+
+### To Stop Spark Services
+
+When you're done, you can stop Spark services.
+
+1. **Stop the Spark Worker**:
+
+   ```bash
+   $SPARK_HOME/sbin/stop-worker.sh
+   ```
+
+2. **Stop the Spark Master**:
+
+   ```bash
+   $SPARK_HOME/sbin/stop-master.sh
+   
+**Monitor the job**:  
+   You can monitor the job's progress through the Spark Web UI at `http://localhost:8080`.
+
 #### **Step 2: Create DataFrames**
+
 ```scala
 import org.apache.spark.sql.SparkSession
 
@@ -60,9 +106,14 @@ val spark = SparkSession.builder
 // Sample DataFrame
 val data = Seq(("Alice", 30, "HR"), ("Bob", 25, "Engineering"), ("Charlie", 35, "Finance"))
 val columns = Seq("Name", "Age", "Department")
+
+// Create DataFrame
 val df = spark.createDataFrame(data).toDF(columns: _*)
+
+// Show the DataFrame
 df.show()
 ```
+
 
 #### **Step 3: Load Data from Different Sources**
 
