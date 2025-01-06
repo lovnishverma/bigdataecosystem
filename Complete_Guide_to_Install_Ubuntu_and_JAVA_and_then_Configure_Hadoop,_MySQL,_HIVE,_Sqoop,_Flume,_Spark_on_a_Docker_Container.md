@@ -21,6 +21,7 @@
    jps
    ```
    You should see processes like `NameNode`, `ResourceManager`, `DataNode`, and `SecondaryNameNode` if everything is working correctly.
+![image](https://github.com/user-attachments/assets/9390861d-5ae3-4b40-9519-894196d5a4ee)
 
    ---
 
@@ -471,6 +472,7 @@ To install Hive and perform practical operations using Hive and HDFS, follow the
    ```bash
    hive --version
    ```
+![image](https://github.com/user-attachments/assets/215219ff-7451-440a-9955-229647c69697)
 
 ---
 
