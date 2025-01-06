@@ -139,6 +139,12 @@ df.show()
 val df = spark.read.option("header", "false").csv("file:///police.csv")
 
 df.show()
+
+# Shows at most 5 rows from the dataframe
+df.show(5)
+
+# Good to stop SparkSession at the end of the application
+session.stop()
 ```
 
 #### **Step 7: Scala WordCount program.**
