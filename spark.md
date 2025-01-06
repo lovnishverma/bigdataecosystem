@@ -103,7 +103,7 @@ import org.apache.spark.sql.SparkSession
 // Initialize SparkSession
 val spark = SparkSession.builder
   .appName("SimpleDataFrameExample")
-  .master("local[*]") // Run locally
+  .master("local[*]")  // Run locally
   .getOrCreate()
 
 // Import implicits for DataFrame creation
@@ -121,9 +121,6 @@ val df = data.toDF("Name", "Age", "Department")
 
 // Show the DataFrame
 df.show()
-
-// Stop the Spark session
-spark.stop()
 ```
 
 ### Output:
