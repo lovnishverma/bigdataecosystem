@@ -132,38 +132,18 @@ spark.stop()
 #### **Step 3: Load Data from Different Sources**
 
 ```scala
-// Load CSV
-val dfCsv = spark.read
-  .option("header", "true")
-  .option("inferSchema", "true")
-  .csv("file:///path/to/data.csv")
+# Load CSV
+df_csv = spark.read.csv("file:///path/to/data.csv", header=True, inferSchema=True)
 
-// Load JSON
-val dfJson = spark.read.json("file:///path/to/data.json")
+#**example from HDFS:**
 
-// Load Parquet
-val dfParquet = spark.read.parquet("file:///path/to/data.parquet")
-```
+val df = spark.read.csv("hdfs://localhost:9000/data/crimerecord/police/police.csv")
 
-For **HDFS** example:
-```scala
-// Read data from HDFS
-val df = spark.read
-  .option("header", "true")
-  .csv("hdfs://localhost:9000/data/crimerecord/police/police.csv")
+#**or from local file system**
 
-df.show() // Display the loaded data
-```
+val dfCsv = spark.read .option("header", "true") .option("inferSchema", "true") .csv("file:///police.csv")
 
-For **local file system** example:
-```scala
-// Read data from local file system
-val dfCsv = spark.read
-  .option("header", "true")
-  .option("inferSchema", "true")
-  .csv("file:///path/to/data.csv")
-
-dfCsv.show() // Display the loaded data
+df.show() #TO SHOW DATA
 ```
 
 #### **Step 4: Perform Transformations**
