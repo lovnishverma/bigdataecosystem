@@ -95,10 +95,6 @@ When you're done, you can stop Spark services.
 
 #### **Step 2: Create DataFrames**
 
-
-
-
-
 ```scala
 import org.apache.spark.sql.SparkSession
 
@@ -125,28 +121,7 @@ df.show()
 spark.stop()
 ```
 
-
-
-
-
-#### **Step 3: Load Data from Different Sources**
-
-```scala
-# Load CSV
-df_csv = spark.read.csv("file:///path/to/data.csv", header=True, inferSchema=True)
-
-#**example from HDFS:**
-
-val df = spark.read.csv("hdfs://localhost:9000/data/crimerecord/police/police.csv")
-
-#**or from local file system**
-
-val dfCsv = spark.read .option("header", "true") .option("inferSchema", "true") .csv("file:///police.csv")
-
-df.show() #TO SHOW DATA
-```
-
-#### **Step 4: Perform Transformations**
+#### **Step 3: Perform Transformations**
 ```scala
 // Filter Data
 val filteredDf = df.filter($"Age" > 30)
@@ -157,7 +132,7 @@ val transformedDf = df.withColumn("Experience", $"Age" - 20)
 transformedDf.show()
 ```
 
-#### **Step 5: Use Spark SQL**
+#### **Step 4: Use Spark SQL**
 ```scala
 // Create a Temporary View
 transformedDf.createOrReplaceTempView("employees")
@@ -167,7 +142,7 @@ val result = spark.sql("SELECT Name, Age FROM employees WHERE Age > 30")
 result.show()
 ```
 
-#### **Step 6: Save Transformed Data**
+#### **Step 5: Save Transformed Data**
 ```scala
 // Save as CSV
 filteredDf.write
@@ -176,6 +151,23 @@ filteredDf.write
 
 // Save as Parquet
 filteredDf.write.parquet("file:///path/to/output.parquet")
+```
+
+#### **Step 6: Load Data from Different Sources**
+
+```scala
+# Load CSV
+df_csv = spark.read.csv("file:///police.csv", header=False, inferSchema=True)
+
+#**example from HDFS:**
+val df = spark.read.csv("hdfs://namenode:9000/data/crimerecord/police/police.csv")
+df.show()
+
+#**or from local file system**
+
+val dfCsv = spark.read .option("header", "flase") .option("inferSchema", "true") .csv("file:///police.csv")
+
+df.show() #TO SHOW DATA
 ```
 
 #### **Step 7: Scala WordCount program.**
@@ -199,7 +191,7 @@ hdfs dfs -put data.txt /data
 
 
 
-##******### WordCount Program in Scala******
+##******### Now Let's do WordCount Program in Scala******
 
 The following Scala code performs a WordCount operation using Apache Spark:
 
