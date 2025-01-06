@@ -633,6 +633,7 @@ docker cp data.txt nodemanager:/data.txt
 Use the following command to put the `data.txt` file from your Docker container to HDFS:
 
 ```bash
+hdfs dfs -mkdir /data
 hdfs dfs -put data.txt /data
 ```
 ![image](https://github.com/user-attachments/assets/b4d93f36-f1b1-4056-a4af-d4dbb418634e)
@@ -644,7 +645,7 @@ hdfs dfs -put data.txt /data
 ```scala
 import org.apache.spark.{SparkConf}
 val conf = new SparkConf().setAppName("WordCountExample").setMaster("local")
-val input = sc.textFile("hdfs://namenode:9000/data.txt")
+val input = sc.textFile("hdfs://namenode:9000/data/data.txt")
 val wordPairs = input.flatMap(line => line.split(" ")).map(word => (word, 1))
 val wordCounts = wordPairs.reduceByKey((a, b) => a + b)
 wordCounts.collect().foreach { case (word, count) =>
