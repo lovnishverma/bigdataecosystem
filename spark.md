@@ -1,4 +1,4 @@
-# Working with Apache Spark (7 hrs)
+# **Working with Apache Spark (7 hrs)**
 
 ## **1. Introduction to Apache Spark**
 - **Overview**: Apache Spark is an open-source distributed computing system known for its speed, ease of use, and general-purpose capabilities for big data processing.
@@ -38,24 +38,26 @@
   - Support for structured data sources.
 
 ## **5. Hands-On: Spark SQL**
+
 ### **Objective**:
 To create DataFrames, load data from different sources, and perform transformations and SQL queries.
 
 ### **Steps**:
+
 #### **Step 1: Setup Environment**
 1. Install Apache Spark and configure the environment.
-2. Start the Spark shell or a Jupyter Notebook with PySpark.
+2. Start the Spark shell or a Scala-based notebook (such as Zeppelin or Jupyter with Spark integration).
 
 #### **Step 2: Create DataFrames**
-```python
+```scala
 import org.apache.spark.sql.SparkSession
 
-# Initialize SparkSession
-spark = SparkSession.builder \
-    .appName("SparkSQLDemo") \
-    .getOrCreate()
+// Initialize SparkSession
+val spark = SparkSession.builder
+  .appName("SparkSQLDemo")
+  .getOrCreate()
 
-# Sample DataFrame
+// Sample DataFrame
 val data = Seq(("Alice", 30, "HR"), ("Bob", 25, "Engineering"), ("Charlie", 35, "Finance"))
 val columns = Seq("Name", "Age", "Department")
 val df = spark.createDataFrame(data).toDF(columns: _*)
@@ -63,56 +65,72 @@ df.show()
 ```
 
 #### **Step 3: Load Data from Different Sources**
-```python
-# Load CSV
-df_csv = spark.read.csv("file:///path/to/data.csv", header=True, inferSchema=True)
 
-#**example from HDFS:**
+```scala
+// Load CSV
+val dfCsv = spark.read
+  .option("header", "true")
+  .option("inferSchema", "true")
+  .csv("file:///path/to/data.csv")
 
-val df = spark.read.csv("hdfs://localhost:9000/data/crimerecord/police/police.csv")
+// Load JSON
+val dfJson = spark.read.json("file:///path/to/data.json")
 
-#**or from local file system**
+// Load Parquet
+val dfParquet = spark.read.parquet("file:///path/to/data.parquet")
+```
 
-val dfCsv = spark.read .option("header", "true") .option("inferSchema", "true") .csv("file:///police.csv")
+For **HDFS** example:
+```scala
+// Read data from HDFS
+val df = spark.read
+  .option("header", "true")
+  .csv("hdfs://localhost:9000/data/crimerecord/police/police.csv")
 
-df.show() #TO SHOW DATA
+df.show() // Display the loaded data
+```
 
+For **local file system** example:
+```scala
+// Read data from local file system
+val dfCsv = spark.read
+  .option("header", "true")
+  .option("inferSchema", "true")
+  .csv("file:///path/to/data.csv")
 
-# Load JSON
-df_json = spark.read.json("file:///path/to/data.json")
-
-# Load Parquet
-df_parquet = spark.read.parquet("file:///path/to/data.parquet")
+dfCsv.show() // Display the loaded data
 ```
 
 #### **Step 4: Perform Transformations**
-```python
-# Filter Data
-filtered_df = df.filter(df.Age > 30)
-filtered_df.show()
+```scala
+// Filter Data
+val filteredDf = df.filter($"Age" > 30)
+filteredDf.show()
 
-# Add a Column
-transformed_df = df.withColumn("Experience", df.Age - 20)
-transformed_df.show()
+// Add a Column
+val transformedDf = df.withColumn("Experience", $"Age" - 20)
+transformedDf.show()
 ```
 
 #### **Step 5: Use Spark SQL**
-```python
-# Create a Temporary View
-transformed_df.createOrReplaceTempView("employees")
+```scala
+// Create a Temporary View
+transformedDf.createOrReplaceTempView("employees")
 
-# Run SQL Queries
-result = spark.sql("SELECT Name, Age FROM employees WHERE Age > 30")
+// Run SQL Queries
+val result = spark.sql("SELECT Name, Age FROM employees WHERE Age > 30")
 result.show()
 ```
 
 #### **Step 6: Save Transformed Data**
-```python
-# Save as CSV
-filtered_df.write.csv("file:///path/to/output.csv", header=True)
+```scala
+// Save as CSV
+filteredDf.write
+  .option("header", "true")
+  .csv("file:///path/to/output.csv")
 
-# Save as Parquet
-filtered_df.write.parquet("file:///path/to/output.parquet")
+// Save as Parquet
+filteredDf.write.parquet("file:///path/to/output.parquet")
 ```
 
 ---
@@ -126,9 +144,12 @@ filtered_df.write.parquet("file:///path/to/output.parquet")
 
 ## **Estimated Time Allocation**
 | **Topic**                        | **Duration** |
-|----------------------------------|--------------|
-| Introduction to Spark            | 1 hour       |
-| DataFrames and Scala Overview    | 2 hours      |
-| Spark SQL                        | 1 hour       |
-| Hands-On Practice                | 3 hours      |
+|-----------------------------------|--------------|
+| Introduction to Spark             | 1 hour       |
+| DataFrames and Scala Overview     | 2 hours      |
+| Spark SQL                         | 1 hour       |
+| Hands-On Practice                 | 3 hours      |
 
+---
+
+This complete document now provides both the theoretical explanations and the Scala-based examples for your hands-on Apache Spark session. It ensures a seamless learning experience and covers loading data from various sources, transforming data, and querying it using Spark SQL.
