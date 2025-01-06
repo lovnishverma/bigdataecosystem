@@ -137,7 +137,7 @@ dfLocal.show()
 ```scala
 import org.apache.spark.{SparkConf}
 val conf = new SparkConf().setAppName("WordCountExample").setMaster("local")
-val input = sc.textFile("hdfs://localhost:9000/data/data.txt")
+val input = sc.textFile("hdfs://localhost:9000/data.txt")
 val wordPairs = input.flatMap(line => line.split(" ")).map(word => (word, 1))
 val wordCounts = wordPairs.reduceByKey((a, b) => a + b)
 wordCounts.collect().foreach { case (word, count) =>
