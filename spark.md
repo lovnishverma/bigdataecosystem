@@ -134,21 +134,46 @@ df.show()
 #### **Step 3: Load Data from Different Sources**
 
 ```scala
+import org.apache.spark.sql.SparkSession
+
+// Initialize SparkSession
+val spark = SparkSession.builder
+  .appName("SimpleDataFrameExample")
+  .getOrCreate()
+
 // Load CSV
 val dfCsv = spark.read
   .option("header", "true")
   .option("inferSchema", "true")
-  .csv("file:///path/to/data.csv")
+  .csv("file:///police.csv")
 
 // Load JSON
+import org.apache.spark.sql.SparkSession
+
+// Initialize SparkSession
+val spark = SparkSession.builder
+  .appName("SimpleDataFrameExample")
+  .getOrCreate()
 val dfJson = spark.read.json("file:///path/to/data.json")
 
 // Load Parquet
+import org.apache.spark.sql.SparkSession
+
+// Initialize SparkSession
+val spark = SparkSession.builder
+  .appName("SimpleDataFrameExample")
+  .getOrCreate()
 val dfParquet = spark.read.parquet("file:///path/to/data.parquet")
 ```
 
 For **HDFS** example:
 ```scala
+import org.apache.spark.sql.SparkSession
+
+// Initialize SparkSession
+val spark = SparkSession.builder
+  .appName("SimpleDataFrameExample")
+  .getOrCreate()
 // Read data from HDFS
 val df = spark.read
   .option("header", "true")
