@@ -70,17 +70,16 @@ To create DataFrames, load data from different sources, and perform transformati
 ```bash
 $SPARK_HOME/sbin/start-master.sh
 ```
+**Start Spark in Worker Mode**:
+
+```bash
+$SPARK_HOME/sbin/start-worker.sh spark://localhost:7077
+```
 
 **Open Spark shell**:
 
 ```bash
 spark-shell
-```
-
-**Start Spark in Worker Mode**:
-
-```bash
-$SPARK_HOME/sbin/start-worker.sh spark://localhost:7077
 ```
 
 **Monitor the job**:
