@@ -1207,4 +1207,4 @@ When you're done, you can stop Spark services.
 
 This method installs Spark directly within the same container as Hadoop, eliminating the need for multiple containers but still allowing full Hadoop-Spark integration. Let me know if you need more help!
 
-This concludes the installation and configuration process for **Java**,  **Hadoop**, **MySQL**, **Sqoop** on Docker Container.
+This concludes the installation and configuration process for **Ubuntu** and **JAVA** and then Configure **Hadoop, MySQL, HIVE, Sqoop, Flume, Spark** on Docker Container.
