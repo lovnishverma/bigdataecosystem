@@ -606,7 +606,7 @@ outputDF.show()
 ![image](https://github.com/user-attachments/assets/a4bb7af6-2ee6-485f-a306-371165e5bf37)
 
 
-#### **Step 5: Load Data from Different Sources**
+#### **Step 5: Load Data from HDFS**
 
 ```scala
 // Load CSV from HDFS
@@ -619,7 +619,7 @@ df.show()
 
 #### **Step 6: Scala WordCount using Apache Spark**
 
-```markdown
+
 ### Docker Command to Copy File
 *Copy File**: Use `docker cp` to move or create the file inside the namenode Docker container.
 Use the following command to copy the `data.txt` file from your local system to the Docker container:
