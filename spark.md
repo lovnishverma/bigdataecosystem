@@ -1,4 +1,4 @@
-# **Working with Apache Spark (7 hrs)**
+# **Working with Apache Spark**
 
 ## **1. Introduction to Apache Spark**
 
@@ -82,10 +82,6 @@ $SPARK_HOME/sbin/start-worker.sh spark://localhost:7077
 spark-shell
 ```
 
-**Monitor the job**:
-
-Visit `http://localhost:8080` to monitor the Spark Web UI.
-
 **Stop Spark Services**:
 
 ```bash
@@ -160,13 +156,4 @@ sc.stop()
 - Apache Spark is a versatile tool for distributed data processing, offering scalability and performance.
 
 ---
-
-## **Estimated Time Allocation**
-
-| **Topic**                        | **Duration** |
-|-----------------------------------|--------------|
-| Introduction to Spark             | 1 hour       |
-| DataFrames and Scala Overview     | 2 hours      |
-| Spark SQL                         | 1 hour       |
-| Hands-On Practice                 | 3 hours      |
 
