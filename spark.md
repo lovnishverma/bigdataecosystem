@@ -95,24 +95,53 @@ When you're done, you can stop Spark services.
 
 #### **Step 2: Create DataFrames**
 
+Here’s a simple example to create and display a DataFrame in Scala using Apache Spark:
+
 ```scala
 import org.apache.spark.sql.SparkSession
 
 // Initialize SparkSession
 val spark = SparkSession.builder
-  .appName("SparkSQLDemo")
+  .appName("SimpleDataFrameExample")
+  .master("local[*]") // Run locally
   .getOrCreate()
 
-// Sample DataFrame
-val data = Seq(("Alice", 30, "HR"), ("Bob", 25, "Engineering"), ("Charlie", 35, "Finance"))
-val columns = Seq("Name", "Age", "Department")
+// Import implicits for DataFrame creation
+import spark.implicits._
+
+// Sample Data
+val data = Seq(
+  ("Alice", 30, "HR"),
+  ("Bob", 25, "Engineering"),
+  ("Charlie", 35, "Finance")
+)
 
 // Create DataFrame
-val df = spark.createDataFrame(data).toDF(columns: _*)
+val df = data.toDF("Name", "Age", "Department")
 
 // Show the DataFrame
 df.show()
+
+// Stop the Spark session
+spark.stop()
 ```
+
+### Output:
+```
++-------+---+------------+
+|   Name|Age|  Department|
++-------+---+------------+
+|  Alice| 30|          HR|
+|    Bob| 25| Engineering|
+|Charlie| 35|     Finance|
++-------+---+------------+
+```
+
+### Explanation:
+1. **SparkSession**: Initialized with `.master("local[*]")` to run on your local machine.
+2. **Data**: Created as a simple `Seq` (list of tuples).
+3. **toDF**: Converts the data into a DataFrame and specifies column names.
+4. **df.show()**: Displays the contents of the DataFrame.
 
 
 #### **Step 3: Load Data from Different Sources**
