@@ -98,60 +98,31 @@ When you're done, you can stop Spark services.
 ```scala
 import org.apache.spark.sql.SparkSession
 
-// Initialize SparkSession
 val spark = SparkSession.builder
   .appName("SimpleDataFrameExample")
 
   .getOrCreate()
 
-// Sample Data
 val data = Seq(
   ("Alice", 30, "HR"),
   ("Bob", 25, "Engineering"),
   ("Charlie", 35, "Finance")
 )
 
-// Create DataFrame
 val df = data.toDF("Name", "Age", "Department")
 
-// Show the DataFrame
 df.show()
-
-// Stop the Spark session
-spark.stop()
 ```
 
 #### **Step 3: Perform Transformations**
-```scala
-// Filter Data
-val filteredDf = df.filter($"Age" > 30)
-filteredDf.show()
 
-// Add a Column
-val transformedDf = df.withColumn("Experience", $"Age" - 20)
-transformedDf.show()
-```
 
 #### **Step 4: Use Spark SQL**
-```scala
-// Create a Temporary View
-transformedDf.createOrReplaceTempView("employees")
 
-// Run SQL Queries
-val result = spark.sql("SELECT Name, Age FROM employees WHERE Age > 30")
-result.show()
-```
 
 #### **Step 5: Save Transformed Data**
-```scala
-// Save as CSV
-filteredDf.write
-  .option("header", "true")
-  .csv("file:///path/to/output.csv")
 
-// Save as Parquet
-filteredDf.write.parquet("file:///path/to/output.parquet")
-```
+
 
 #### **Step 6: Load Data from Different Sources**
 
@@ -160,11 +131,12 @@ filteredDf.write.parquet("file:///path/to/output.parquet")
 
 #**Example to load csv file from HDFS:**
 val df = spark.read.option("header", "false").csv("hdfs://localhost:9000/data/crimerecord/police/police.csv")
+
 df.show()
 
 #**or from local file system**
 
-val df = spark.read.option("header", "false").csv"file:///police.csv", header=False, inferSchema=True)
+val df = spark.read.option("header", "false").csv("file:///police.csv")
 
 df.show()
 ```
