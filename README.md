@@ -475,16 +475,6 @@ To copy a file (e.g., `police.csv`) to the Hadoop cluster:
 
 ![image](https://github.com/user-attachments/assets/6b27db66-a111-4c2f-a701-2cef8aaa3344)
 
-## **Step 6: Set Up Spark**
-
-### **Access the Spark Master UI**
-
-- Open `http://localhost:8080` in your web browser to view the Spark Master UI.
-- **You can monitor processes here**
-
-- ![image](https://github.com/user-attachments/assets/a824047c-f50c-494c-8429-d2bebd58870b)
-
-- ![image](https://github.com/user-attachments/assets/8fa7e525-d601-4dad-b5b4-0477d47ec4dd)
 
 ### **Start Spark Shell**
 
@@ -495,6 +485,13 @@ docker exec -it spark-master bash
 
 spark/bin/spark-shell --master spark://spark-master:7077
 ```
+### **Access the Spark Master UI**
+
+- Open `http://localhost:8080` in your web browser to view the Spark Master UI.
+- **You can monitor processes here**
+
+- ![image](https://github.com/user-attachments/assets/8fa7e525-d601-4dad-b5b4-0477d47ec4dd)
+
 
 ![image](https://github.com/user-attachments/assets/45765d5e-b1e7-4726-a60c-ddd5dd278c93)
 
