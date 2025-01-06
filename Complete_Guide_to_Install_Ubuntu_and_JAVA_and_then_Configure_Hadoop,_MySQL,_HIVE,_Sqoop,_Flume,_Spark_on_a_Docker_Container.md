@@ -192,7 +192,9 @@ This guide outlines the steps to install Ubuntu and JAVA and configure **Hadoop*
 2. **Download and Extract Hadoop:**
    ```bash
    wget https://dlcdn.apache.org/hadoop/common/hadoop-2.10.2/hadoop-2.10.2.tar.gz
+   
    tar -xzf hadoop-2.10.2.tar.gz -C /opt
+   
    mv /opt/hadoop-2.10.2 /opt/hadoop
    ```
 
@@ -221,7 +223,7 @@ This guide outlines the steps to install Ubuntu and JAVA and configure **Hadoop*
 
 ---
 
-To ensure proper configuration of Hadoop, I'll provide the correct indentation for each file you need to edit. Here are the corrected configurations for `core-site.xml`, `hdfs-site.xml`, and `yarn-site.xml`.
+To ensure proper configuration of Hadoop, you need to edit some configuration files. Here are the configurations for `core-site.xml`, `hdfs-site.xml`, and `yarn-site.xml`.
 
 ### **1. Edit `core-site.xml`**
 
