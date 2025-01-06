@@ -108,7 +108,7 @@ val df = data.toDF("Name", "Age", "Department")
 df.show()
 ```
 
-#### **Step 3: Perform Transformations**
+#### **Step 3: Perform Transformations Using Spark SQL**
 
 ```scala
 df.createOrReplaceTempView("employees")
@@ -116,15 +116,12 @@ val result = spark.sql("SELECT Department, COUNT(*) as count FROM employees GROU
 result.show()
 ```
 
-#### **Step 4: Use Spark SQL**
+#### **Step 4: Save Transformed Data**
 
-Execute SQL queries on DataFrames and explore structured data.
+result.write.option("header", "true").csv("hdfs://localhost:9000/data/output/employees")
 
-#### **Step 5: Save Transformed Data**
 
-Save results back to a storage system (e.g., HDFS or local filesystem).
-
-#### **Step 6: Load Data from Different Sources**
+#### **Step 5: Load Data from Different Sources**
 
 ```scala
 // Load CSV from HDFS
@@ -136,12 +133,12 @@ val dfLocal = spark.read.option("header", "false").csv("file:///police.csv")
 dfLocal.show()
 ```
 
-#### **Step 7: Scala WordCount Program**
+#### **Step 6: Scala WordCount Program**
 
 ```scala
 import org.apache.spark.{SparkConf}
 val conf = new SparkConf().setAppName("WordCountExample").setMaster("local")
-val input = sc.textFile("hdfs://namenode:9000/data/data.txt")
+val input = sc.textFile("hdfs://localhost:9000/data/data.txt")
 val wordPairs = input.flatMap(line => line.split(" ")).map(word => (word, 1))
 val wordCounts = wordPairs.reduceByKey((a, b) => a + b)
 wordCounts.collect().foreach { case (word, count) =>
