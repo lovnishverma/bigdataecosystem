@@ -595,7 +595,7 @@ Reading from HDFS:
 Once the data is written to HDFS, you can read it back into Spark using:
 
 ```scala
-val outputDF = spark.read.option("header", "true").csv("hdfs://namenode:9000/output_employees.csv")
+val outputDF = spark.read.option("header", "true").csv("hdfs://namenode:9000/output_employees")
  ```
 
 View output_employees.csv from HDFS
@@ -603,6 +603,8 @@ View output_employees.csv from HDFS
 ```scala
 outputDF.show()
  ```
+![image](https://github.com/user-attachments/assets/a4bb7af6-2ee6-485f-a306-371165e5bf37)
+
 
 #### **Step 5: Load Data from Different Sources**
 
@@ -611,10 +613,8 @@ outputDF.show()
 val df = spark.read.option("header", "false").csv("hdfs://namenode:9000/data/crimerecord/police/police.csv")
 df.show()
 
-// Load CSV from local filesystem
-val dfLocal = spark.read.option("header", "false").csv("file:///police.csv")
-dfLocal.show()
-```
+![image](https://github.com/user-attachments/assets/f6dfde78-f44a-4554-9c0f-f11cb9173e6c)
+
 
 
 #### **Step 6: Scala WordCount using Apache Spark**
