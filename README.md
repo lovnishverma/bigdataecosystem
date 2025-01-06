@@ -612,9 +612,9 @@ outputDF.show()
 // Load CSV from HDFS
 val df = spark.read.option("header", "false").csv("hdfs://namenode:9000/data/crimerecord/police/police.csv")
 df.show()
+```
 
 ![image](https://github.com/user-attachments/assets/f6dfde78-f44a-4554-9c0f-f11cb9173e6c)
-
 
 
 #### **Step 6: Scala WordCount using Apache Spark**
