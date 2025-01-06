@@ -492,6 +492,8 @@ To install Hive and perform practical operations using Hive and HDFS, follow the
 
    Add the following configuration:
    ```xml
+   <?xml version="1.0"?>
+   <?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
    <configuration>
        <property>
            <name>javax.jdo.option.ConnectionURL</name>
