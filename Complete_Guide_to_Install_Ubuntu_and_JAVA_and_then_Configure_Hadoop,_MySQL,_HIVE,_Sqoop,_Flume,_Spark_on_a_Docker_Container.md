@@ -830,8 +830,27 @@ hadoop fs -cat /user/hdfs/employees_data/*
 
 ![image](https://github.com/user-attachments/assets/8806e578-b177-418c-847b-92e415e7a73b)
 
+The `sqoop export` command is used to export data from HDFS back to a relational database. In your case, you have imported data into HDFS from the `testdb` MySQL database using the `sqoop import` command. Now, to export the data back into the MySQL database, you can use the following `sqoop export` command.
 
-You can now perform practical operations like exporting data, running queries, etc., with this setup.
+### Export Command Example:
+```bash
+sqoop export --connect jdbc:mysql://localhost:3306/testdb \
+             --username sqoop_user --password password123 \
+             --table employees --export-dir /user/hdfs/employees_data
+```
+
+### Explanation of the Export Command:
+- **`--connect jdbc:mysql://localhost:3306/testdb`**: The JDBC connection string to your MySQL database (`testdb`).
+- **`--username sqoop_user`**: The MySQL username (`sqoop_user`) you created earlier.
+- **`--password password123`**: The password for the `sqoop_user`.
+- **`--table employees`**: The name of the table in the database where the data will be exported. Ensure that the `employees` table exists in the `testdb` database.
+- **`--export-dir /user/hdfs/employees_data`**: The HDFS directory from which Sqoop will read the data. This should be the directory where the data was stored during the import operation.
+
+### Notes:
+- Make sure the HDFS directory (`/user/hdfs/employees_data`) contains the data in a format that is compatible with the MySQL table structure. For example, if you imported data into HDFS using a default text format, ensure that the `employees` table in MySQL matches the column structure of the data.
+- If the `employees` table does not exist, you may need to create it manually in MySQL or use the `--create-table` flag in Sqoop to automatically create it based on the data.
+
+You can now perform practical operations like running queries, etc., with this setup.
 
 ---
 
