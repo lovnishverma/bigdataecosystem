@@ -96,8 +96,6 @@ When you're done, you can stop Spark services.
 #### **Step 2: Create DataFrames**
 
 ```scala
-import org.apache.spark.sql.SparkSession
-
 val spark = SparkSession.builder
   .appName("SimpleDataFrameExample")
 
