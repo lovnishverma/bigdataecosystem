@@ -480,10 +480,9 @@ To copy a file (e.g., `police.csv`) to the Hadoop cluster:
 ### **Access the Spark Master UI**
 
 - Open `http://localhost:8080` in your web browser to view the Spark Master UI.
+- **You can monitor processes here**
 
 - ![image](https://github.com/user-attachments/assets/a824047c-f50c-494c-8429-d2bebd58870b)
-
-**You can monitor processes here**
 
 - ![image](https://github.com/user-attachments/assets/8fa7e525-d601-4dad-b5b4-0477d47ec4dd)
 
@@ -501,6 +500,66 @@ spark/bin/spark-shell --master spark://spark-master:7077
 
 ![image](https://github.com/user-attachments/assets/b071335b-4928-491a-8bed-321995881d83)
 
+# **Working with Apache Spark**
+
+## **1. Introduction to Apache Spark**
+
+- **Overview**: Apache Spark is an open-source distributed computing system known for its speed, ease of use, and general-purpose capabilities for big data processing.
+
+- **Key Features**:
+  - Fast processing using in-memory computation.
+  - Supports multiple languages: Scala, Python, Java, and R.
+  - Unified framework for batch and streaming data processing.
+
+---
+
+## **2. Introduction to DataFrames**
+
+- **What are DataFrames?**
+  - Distributed collections of data organized into named columns, similar to a table in a database or a DataFrame in Python's pandas.
+  - Optimized for processing large datasets using Spark SQL.
+
+- **Key Operations**:
+  - Creating DataFrames from structured data sources (CSV, JSON, Parquet, etc.).
+  - Performing transformations and actions on the data.
+
+---
+
+## **3. Introduction to Scala for Apache Spark**
+
+- **Why Scala?**
+  - Apache Spark is written in Scala, offering the best compatibility and performance.
+  - Concise syntax and functional programming support.
+
+- **Basic Syntax**:
+
+```scala
+val numbers = List(1, 2, 3, 4, 5)
+val doubled = numbers.map(_ * 2)
+println(doubled)
+```
+
+---
+
+## **4. Spark SQL**
+
+- **Need for Spark SQL**:
+  - Provides a declarative interface to query structured data using SQL-like syntax.
+  - Supports seamless integration with other Spark modules.
+  - Allows for optimization through Catalyst Optimizer.
+
+- **Key Components**:
+  - SQL Queries on DataFrames and temporary views.
+  - Hive integration for legacy SQL workflows.
+  - Support for structured data sources.
+
+---
+## **5. Hands-On: Spark SQL**
+
+### **Objective**:
+To create DataFrames, load data from different sources, and perform transformations and SQL queries.
+
+### **Steps**:
 
 ### **Process Data in Spark**
 
@@ -621,11 +680,80 @@ outputDF.show()
 
 
 
-### You can use this same process to load and analyze data from different file formats (CSV, JSON, Parquet) in Spark, and perform various transformations and SQL operations.
+#### **Step 2: Create DataFrames**
+
+```scala
+val data = Seq(
+  ("Alice", 30, "HR"),
+  ("Bob", 25, "Engineering"),
+  ("Charlie", 35, "Finance")
+)
+
+val df = data.toDF("Name", "Age", "Department")
+
+df.show()
+```
+![image](https://github.com/user-attachments/assets/06c2c14f-cf8e-4b38-8944-7844e75ee5d6)
 
 
+#### **Step 3: Perform Transformations Using Spark SQL**
 
-![image](https://github.com/user-attachments/assets/21f50d78-31bd-4db9-8ea4-6ce762bde45a)
+```scala
+df.createOrReplaceTempView("employees")
+val result = spark.sql("SELECT Department, COUNT(*) as count FROM employees GROUP BY Department")
+result.show()
+```
+![image](https://github.com/user-attachments/assets/c9125138-63dd-4c29-82c4-6d04bc531508)
+
+
+#### **Step 4: Save Transformed Data**
+
+```scala
+result.write.option("header", "true").csv("hdfs://namenode:9000/data/output/employees")
+```
+
+#### **Step 5: Load Data from Different Sources**
+
+```scala
+// Load CSV from HDFS
+val df = spark.read.option("header", "false").csv("hdfs://namenode:9000/data/crimerecord/police/police.csv")
+df.show()
+
+// Load CSV from local filesystem
+val dfLocal = spark.read.option("header", "false").csv("file:///police.csv")
+dfLocal.show()
+```
+
+#### **Step 6: Scala WordCount Program**
+
+```scala
+import org.apache.spark.{SparkConf}
+val conf = new SparkConf().setAppName("WordCountExample").setMaster("local")
+val input = sc.textFile("hdfs://namenode:9000/data.txt")
+val wordPairs = input.flatMap(line => line.split(" ")).map(word => (word, 1))
+val wordCounts = wordPairs.reduceByKey((a, b) => a + b)
+wordCounts.collect().foreach { case (word, count) =>
+  println(s"$word: $count")
+}
+```
+![image](https://github.com/user-attachments/assets/428e0d99-f0e0-4edd-8f3c-4543130c8a47)
+
+
+**Stop Session**:
+
+```scala
+sc.stop()
+```
+
+---
+
+## **6. Key Takeaways**
+
+- Spark SQL simplifies working with structured data.
+- DataFrames provide a flexible and powerful API for handling large datasets.
+- Apache Spark is a versatile tool for distributed data processing, offering scalability and performance.
+
+---
 
 
 **Scala WordCount program.**
