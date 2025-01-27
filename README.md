@@ -925,6 +925,21 @@ Here is a collection of basic Apache Hive commands with explanations that can he
   ```sql
   CREATE DATABASE mydb;
   ```
+  In Hive, you can find out which database you are currently using by running the following command:
+
+```sql
+SELECT current_database();
+```
+
+This will return the name of the database that is currently in use.
+
+Alternatively, you can use this command:
+
+```sql
+USE database_name;
+```
+
+If you want to explicitly switch to a specific database or verify the database context, you can use this command before running your queries.
 
 - **Use a Database:**
   Switch to the specified database.
@@ -935,6 +950,7 @@ Here is a collection of basic Apache Hive commands with explanations that can he
   ```sql
   USE mydb;
   ```
+  
 
 - **Drop a Database:**
   Deletes a database and its associated data.
