@@ -834,9 +834,14 @@ The `sqoop export` command is used to export data from HDFS back to a relational
 
 ### Export Command Example:
 ```bash
-sqoop export --connect jdbc:mysql://localhost:3306/testdb \
-             --username sqoop_user --password password123 \
-             --table employees --export-dir /user/hdfs/employees_data
+sqoop export \
+--connect jdbc:mysql://localhost:3306/testdb \
+--username sqoop_user \
+--password password123 \
+--table employees \
+--export-dir /user/hdfs/employees_data \
+--input-fields-terminated-by ',' \
+--batch
 ```
 
 ### Explanation of the Export Command:
