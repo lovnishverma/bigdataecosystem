@@ -1015,10 +1015,12 @@ If you want to explicitly switch to a specific database or verify the database c
   Insert data into a table.
   ```sql
   INSERT INTO <table_name> VALUES (<value1>, <value2>, ...);
+  INSERT INTO employees VALUES (1, 'Prince', 30), (2, 'Ram Singh', 25), (3, 'John Doe', 28), (4, 'Jane Smith', 32);
   ```
   Example:
   ```sql
   INSERT INTO employees VALUES (1, 'John Doe', 30);
+  
   ```
 
 - **Select Data:**
@@ -1067,6 +1069,7 @@ If you want to explicitly switch to a specific database or verify the database c
   Example:
   ```sql
   SELECT * FROM employees ORDER BY age DESC;
+  SELECT * FROM employees ORDER BY age ASC;
   ```
 
 - **Group By:**
