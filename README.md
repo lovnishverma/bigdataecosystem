@@ -1155,7 +1155,7 @@ These basic commands will help you interact with Hive and perform common operati
 
 While **Hive** and **MySQL** both use SQL-like syntax for querying data, there are some key differences in their commands, especially since Hive is designed for querying large datasets in a Hadoop ecosystem, while MySQL is a relational database management system (RDBMS).
 
-Here’s a comparison of **Hive** and **MySQL** commands in terms of common operations:
+##**Here’s a comparison of **Hive** and **MySQL** commands in terms of common operations:**
 
 ### **1. Creating Databases**
 - **Hive**:
