@@ -1073,11 +1073,34 @@ If you're facing error `bash: nc: command not found` indicates that the `netcat`
    ```
 ![image](https://github.com/user-attachments/assets/1290fb3e-cdac-4265-8c3a-067265783963)
 
-   Send multiple lines of data:
-   ```bash
-   for i in {1..5}; do echo "This is message $i" | nc localhost 44444; done
-   ```
-![image](https://github.com/user-attachments/assets/e2cc2a42-7f26-4b6b-81cc-5102a1f39a7f)
+### ****   Send multiple lines of data:****
+   
+###  Use a `while` loop to keep sending data
+
+```bash
+while true; do
+  for i in {1..5}; do
+    echo "This is message $i" | nc -q 0 localhost 44444
+    sleep 1  # Optional: to add a delay between messages
+  done
+done
+```
+
+**or**
+
+### Use `nc` in Listening Mode
+
+```bash
+for i in {1..5}; do
+  echo "This is message $i"
+done | nc -q 0 localhost 44444
+```
+
+This sends multiple lines at once, and `-q 0` ensures that `nc` closes the connection after the data is sent.
+
+
+![image](https://github.com/user-attachments/assets/0ebb56f2-04b8-4071-8578-67d9ed01f1d9)
+
 
 1. **Verify Data in HDFS**  
    Check the HDFS directory where Flume is writing data:
