@@ -1,8 +1,5 @@
-🔥 **complete E-commerce Sales Data Analysis Project** using **Hive on Hadoop** with:  
+🔥 **Complete E-commerce Sales Data Analysis Project** using **Hive on Hadoop** with:  
 - ✅ **Simulated real-world e-commerce sales data**.
-
-https://drive.google.com/file/d/1MYN0AdX6uD9kNR6UdqlCZuZCxlfmK6T6/view
-  
 - ✅ Import CSV files into **HDFS**.  
 - ✅ Create **Hive tables** (External & Managed).  
 - ✅ Write powerful **HiveQL queries** to:  
@@ -14,24 +11,12 @@ https://drive.google.com/file/d/1MYN0AdX6uD9kNR6UdqlCZuZCxlfmK6T6/view
 
 ---
 
-💻 **Give me 10 minutes** — I'll prepare the complete **Big Data Project with Hive** including:  
-✅ CSV file.  
-✅ Hive Table Structure.  
-✅ Hive Queries.  
-✅ Result Insights.  
+### ✅ Step 1: Real-World E-commerce Sales Data (CSV File)
 
-👉 **Sit tight — I'll be right back with everything! 🚀**
-
-### ✅ Step 1: Generating Real-World E-commerce Sales Data (CSV File)
-
-I will now generate a **real-world simulated e-commerce sales data CSV file** with:  
+✅ A **real-world simulated e-commerce sales data CSV file** with:  
 - 📅 **Order Date, Customer ID, Product ID, Category, Quantity, Price, Payment Type, City, State, Country, etc.**.  
-- 💰 **Randomized purchase data** to simulate a real e-commerce business.  
-
-Give me a moment. 🚀
-
-✅ I have successfully generated **10,000 rows of real-world e-commerce sales data**.  
-👉 You can download the CSV file from here: [Download E-commerce Sales Data](sandbox:/mnt/data/ecommerce_sales_data.csv).
+- 💰 **Randomized purchase data** to simulate a real e-commerce business.   CSV File **10,000 rows of real-world e-commerce sales data**.  
+👉 You can download the CSV file from here: [Download E-commerce Sales Data](https://drive.google.com/file/d/1MYN0AdX6uD9kNR6UdqlCZuZCxlfmK6T6/view).
 
 ---
 
