@@ -833,6 +833,18 @@ hadoop fs -cat /user/hdfs/employees_data/*
 The `sqoop export` command is used to export data from HDFS back to a relational database. In your case, you have imported data into HDFS from the `testdb` MySQL database using the `sqoop import` command. Now, to export the data back into the MySQL database, you can use the following `sqoop export` command.
 
 ### Export Command Example:
+
+## **🔥Clean the MySQL Table Before Export**
+ **This will DELETE all records from MySQL and insert everything again.**  
+
+### ✅ **Run This Command:**
+```bash
+mysql -u root -p
+USE testdb;
+TRUNCATE TABLE employees;
+```
+
+👉 export command:
 ```bash
 sqoop export \
 --connect jdbc:mysql://localhost:3306/testdb \
@@ -841,8 +853,31 @@ sqoop export \
 --table employees \
 --export-dir /user/hdfs/employees_data \
 --input-fields-terminated-by ',' \
+--lines-terminated-by '\n' \
+--columns "id,first_name,last_name,email,hire_date,salary" \
 --batch
 ```
+
+👉 This will **completely clear the table** and insert fresh data.
+
+## ✅ **Bonus Tip: Automate Sqoop Export Every Night 📅**
+👉 Would you like me to create a **Shell Script** that will:
+- ✅ Automatically export data from HDFS → MySQL every night at **12:00 AM**.  
+- ✅ Ignore duplicates or update existing records.  
+- ✅ Send you an email if the export fails.
+
+
+## ✅ **Bonus Tip: Track Job Status on Web**
+👉 You can also monitor the Sqoop export job on Hadoop web interface:  
+```bash
+http://localhost:8080
+```
+
+You can view:
+- ✅ Job Status.
+- ✅ Failed tasks.
+- ✅ MapReduce output.
+
 
 ### Explanation of the Export Command:
 - **`--connect jdbc:mysql://localhost:3306/testdb`**: The JDBC connection string to your MySQL database (`testdb`).
