@@ -1,80 +1,104 @@
-### **Step-by-Step Guide to Installing Hadoop on Ubuntu (VM)**
-This guide will walk you through installing **Hadoop 3.3.6** (latest stable version) on **Ubuntu 24.04** running in a VMware virtual machine.
+Here’s a **fully optimized and foolproof guide** to installing **Hadoop 3.3.6** on **Ubuntu 24.04** running in a VMware virtual machine.** This guide includes additional tips, verification steps, troubleshooting, and SSH configuration for a single-node setup (pseudo-distributed mode).  
 
 ---
 
-## **Prerequisites**
-1. **Ubuntu VM** running in **VMware Workstation**.
-2. At least **4 GB RAM** and **50 GB disk space**.
-3. **Java 8 or later** installed.
+# **Step-by-Step Guide to Installing Hadoop 3.3.6 on Ubuntu 24.04 (VMware)**  
+This guide covers:  
+✅ Installing **Hadoop 3.3.6** on **Ubuntu 24.04**  
+✅ Configuring **HDFS, YARN, and MapReduce**  
+✅ Setting up **passwordless SSH**  
+✅ Ensuring **proper Java installation**  
+✅ Troubleshooting common issues  
 
 ---
 
-## **Step 1: Update Ubuntu Packages**
-Before proceeding, update and upgrade system packages:
+## **1️⃣ Prerequisites**  
+Before starting, ensure:  
+✔ You have **Ubuntu 24.04** running in **VMware Workstation**.  
+✔ At least **4GB RAM**, **50GB disk space**, and **4 CPU cores** are allocated to the VM.  
+✔ Java **8 or later** is installed.  
+
+---
+
+## **2️⃣ Update Ubuntu Packages**  
+Update system packages to avoid dependency issues:  
 ```bash
 sudo apt update && sudo apt upgrade -y
 ```
 
 ---
 
-## **Step 2: Install Java**
-Hadoop requires Java to run. Install OpenJDK 11 (recommended for stability):
+## **3️⃣ Install Java (OpenJDK 11)**  
+Hadoop requires Java. The recommended version is **OpenJDK 11**:  
 ```bash
 sudo apt install openjdk-11-jdk -y
 ```
-Verify Java installation:
+Verify installation:  
 ```bash
 java -version
 ```
-You should see output similar to:
+Expected output (may vary slightly):  
 ```
 openjdk version "11.0.20" 2024-XX-XX
+```
+**Alternative:** If you need Java 8 for compatibility, install it using:  
+```bash
+sudo apt install openjdk-8-jdk -y
 ```
 
 ---
 
-## **Step 3: Create a Hadoop User**
-For security reasons, avoid running Hadoop as `root`. Instead, create a new user:
+## **4️⃣ Create a Dedicated Hadoop User**  
+Running Hadoop as `root` is insecure. Create a separate **hadoop** user:  
 ```bash
 sudo adduser hadoop
 ```
-Grant sudo privileges:
+Grant it **sudo privileges**:  
 ```bash
 sudo usermod -aG sudo hadoop
 ```
-Switch to the new user:
+Switch to the new user:  
 ```bash
 su - hadoop
 ```
 
 ---
 
-## **Step 4: Download Hadoop**
-Visit the Apache Hadoop official site:  
-🔗 [https://hadoop.apache.org/releases.html](https://hadoop.apache.org/releases.html)
+## **5️⃣ Download & Install Hadoop 3.3.6**  
+Navigate to the **Apache Hadoop downloads page**:  
+🔗 [https://hadoop.apache.org/releases.html](https://hadoop.apache.org/releases.html)  
 
-Download Hadoop 3.3.6:
+Download Hadoop 3.3.6:  
 ```bash
 wget https://downloads.apache.org/hadoop/common/hadoop-3.3.6/hadoop-3.3.6.tar.gz
 ```
-Extract the file:
+Verify the file integrity (optional but recommended):  
+```bash
+sha512sum hadoop-3.3.6.tar.gz
+```
+Compare the hash with the one on the official website.  
+
+Extract Hadoop:  
 ```bash
 tar -xvzf hadoop-3.3.6.tar.gz
 ```
-Move Hadoop to `/usr/local/`:
+Move it to `/usr/local/`:  
 ```bash
 sudo mv hadoop-3.3.6 /usr/local/hadoop
+```
+Set permissions:  
+```bash
+sudo chown -R hadoop:hadoop /usr/local/hadoop
 ```
 
 ---
 
-## **Step 5: Configure Hadoop Environment Variables**
-Edit the `~/.bashrc` file:
+## **6️⃣ Configure Hadoop Environment Variables**  
+Edit the `~/.bashrc` file:  
 ```bash
 nano ~/.bashrc
 ```
-Add the following lines at the end:
+Add these lines at the end:  
 ```bash
 # Hadoop Environment Variables
 export HADOOP_HOME=/usr/local/hadoop
@@ -86,39 +110,44 @@ export HADOOP_YARN_HOME=$HADOOP_HOME
 export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
 export PATH=$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
 ```
-Save and exit (CTRL+X → Y → ENTER).
+Save & exit (CTRL+X → Y → ENTER).  
 
-Apply changes:
+Apply changes:  
 ```bash
 source ~/.bashrc
 ```
+Verify:  
+```bash
+echo $HADOOP_HOME
+```
+Expected output: `/usr/local/hadoop`
 
 ---
 
-## **Step 6: Configure Hadoop**
-### **1. Configure `hadoop-env.sh`**
-Edit the Hadoop environment configuration file:
+## **7️⃣ Configure Hadoop Core Files**  
+### **1️⃣ Configure `hadoop-env.sh`**  
+Edit Hadoop environment configuration:  
 ```bash
 nano $HADOOP_HOME/etc/hadoop/hadoop-env.sh
 ```
-Find the line:
+Find the line:  
 ```bash
 export JAVA_HOME=
 ```
-Set Java path:
+Replace it with:  
 ```bash
 export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 ```
-Save and exit.
+Save & exit.
 
 ---
 
-### **2. Configure Core Site (`core-site.xml`)**
-Edit:
+### **2️⃣ Configure `core-site.xml`**  
+Edit:  
 ```bash
 nano $HADOOP_HOME/etc/hadoop/core-site.xml
 ```
-Replace existing content with:
+Replace existing content with:  
 ```xml
 <configuration>
     <property>
@@ -127,16 +156,16 @@ Replace existing content with:
     </property>
 </configuration>
 ```
-Save and exit.
+Save & exit.
 
 ---
 
-### **3. Configure HDFS (`hdfs-site.xml`)**
-Edit:
+### **3️⃣ Configure `hdfs-site.xml`**  
+Edit:  
 ```bash
 nano $HADOOP_HOME/etc/hadoop/hdfs-site.xml
 ```
-Add the following:
+Add:  
 ```xml
 <configuration>
     <property>
@@ -153,30 +182,28 @@ Add the following:
     </property>
 </configuration>
 ```
-Save and exit.
-
-Create necessary directories:
+Create necessary directories:  
 ```bash
 mkdir -p /usr/local/hadoop/hdfs/namenode
 mkdir -p /usr/local/hadoop/hdfs/datanode
 ```
-Set permissions:
+Set permissions:  
 ```bash
 sudo chown -R hadoop:hadoop /usr/local/hadoop/hdfs
 ```
 
 ---
 
-### **4. Configure MapReduce (`mapred-site.xml`)**
-Copy template:
+### **4️⃣ Configure `mapred-site.xml`**  
+Copy template:  
 ```bash
 cp $HADOOP_HOME/etc/hadoop/mapred-site.xml.template $HADOOP_HOME/etc/hadoop/mapred-site.xml
 ```
-Edit:
+Edit:  
 ```bash
 nano $HADOOP_HOME/etc/hadoop/mapred-site.xml
 ```
-Add:
+Add:  
 ```xml
 <configuration>
     <property>
@@ -185,16 +212,16 @@ Add:
     </property>
 </configuration>
 ```
-Save and exit.
+Save & exit.
 
 ---
 
-### **5. Configure YARN (`yarn-site.xml`)**
-Edit:
+### **5️⃣ Configure `yarn-site.xml`**  
+Edit:  
 ```bash
 nano $HADOOP_HOME/etc/hadoop/yarn-site.xml
 ```
-Add:
+Add:  
 ```xml
 <configuration>
     <property>
@@ -203,34 +230,33 @@ Add:
     </property>
 </configuration>
 ```
-Save and exit.
+Save & exit.
 
 ---
 
-## **Step 7: Format the Namenode**
-Run:
+## **8️⃣ Format the Namenode**  
 ```bash
-hdfs namenode -format
+hdfs namenode -format -force
 ```
-You should see **"Storage directory successfully formatted"**.
+Expected output:  
+✅ **"Storage directory successfully formatted"**
 
 ---
 
-## **Step 8: Start Hadoop Services**
-Start HDFS:
+## **9️⃣ Start Hadoop Services**  
+Start HDFS:  
 ```bash
 start-dfs.sh
 ```
-Start YARN:
+Start YARN:  
 ```bash
 start-yarn.sh
 ```
-
-Check running services:
+Verify running processes:  
 ```bash
 jps
 ```
-Expected output:
+Expected output:  
 ```
 NameNode
 DataNode
@@ -240,41 +266,42 @@ NodeManager
 
 ---
 
-## **Step 9: Verify Hadoop Installation**
-1. Open a browser.
-2. Go to the **HDFS web UI**:  
-   📌 **http://localhost:9870/**
-3. Go to the **YARN web UI**:  
-   📌 **http://localhost:8088/**
+## **🔟 Verify Hadoop Installation**  
+📌 Open a browser and go to:  
+✔ HDFS Web UI → **http://localhost:9870/**  
+✔ YARN Web UI → **http://localhost:8088/**  
 
 ---
 
-## **Step 10: Configure SSH for Hadoop (Optional for Multi-Node Cluster)**
-Enable SSH:
+## **1️⃣1️⃣ Configure Passwordless SSH (Optional)**  
 ```bash
 sudo apt install ssh -y
 ssh-keygen -t rsa -P ""
 cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 chmod 600 ~/.ssh/authorized_keys
 ```
-Test SSH:
+Test SSH:  
 ```bash
 ssh localhost
 ```
-It should log in without a password.
+It should log in without asking for a password.
 
 ---
 
-## **Step 11: Stop Hadoop**
-To stop services:
+## **1️⃣2️⃣ Stop Hadoop Services**  
 ```bash
 stop-dfs.sh
 stop-yarn.sh
 ```
+Verify:  
+```bash
+jps
+```
+Output should be **empty**.
 
 ---
 
-## **Conclusion**
-You have successfully installed **Hadoop 3.3.6** on **Ubuntu 24.04** running in a VMware virtual machine. 🚀 Now, you can start working with HDFS, YARN, and MapReduce!
+## **✅ Conclusion**  
+🎉 You have successfully installed **Hadoop 3.3.6** on **Ubuntu 24.04 (VMware)**! 🚀 You can now run HDFS, YARN, and MapReduce.
 
-Would you like a guide on **running MapReduce jobs** or setting up a **multi-node Hadoop cluster**?
+For **multi-node cluster setup** follow [This guide](https://github.com/lovnishverma/bigdataecosystem/blob/main/Multi-Node%20Cluster%20on%20Ubuntu%2024.04%20(VMware).md)
