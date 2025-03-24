@@ -319,28 +319,53 @@ This guide will help you install **Apache Hive 4.0.0** on **Hadoop 3.3.6** in an
 
 ---
 
-## **1️⃣ Step 1: Update System Packages**
+Since you have **OpenJDK 8**, you need to ensure that Apache Hive is configured correctly to work with this version. Below is a step-by-step guide tailored for **Hive 4.0.1** and **OpenJDK 8** on **Ubuntu 24.04** running in a **VMware Workstation VM**.
+
+---
+
+# **🛠 Step-by-Step Guide to Install Apache Hive on Ubuntu 24.04 (OpenJDK 8)**
+> **Prerequisites:**  
+> - **Hadoop 3.3.6** installed and running  
+> - **OpenJDK 8** installed  
+> - **MySQL (for production metastore) or Derby (for testing metastore)**  
+
+---
+
+## **1️⃣ Step 1: Verify Java Version**
+Since you have **OpenJDK 8**, confirm your Java version:  
 ```bash
-sudo apt update && sudo apt upgrade -y
+java -version
+```
+Expected output:  
+```
+openjdk version "1.8.0_xxx"
+```
+If not installed, install OpenJDK 8:
+```bash
+sudo apt update
+sudo apt install openjdk-8-jdk -y
+```
+Set **JAVA_HOME**:  
+```bash
+echo 'export JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:/bin/java::")' >> ~/.bashrc
+source ~/.bashrc
+echo $JAVA_HOME
 ```
 
 ---
 
 ## **2️⃣ Step 2: Download & Install Apache Hive**
-🔗 Visit the official **Apache Hive** download page:  
-[https://hive.apache.org/downloads.html](https://hive.apache.org/downloads.html)  
-
-Download Hive 4.0.0:  
+🔗 **Download Hive 4.0.1 (latest stable release)**
 ```bash
-wget https://downloads.apache.org/hive/hive-4.0.0/apache-hive-4.0.0-bin.tar.gz
+wget https://downloads.apache.org/hive/hive-4.0.1/apache-hive-4.0.1-bin.tar.gz
 ```
-Extract it:  
+Extract the archive:  
 ```bash
-tar -xvzf apache-hive-4.0.0-bin.tar.gz
+tar -xvzf apache-hive-4.0.1-bin.tar.gz
 ```
-Move it to `/usr/local/`:  
+Move Hive to `/usr/local/hive`:  
 ```bash
-sudo mv apache-hive-4.0.0-bin /usr/local/hive
+sudo mv apache-hive-4.0.1-bin /usr/local/hive
 ```
 Set permissions:  
 ```bash
@@ -350,11 +375,11 @@ sudo chown -R hadoop:hadoop /usr/local/hive
 ---
 
 ## **3️⃣ Step 3: Configure Hive Environment Variables**
-Edit `~/.bashrc`:  
+Edit your `.bashrc` file:
 ```bash
 nano ~/.bashrc
 ```
-Add these lines at the end:  
+Add the following lines at the end:
 ```bash
 # Hive Environment Variables
 export HIVE_HOME=/usr/local/hive
@@ -365,25 +390,28 @@ export HADOOP_CLASSPATH+="$HIVE_HOME/lib/*"
 ```
 Save and exit (CTRL+X → Y → ENTER).  
 
-Apply changes:  
+Apply the changes:
 ```bash
 source ~/.bashrc
 ```
-Verify:  
+Verify Hive installation:
 ```bash
 echo $HIVE_HOME
 ```
-Expected output: `/usr/local/hive`
+Expected output:
+```
+/usr/local/hive
+```
 
 ---
 
 ## **4️⃣ Step 4: Configure Hadoop for Hive**
-### **1️⃣ Configure `hadoop-env.sh`**  
-Edit Hadoop environment settings:  
+### **Edit `hadoop-env.sh`**
+Modify Hadoop environment settings:
 ```bash
 nano $HADOOP_HOME/etc/hadoop/hadoop-env.sh
 ```
-Add this line:  
+Add this line:
 ```bash
 export HADOOP_CLASSPATH+="$HIVE_HOME/lib/*"
 ```
@@ -391,11 +419,14 @@ Save and exit.
 
 ---
 
-## **5️⃣ Step 5: Set Up Metastore Database (MySQL)**
-Apache Hive requires a metastore. You can use **Derby (default), MySQL, or PostgreSQL**.  
+## **5️⃣ Step 5: Set Up Hive Metastore Database**
+Apache Hive requires a **Metastore** to store metadata. You can use:
+
+- **Derby (default, for testing)**
+- **MySQL (recommended for production)**
 
 ### **Option 1: Use Embedded Derby (For Testing Only)**
-Run:  
+Run:
 ```bash
 schematool -initSchema -dbType derby
 ```
@@ -407,13 +438,12 @@ sudo apt install mysql-server -y
 sudo systemctl start mysql
 sudo systemctl enable mysql
 ```
-
 #### **2️⃣ Create a Hive Database & User**
-Log in to MySQL:  
+Log in to MySQL:
 ```bash
 sudo mysql -u root -p
 ```
-Run these SQL commands:  
+Run these SQL commands:
 ```sql
 CREATE DATABASE metastore;
 CREATE USER 'hiveuser'@'localhost' IDENTIFIED BY 'hivepassword';
@@ -423,11 +453,11 @@ EXIT;
 ```
 
 #### **3️⃣ Install MySQL JDBC Driver**
-Download the MySQL Connector:  
+Download the MySQL Connector:
 ```bash
 wget https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-java-8.0.33.tar.gz
 ```
-Extract and move to Hive’s library:  
+Extract and move to Hive’s library:
 ```bash
 tar -xvzf mysql-connector-java-8.0.33.tar.gz
 sudo mv mysql-connector-java-8.0.33/mysql-connector-java-8.0.33.jar /usr/local/hive/lib/
@@ -436,11 +466,11 @@ sudo mv mysql-connector-java-8.0.33/mysql-connector-java-8.0.33.jar /usr/local/h
 ---
 
 ## **6️⃣ Step 6: Configure Hive Metastore**
-Edit Hive configuration file:  
+Edit Hive configuration:
 ```bash
 nano $HIVE_HOME/conf/hive-site.xml
 ```
-Add this configuration for **MySQL Metastore**:
+Add the following for **MySQL Metastore**:
 ```xml
 <configuration>
     <property>
@@ -465,26 +495,29 @@ Save and exit.
 
 ---
 
-## **7️⃣ Step 7: Initialize the Hive Metastore**
-Run:  
+## **7️⃣ Step 7: Initialize Hive Metastore**
+Run:
 ```bash
 schematool -initSchema -dbType mysql
 ```
-Expected output: ✅ **"Schema initialization complete"**
+Expected output:
+```
+Schema initialization complete.
+```
 
 ---
 
 ## **8️⃣ Step 8: Start Hive Services**
-1️⃣ **Start Hadoop services**:  
+1️⃣ **Start Hadoop services**:
 ```bash
 start-dfs.sh
 start-yarn.sh
 ```
-2️⃣ **Start Hive Metastore**:  
+2️⃣ **Start Hive Metastore**:
 ```bash
 hive --service metastore &
 ```
-3️⃣ **Start HiveServer2** (for client connections):  
+3️⃣ **Start HiveServer2**:
 ```bash
 hiveserver2 &
 ```
@@ -492,15 +525,15 @@ hiveserver2 &
 ---
 
 ## **9️⃣ Step 9: Verify Hive Installation**
-Launch the Hive shell:  
+Launch the Hive shell:
 ```bash
 hive
 ```
-Run:  
+Run:
 ```sql
 SHOW DATABASES;
 ```
-Expected output:  
+Expected output:
 ```
 default
 metastore
@@ -519,15 +552,15 @@ STORED AS TEXTFILE;
 ```bash
 nano students.csv
 ```
-Add:  
+Add:
 ```
 1,John,22
 2,Sarah,24
 3,David,21
 ```
-Save and exit.  
+Save and exit.
 
-Load data into Hive:  
+Load data into Hive:
 ```sql
 LOAD DATA LOCAL INPATH 'students.csv' INTO TABLE students;
 ```
@@ -535,7 +568,7 @@ LOAD DATA LOCAL INPATH 'students.csv' INTO TABLE students;
 ```sql
 SELECT * FROM students;
 ```
-Expected output:  
+Expected output:
 ```
 1    John    22
 2    Sarah   24
@@ -544,22 +577,15 @@ Expected output:
 
 ---
 
-## **🔚 Conclusion**
-🎉 You have successfully installed **Apache Hive 4.0.0** on **Hadoop 3.3.6** (Ubuntu 24.04, VMware)! 🚀  
+## ** Step 11: Stop Hive**
+To stop Hive services:
+```bash
+pkill -f HiveMetastore
+pkill -f HiveServer2
+```
 
 ---
 
-## **💡 Troubleshooting**
-### **1️⃣ Hive command not found?**
-```bash
-source ~/.bashrc
-```
-
-### **2️⃣ Metastore error (JDOException)?**
-Check `hive-site.xml` for **correct database credentials**.
-
-### **3️⃣ Table not found?**
-```sql
-SHOW TABLES;
-```
-
+## ** Conclusion**
+You have successfully installed **Apache Hive 4.0.1** with **OpenJDK 8** on **Ubuntu 24.04** running in a VMware Workstation VM.  
+Now, you can start working with **HiveQL, Metastore, and Hadoop** for big data processing! 
