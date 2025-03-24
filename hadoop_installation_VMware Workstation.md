@@ -1,4 +1,4 @@
-Here’s a **fully optimized and foolproof guide** to installing **Hadoop 3.3.6** on **Ubuntu 24.04** running in a VMware virtual machine.** This guide includes additional tips, verification steps, troubleshooting, and SSH configuration for a single-node setup (pseudo-distributed mode).  
+Here’s a **Guide** to installing **Hadoop 3.3.6** on **Ubuntu 24.04** running in a VMware virtual machine.** This guide includes additional tips, verification steps, troubleshooting, and SSH configuration for a single-node setup (pseudo-distributed mode).  
 
 ---
 
