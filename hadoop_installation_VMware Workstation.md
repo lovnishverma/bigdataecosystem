@@ -48,7 +48,7 @@ sudo apt install openjdk-8-jdk -y
 
 ---
 
-## **4️⃣ Create a Hadoop User (Optional, but Recommended)**
+## **4️⃣ Create a Hadoop User (Optional - Skip for now)**
 Instead of using root or your personal user, create a dedicated **hadoop** user:  
 ```bash
 sudo adduser hadoop
