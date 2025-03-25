@@ -1,187 +1,216 @@
-### **Beginner-Friendly Guide to Installing Apache Hive 4.0.1 on Ubuntu 24.04 (VMware)**
-This guide will walk you through installing **Apache Hive 4.0.1** on **Hadoop 3.3.6** in a **single-node setup (pseudo-distributed mode)**.
+# **Complete Steps to Install Apache Hive on Ubuntu**
+
+Apache Hive is a data warehouse infrastructure built on top of Hadoop. This guide will show how to install and configure Hive on **Ubuntu**.
 
 ---
 
-## **🔹 Prerequisites**
-✔ You have **Ubuntu 24.04** running in **VMware Workstation**  
-✔ **Hadoop 3.3.6** is already installed and configured (**HDFS, YARN, MapReduce**)  
-✔ **Java 8 or later** is installed  
-✔ PostgreSQL or MySQL is installed for the Hive Metastore (PostgreSQL recommended)
+## **Step 1: Install Prerequisites**
+Before installing Hive, ensure your system has the necessary dependencies.
 
----
-
-## **1️⃣ Download and Install Apache Hive 4.0.1**
-### **Step 1: Download Hive**
-Go to the official Hive release page:  
-🔗 [https://hive.apache.org/downloads.html](https://hive.apache.org/downloads.html)  
-
-Download the latest stable version (Hive 4.0.1):  
+### **1.1 Install Java**
+Hive requires Java to run. Install it if it's not already installed:
 ```bash
-wget https://downloads.apache.org/hive/hive-4.0.1/apache-hive-4.0.1-bin.tar.gz
+sudo apt update
+sudo apt install default-jdk -y
+java -version  # Verify installation
 ```
 
-### **Step 2: Extract and Move Hive to `/usr/local/`**
-```bash
-tar -xvzf apache-hive-4.0.1-bin.tar.gz
-sudo mv apache-hive-4.0.1-bin /usr/local/hive
-```
+### **1.2 Install Hadoop (Required for Hive)**
+Hive requires Hadoop to function properly. If Hadoop is not installed, install it using:
 
-### **Step 3: Set Permissions**
 ```bash
-sudo chown -R hadoop:hadoop /usr/local/hive
+sudo apt install hadoop -y
+hadoop version  # Verify installation
+```
+If you need a full Hadoop setup, follow a [Hadoop installation guide](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/SingleCluster.html).
+
+### **1.3 Install wget (If not installed)**
+```bash
+sudo apt install wget -y
 ```
 
 ---
 
-## **2️⃣ Configure Hive Environment Variables**
-Edit `~/.bashrc` to add Hive to the system path:  
+## **Step 2: Download and Install Apache Hive**
+### **2.1 Download Hive**
+```bash
+wget https://dlcdn.apache.org/hive/hive-2.3.9/apache-hive-2.3.9-bin.tar.gz
+```
+*Check the latest version from the official Hive website:* [Apache Hive Downloads](https://hive.apache.org/downloads.html)
+
+### **2.2 Extract Hive and Move to /opt Directory**
+```bash
+sudo tar -xzf apache-hive-2.3.9-bin.tar.gz -C /opt
+sudo mv /opt/apache-hive-2.3.9-bin /opt/hive
+```
+
+---
+
+## **Step 3: Set Up Environment Variables**
+To run Hive commands globally, configure environment variables.
+
+### **3.1 Open the `.bashrc` File**
 ```bash
 nano ~/.bashrc
 ```
-Add the following lines at the end:  
-```bash
-# Hive Environment Variables
-export HIVE_HOME=/usr/local/hive
-export PATH=$PATH:$HIVE_HOME/bin
-export HADOOP_HOME=/usr/local/hadoop
-export HIVE_CONF_DIR=$HIVE_HOME/conf
-```
-Save & exit (CTRL+X → Y → ENTER).  
 
-Apply changes:  
+### **3.2 Add the Following Lines at the End**
+```bash
+export HIVE_HOME=/opt/hive
+export PATH=$HIVE_HOME/bin:$PATH
+```
+
+### **3.3 Apply the Changes**
 ```bash
 source ~/.bashrc
 ```
 
-Verify:  
+### **3.4 Verify Hive Installation**
 ```bash
 hive --version
 ```
-Expected output:  
-```
-Hive 4.0.1
-```
+If Hive is installed correctly, it will print the version.
 
 ---
 
-## **3️⃣ Configure Hive Metastore (PostgreSQL)**
-Hive requires a database for the **metastore**. We will use **PostgreSQL**.
-
-### **Step 1: Install PostgreSQL**
+## **Step 4: Configure Hive**
+### **4.1 Create Hive Directories in HDFS**
 ```bash
-sudo apt install postgresql postgresql-contrib -y
-```
-
-### **Step 2: Create a Hive Metastore Database**
-```bash
-sudo -i -u postgres
-psql
-```
-Inside PostgreSQL, run:
-```sql
-CREATE DATABASE metastore;
-CREATE USER hiveuser WITH PASSWORD 'hivepassword';
-ALTER ROLE hiveuser SET client_encoding TO 'utf8';
-ALTER ROLE hiveuser SET default_transaction_isolation TO 'read committed';
-ALTER ROLE hiveuser SET timezone TO 'UTC';
-GRANT ALL PRIVILEGES ON DATABASE metastore TO hiveuser;
-\q
-exit
+hdfs dfs -mkdir -p /user/hive/warehouse
+hdfs dfs -chmod -R 770 /user/hive/warehouse
+hdfs dfs -chown -R $USER:$USER /user/hive/warehouse
 ```
 
-### **Step 3: Configure Hive to Use PostgreSQL**
-Edit `hive-site.xml`:  
+### **4.2 Configure `hive-site.xml`**
+Edit the Hive configuration file:
 ```bash
-nano $HIVE_HOME/conf/hive-site.xml
+nano /opt/hive/conf/hive-site.xml
 ```
-Add the following configuration:
+
+Add the following configurations:
+
 ```xml
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
 <configuration>
     <property>
         <name>javax.jdo.option.ConnectionURL</name>
-        <value>jdbc:postgresql://localhost:5432/metastore</value>
+        <value>jdbc:derby:;databaseName=/opt/hive/metastore_db;create=true</value>
+        <description>JDBC connection URL for the metastore database</description>
     </property>
     <property>
-        <name>javax.jdo.option.ConnectionDriverName</name>
-        <value>org.postgresql.Driver</value>
+        <name>hive.metastore.warehouse.dir</name>
+        <value>/user/hive/warehouse</value>
+        <description>Location of default database for the warehouse</description>
     </property>
     <property>
-        <name>javax.jdo.option.ConnectionUserName</name>
-        <value>hiveuser</value>
-    </property>
-    <property>
-        <name>javax.jdo.option.ConnectionPassword</name>
-        <value>hivepassword</value>
+        <name>hive.exec.scratchdir</name>
+        <value>/tmp/hive</value>
+        <description>Scratch directory for Hive jobs</description>
     </property>
 </configuration>
 ```
-Save & exit.
+
+Save and exit (`CTRL + X`, then `Y` and `ENTER`).
 
 ---
 
-## **4️⃣ Initialize Hive Metastore**
-### **Step 1: Download PostgreSQL JDBC Driver**
+## **Step 5: Set Proper Permissions**
 ```bash
-wget https://jdbc.postgresql.org/download/postgresql-42.5.4.jar -P $HIVE_HOME/lib/
+sudo chown -R $USER:$USER /opt/hive
+sudo chmod -R 755 /opt/hive
 ```
-
-### **Step 2: Initialize the Metastore**
-```bash
-schematool -dbType postgres -initSchema
-```
-Expected output:  
-✅ **"Schema initialization completed successfully"**
 
 ---
 
-## **5️⃣ Start Hive Services**
-### **Step 1: Start the Hive Metastore**
-```bash
-hive --service metastore &
-```
-It should start without errors.
+## **Step 6: Initialize Hive Metastore**
+Hive uses a database (Derby by default) to store metadata.
 
-### **Step 2: Start HiveServer2**
+### **6.1 Run Schema Initialization**
 ```bash
-hive --service hiveserver2 &
+/opt/hive/bin/schematool -initSchema -dbType derby
 ```
-It should start and listen on port **10000**.
 
 ---
 
-## **6️⃣ Verify Hive Installation**
-### **Step 1: Open Hive CLI**
+## **Step 7: Start Hive**
+After setup, you can now start Hive.
+
+### **7.1 Run Hive Shell**
 ```bash
 hive
 ```
-Expected output:  
-```
-hive>
-```
-### **Step 2: Run a Sample Query**
+
+### **7.2 Verify Hive is Working**
+Run the following command inside the Hive shell:
 ```sql
 SHOW DATABASES;
 ```
-Expected output:  
-```
-default
-```
+It should list default databases.
+
 ---
 
-## **7️⃣ Optional: Install Beeline (Hive JDBC Client)**
-For an advanced SQL client:
+## **(Optional) Configure Hive with MySQL (For Production Use)**
+Using **MySQL** instead of Derby is recommended for better performance.
+
+### **1. Install MySQL Server**
 ```bash
-beeline -u jdbc:hive2://localhost:10000
+sudo apt install mysql-server -y
+sudo systemctl start mysql
+sudo systemctl enable mysql
 ```
-Run:
+
+### **2. Create a Hive Metastore Database**
+```bash
+mysql -u root -p
+```
+Inside the MySQL shell, run:
 ```sql
-SHOW TABLES;
+CREATE DATABASE metastore;
+CREATE USER 'hiveuser'@'localhost' IDENTIFIED BY 'hivepassword';
+GRANT ALL PRIVILEGES ON metastore.* TO 'hiveuser'@'localhost';
+FLUSH PRIVILEGES;
+EXIT;
+```
+
+### **3. Configure Hive to Use MySQL**
+Edit `hive-site.xml`:
+```bash
+nano /opt/hive/conf/hive-site.xml
+```
+Replace the Derby configuration with:
+```xml
+<property>
+    <name>javax.jdo.option.ConnectionURL</name>
+    <value>jdbc:mysql://localhost/metastore?createDatabaseIfNotExist=true</value>
+</property>
+<property>
+    <name>javax.jdo.option.ConnectionDriverName</name>
+    <value>com.mysql.jdbc.Driver</value>
+</property>
+<property>
+    <name>javax.jdo.option.ConnectionUserName</name>
+    <value>hiveuser</value>
+</property>
+<property>
+    <name>javax.jdo.option.ConnectionPassword</name>
+    <value>hivepassword</value>
+</property>
+```
+
+### **4. Download MySQL JDBC Driver**
+```bash
+wget https://downloads.mysql.com/archives/get/p/3/file/mysql-connector-java-8.0.28.tar.gz
+tar -xzf mysql-connector-java-8.0.28.tar.gz
+sudo mv mysql-connector-java-8.0.28/mysql-connector-java-8.0.28.jar /opt/hive/lib/
+```
+
+### **5. Reinitialize Hive Metastore**
+```bash
+/opt/hive/bin/schematool -initSchema -dbType mysql
 ```
 
 ---
 
-## **onclusion**
-🎉 You have successfully installed **Apache Hive 4.0.1** on **Ubuntu 24.04 with PostgreSQL Metastore**! You can now run Hive queries on Hadoop.
-
-Would you like a guide for **Hive with MySQL Metastore** instead? 🚀
+## **Hive is Now Ready to Use! 🚀**
+With this setup, Hive is installed and ready for queries.
