@@ -1,8 +1,8 @@
-Here’s a **Guide** to installing **Hadoop 3.3.6** on **Ubuntu 24.04** running in a VMware virtual machine.** This guide includes additional tips, verification steps, troubleshooting, and SSH configuration for a single-node setup (pseudo-distributed mode).  
+Guide for installing **Hadoop 3.3.6 on Ubuntu 24.04** in a **VMware virtual machine**. This guide includes **troubleshooting tips, verification steps, and SSH configuration** to ensure a **properly working** single-node (pseudo-distributed) Hadoop setup.  
 
 ---
 
-# **Step-by-Step Guide to Installing Hadoop 3.3.6 on Ubuntu 24.04 (VMware)**  
+# **🚀 Complete Guide to Installing Hadoop 3.3.6 on Ubuntu 24.04 (VMware)**
 This guide covers:  
 ✅ Installing **Hadoop 3.3.6** on **Ubuntu 24.04**  
 ✅ Configuring **HDFS, YARN, and MapReduce**  
@@ -48,16 +48,16 @@ sudo apt install openjdk-8-jdk -y
 
 ---
 
-## **4️⃣ Create a Dedicated Hadoop User**  
-Running Hadoop as `root` is insecure. Create a separate **hadoop** user:  
+## **4️⃣ Create a Hadoop User (Optional, but Recommended)**
+Instead of using root or your personal user, create a dedicated **hadoop** user:  
 ```bash
 sudo adduser hadoop
 ```
-Grant it **sudo privileges**:  
+Add your user to the `sudo` group:  
 ```bash
 sudo usermod -aG sudo hadoop
 ```
-Switch to the new user:  
+Switch to the `hadoop` user:  
 ```bash
 su - hadoop
 ```
@@ -88,7 +88,7 @@ sudo mv hadoop-3.3.6 /usr/local/hadoop
 ```
 Set permissions:  
 ```bash
-sudo chown -R hadoop:hadoop /usr/local/hadoop
+sudo chown -R $USER:$USER /usr/local/hadoop
 ```
 
 ---
@@ -134,7 +134,7 @@ Find the line:
 ```bash
 export JAVA_HOME=
 ```
-Replace it with:  
+Replace it with: (Replace `11` with `8` if you installed JDK 8)  
 ```bash
 export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 ```
@@ -195,12 +195,8 @@ sudo chown -R hadoop:hadoop /usr/local/hadoop/hdfs
 ---
 
 ### **4️⃣ Configure `mapred-site.xml`**  
-Copy template:  
 ```bash
 cp $HADOOP_HOME/etc/hadoop/mapred-site.xml.template $HADOOP_HOME/etc/hadoop/mapred-site.xml
-```
-Edit:  
-```bash
 nano $HADOOP_HOME/etc/hadoop/mapred-site.xml
 ```
 Add:  
@@ -217,7 +213,6 @@ Save & exit.
 ---
 
 ### **5️⃣ Configure `yarn-site.xml`**  
-Edit:  
 ```bash
 nano $HADOOP_HOME/etc/hadoop/yarn-site.xml
 ```
@@ -234,16 +229,25 @@ Save & exit.
 
 ---
 
-## **8️⃣ Format the Namenode**  
+## **8️⃣ Configure Passwordless SSH**
 ```bash
-hdfs namenode -format -force
+sudo apt install ssh -y
+ssh-keygen -t rsa -P ""
+cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+chmod 600 ~/.ssh/authorized_keys
 ```
-Expected output:  
-✅ **"Storage directory successfully formatted"**
+Test SSH:  
+```bash
+ssh localhost
+```
 
 ---
 
-## **9️⃣ Start Hadoop Services**  
+## **9️⃣ Format the Namenode & Start Hadoop**  
+Format the Namenode:  
+```bash
+hdfs namenode -format
+```
 Start HDFS:  
 ```bash
 start-dfs.sh
@@ -252,7 +256,7 @@ Start YARN:
 ```bash
 start-yarn.sh
 ```
-Verify running processes:  
+Verify:  
 ```bash
 jps
 ```
@@ -266,42 +270,11 @@ NodeManager
 
 ---
 
-## **🔟 Verify Hadoop Installation**  
+## **✅ Verify Hadoop Installation**  
 📌 Open a browser and go to:  
 ✔ HDFS Web UI → **http://localhost:9870/**  
 ✔ YARN Web UI → **http://localhost:8088/**  
 
 ---
 
-## **1️⃣1️⃣ Configure Passwordless SSH (Optional)**  
-```bash
-sudo apt install ssh -y
-ssh-keygen -t rsa -P ""
-cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
-chmod 600 ~/.ssh/authorized_keys
-```
-Test SSH:  
-```bash
-ssh localhost
-```
-It should log in without asking for a password.
-
----
-
-## **1️⃣2️⃣ Stop Hadoop Services**  
-```bash
-stop-dfs.sh
-stop-yarn.sh
-```
-Verify:  
-```bash
-jps
-```
-Output should be **only jps**.
-
----
-
-## **✅ Conclusion**  
-🎉 You have successfully installed **Hadoop 3.3.6** on **Ubuntu 24.04 (VMware)**! 🚀 You can now run HDFS, YARN, and MapReduce.
-
-For **multi-node cluster setup** follow [This guide](https://github.com/lovnishverma/bigdataecosystem/blob/main/Multi-Node%20Cluster%20on%20Ubuntu%2024.04%20(VMware).md)
+🎉 **Congratulations!** You have successfully installed **Hadoop 3.3.6** on **Ubuntu 24.04 (VMware)**! 😊
