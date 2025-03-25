@@ -34,7 +34,7 @@ sudo apt install wget -y
 ## **Step 2: Download and Install Apache Hive**
 ### **2.1 Download Hive**
 ```bash
-wget https://dlcdn.apache.org/hive/hive-2.3.9/apache-hive-2.3.9-bin.tar.gz
+wget https://apache.root.lu/hive/hive-2.3.9/apache-hive-2.3.9-bin.tar.gz
 ```
 *Check the latest version from the official Hive website:* [Apache Hive Downloads](https://hive.apache.org/downloads.html)
 
