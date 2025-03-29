@@ -189,7 +189,7 @@ mkdir -p /usr/local/hadoop/hdfs/datanode
 ```
 Set permissions:  
 ```bash
-sudo chown -R hadoop:hadoop /usr/local/hadoop/hdfs
+sudo chown -R $USER:$USER /usr/local/hadoop/hdfs
 ```
 
 ---
