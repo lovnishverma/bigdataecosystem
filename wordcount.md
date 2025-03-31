@@ -66,10 +66,10 @@ hadoop fs -ls /user/nielit/input/
 ---
 
 ## **3. Run the Word Count Example**
-Hadoop provides a built-in Word Count example. Run it with:
+Hadoop provides a built-in Word Count example. **(Replace 3.3.6 with your hadoop Version)** Run it with:
 
 ```bash
-hadoop jar $HADOOP_HOME/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.4.0.jar wordcount /user/nielit/input /user/nielit/output
+hadoop jar $HADOOP_HOME/share/hadoop/mapreduce/hadoop-mapreduce-examples-3.3.6.jar wordcount /user/nielit/input /user/nielit/output
 ```
 
 > **Note:** If you downloaded a different Hadoop version, update `3.4.0` accordingly.
