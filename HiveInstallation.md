@@ -84,7 +84,7 @@ hdfs dfs -chown -R $USER:$USER /user/hive/warehouse
 ### **4.2 Configure `hive-site.xml`**
 Edit the Hive configuration file:
 ```bash
-nano /opt/hive/conf/hive-site.xml
+sudo nano /opt/hive/conf/hive-site.xml
 ```
 
 Add the following configurations:
